@@ -6,6 +6,8 @@
     height: 50px;
     padding-left: 25px;
     padding-right: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 
     font-weight: 800;
     font-size: 14px;
@@ -14,6 +16,11 @@
     border-color: transparent;
 
     filter: drop-shadow(3px 6px 12px rgba(0, 74, 47, 0.19));
+
+    &--width{
+        width: 100%;
+
+    }
 
 
 }

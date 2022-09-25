@@ -4,6 +4,7 @@
     padding: 0;
     margin: 0;
     outline: none;
+    box-sizing: border-box;
     text-decoration: none;
     font-family: "Raleway", sans-serif;
 
@@ -18,6 +19,8 @@ a:visited {
 body {
     background-color: #5C9247;
     background-image: url('../imgs/banner-img.png');
+    background-repeat: no-repeat;
+    background-size:cover;
 
     margin-left: 10%;
     margin-right: 10%;
