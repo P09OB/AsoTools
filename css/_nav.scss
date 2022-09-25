@@ -1,0 +1,25 @@
+.nav {
+
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 35px;
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+
+    &__logo{
+        width: 125px;
+
+        &--img{
+            width: 100%;
+        }
+    }
+
+    &__element{
+        padding-left: 40px;
+    }
+
+}

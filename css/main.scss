@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700;1,300&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    outline: none;
+    text-decoration: none;
+    font-family: "Raleway", sans-serif;
+
+  }
+
+a:visited {
+    color: white;
+    outline: none;
+    text-decoration: none;
+  }
+
+body {
+    background-color: #5C9247;
+    background-image: url('../imgs/banner-img.png');
+
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+
+@import "./nav";
+@import "./banner";
+@import "./button";
+@import "./input";
