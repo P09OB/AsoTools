@@ -1,4 +1,4 @@
-import {addProyect, onGetProyects, getUser} from './firebase.js'
+import {onGetProyects} from './firebase.js'
 
 const cards = document.querySelector('.dashboard__content')
 
