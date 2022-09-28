@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
-import { getFirestore, collection, addDoc, setDoc, doc } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"
+import { getFirestore, collection, addDoc,getDoc, setDoc, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -31,6 +31,7 @@ export const createUser = (name, email, password) =>
         email,
         id: user.uid
       }
+      localStorage.setItem('idUser',user.uid)
       setDoc(doc(db, 'users', user.uid), userDoc).then(()=>{
         location.href="home.html";
 
@@ -48,6 +49,7 @@ export const checkUser = (email, password) => {
       console.log("Inicie Sesión")
       const user = userCredential.user;
       loggedUser = user.uid
+      localStorage.setItem('idUser',user.uid)
       location.href="home.html";
     })
     .catch((error) => {
@@ -58,7 +60,9 @@ export const checkUser = (email, password) => {
 
 }
 
-export const addProyect = (proyectName, communityName, creationDate, description, level, progress, state) => {
+export const getUser = () => getDoc(db, 'user', localStorage.getItem('idUser'))
+
+export const addProyect = (id, proyectName, communityName, creationDate, description, level, progress, state) => {
 
   console.log(loggedUser)
 
@@ -71,12 +75,15 @@ export const addProyect = (proyectName, communityName, creationDate, description
     progress,
     state
   }
-  const userRef = doc(db, 'users', '6qKNhWTF5WQ7IFoU2xO7mmNh9X32');
+  const userRef = doc(db, 'users', id);
   addDoc(collection(userRef, 'proyects'), proyect).then(()=>{
     location.href="proyect.html";
   })
 
 }
 
+export const onGetProyects = (callback) => 
+
+onSnapshot(collection(doc(db, 'users', localStorage.getItem('idUser')), 'proyects'),callback)
 
 

@@ -27,8 +27,8 @@ body {
     background-repeat: no-repeat;
     background-size:cover;
 
-    margin-left: 10%;
-    margin-right: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 .hidden{
@@ -41,3 +41,5 @@ body {
 @import "./button";
 @import "./input";
 @import "./textStyles";
+@import "./card";
+@import "./dashboard";

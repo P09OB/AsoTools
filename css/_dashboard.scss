@@ -1,0 +1,15 @@
+.dashboard{
+
+    background-color: white;
+
+    &__content{
+        display: flex;
+        margin-top: 50px;
+    }
+
+    &__info{
+        display: flex;
+        justify-content: space-between;
+    }
+
+}

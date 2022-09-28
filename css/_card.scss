@@ -1,0 +1,62 @@
+.card{
+    background-color: #126A3A;
+    background-image: url('../imgs/background.png');
+    background-repeat: no-repeat;
+    background-size:cover;
+    margin-right: 20px;
+    
+    color: white;
+    width: 360px;
+    height: 200px;
+    padding: 20px;
+    box-shadow: 6px 7px 9px rgba(0, 0, 0, 0.18);
+    border-radius: 29px;
+
+    &__states{
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 20px;
+
+        &--level{
+            display: flex;
+        }
+
+        &--figure{
+            background-color: #FE9800;
+            width: 15px;
+            height: 15px;
+            border-radius: 7px;
+            margin-right: 10px;
+            
+        }
+
+        &--progress{
+            background-color: #8EC543;
+            border-radius: 7px;
+            padding: 3px;
+            width: auto;
+        }
+    }
+
+    &__progress{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+
+        &--background{
+            background-color: #188D4D;
+            border-radius: 7px;
+            width: 92%;
+            height: 20px;
+        }
+
+
+        &--progressBar{
+            background-color: white;
+            border-radius: 7px;
+            width: 40px;
+            height: 20px;
+        }
+    }
+
+}
