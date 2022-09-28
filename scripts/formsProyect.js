@@ -11,6 +11,6 @@ proyectForm.addEventListener('submit',(e)=>{
 
     let data = f.getDate() + "-"+ f.getMonth()+ "-" +f.getFullYear();
 
-    addProyect(idUser, proyectForm.nameProyect.value, proyectForm.communityName.value, data, proyectForm.description.value,'somos parte',0,'En proceso')
+    addProyect(idUser, proyectForm.nameProyect.value, proyectForm.communityName.value, data, proyectForm.description.value,'Soy parte',0,'En proceso')
 
 })
