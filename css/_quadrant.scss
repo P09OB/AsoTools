@@ -1,0 +1,66 @@
+.quadrant{
+    width: 79%;
+    background-color: rgba(217, 217, 217, 0.333);
+    padding: 15px;
+    border-radius: 10px;
+    height: 700px;
+
+    &__horizontal{
+        display: flex;
+        width: auto;
+    }
+
+    &__vertical{
+        width: 20%;
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+
+    &__medium{
+        width: 50%;
+        padding: 6px;
+        height: 123px;
+        margin-right: 5px;
+    }
+
+    &__small{
+        padding: 6px;
+        width: 100%;
+        height: 180px;
+        margin-top: 5px;
+    }
+
+    &__long{
+        padding: 6px;
+        margin-top: 5px;
+    }
+
+    &--soyParte{
+        background: rgba(103, 0, 169, 0.2);
+        box-shadow: inset 0 0 0 2px #6700A9;
+        box-sizing: border-box;
+    }
+
+    &--somosParte{
+        background: rgba(15, 176, 0, 0.12);
+        box-shadow: inset 0 0 0 2px  #0FB000;
+        box-sizing: border-box;
+    }
+
+    &--tomamosParte{
+        background: rgba(254, 152, 0, 0.2);
+        box-shadow: inset 0 0 0 2px #FE9800;
+        box-sizing: border-box;
+    }
+
+    &--disabled{
+        background: #e5e5e5;
+        box-shadow: inset 0 0 0 2px #C4C4C4;
+        box-sizing: border-box;
+    }
+}
+
+.dashboard{
+    display: flex;
+    justify-content: space-between;
+}

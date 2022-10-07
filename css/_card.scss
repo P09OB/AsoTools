@@ -1,10 +1,10 @@
-.card{
-    background-color: #126A3A;
-    background-image: url('../imgs/background.png');
+.card {
+    background-color: #126a3a;
+    background-image: url("../imgs/background.png");
     background-repeat: no-repeat;
-    background-size:cover;
+    background-size: cover;
     margin-right: 20px;
-    
+
     color: white;
     width: 360px;
     height: 200px;
@@ -12,51 +12,96 @@
     box-shadow: 6px 7px 9px rgba(0, 0, 0, 0.18);
     border-radius: 29px;
 
-    &__states{
+    &__states {
         display: flex;
         justify-content: space-between;
         padding-bottom: 20px;
 
-        &--level{
+        &--level {
             display: flex;
         }
 
-        &--figure{
-            background-color: #6700A9;
+        &--figure {
+            background-color: #6700a9;
             width: 15px;
             height: 15px;
             border-radius: 7px;
             margin-right: 10px;
-            
         }
 
-        &--progress{
-            background-color: #8EC543;
+        &--progress {
+            background-color: #8ec543;
             border-radius: 7px;
             padding: 3px;
             width: auto;
         }
     }
 
-    &__progress{
+    &__progress {
         display: flex;
         justify-content: space-between;
         margin-top: 20px;
 
-        &--background{
-            background-color: #188D4D;
+        &--background {
+            background-color: #188d4d;
             border-radius: 7px;
             width: 92%;
             height: 20px;
         }
 
-
-        &--progressBar{
+        &--progressBar {
             background-color: white;
             border-radius: 7px;
             width: 40px;
             height: 20px;
         }
+    }
+
+    &--state {
+        width: 100%;
+        height: 60px;
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &--list{
+        width: 95%;
+        height: auto;
+        color: white;
+        margin-left: 5px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 20px;
+        padding-right: 5px;
+    }
+    &--green {
+        background-color: #0fb000;
+    }
+    &--purpe {
+        background-color: #6700a9;
+    }
+    &--orange {
+        background-color: #fe9800;
+    }
+    &--disabled{
+        background-color: #C4C4C4;
+    }
+
+    &--transparentViolet{
+        background-color: rgba(103, 0, 169, 0.6);
+    }
+    &--transparentGreen{
+        background-color: rgba(15, 176, 0, 0.2);;
+    }
+    &--transparentOrange{
+        background-color: rgba(254, 152, 0, 0.2);;
+    }
+    &--transparentDisabled{
+        background-color: #C4C4C4;
     }
 
 }

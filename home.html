@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +8,8 @@
     <title>AsoTools</title>
     <link rel="stylesheet" href="./css/main.css">
 </head>
-<body class="">
+
+<body>
     <nav class="nav">
 
         <a class="nav__logo"> <img class="nav__logo--img" src="imgs/logo-white.png"></a>
@@ -17,56 +19,60 @@
             <h3 class="nav__element nav__desaparecer">Nombre User</h3>
             <a class="nav__element nav__desaparecer"> Foto user</a>
         </div>
-        
+
     </nav>
 
-    <section class="dashboard__info">
+    <div class="content--white">
+        <section class="dashboard__info">
 
-        <div>
-            <h2>Nombre del usuario</h2>
-            <h3>¿Preparado para realizar un nuevo proyecto?</h3>
-        </div>
-
-        <input type="button" class="button" onclick= "location.href='formsProyect.html'" value="Crear Proyecto"></button>
-        
-    </section>
-
-    <section class="dashboard__proyects">
-        <h3>Mi proyecto</h3>
-        
-        <div class="filter">
-            <a class="nav__element nav__desaparecer" href="./index.html">Todos</a>
-            <a class="nav__element nav__desaparecer">En proceso</a>
-            <a class="nav__element nav__desaparecer">Terminados</a>
-        </div>
-
-        <div class="dashboard__content">
-            <img>
-            <h3>Aún no tienes proyectos</h3>
-            <p>Los proyectos realizados o en proceso de creación apareceran aquí.</p>
-            <div class="card">
-                <div class="card__states">
-                    <div class="card__states--level">
-                        <div class="card__states--figure"></div>
-                        <p class="cardLevel">Tomamos parte</p>
-                    </div>
-                    <div class="card__states--progress">En proceso</div>
-                </div>
-                <div class="card__info">
-                    <p class="cardName">Uva proyecto 2</p>
-                    <p class="cardDate">21 Sep 2022</p>
-                    <p class="cardDescription">Lorem Ipsum is simply dummy text of the printing and typesetting...</p>
-                </div>
-                <div class="card__progress">
-                    <div class="card__progress--background">
-                        <div class="card__progress--progressBar progressBar"></div>
-                    </div>
-                    <p class="card__porcentaje">4%</p>
-                </div>
-                
+            <div>
+                <h2>Nombre del usuario</h2>
+                <h3>¿Preparado para realizar un nuevo proyecto?</h3>
             </div>
-        </div>
-    </section>
+
+            <input type="button" class="button" onclick="location.href='formsProyect.html'"
+                value="Crear Proyecto"></button>
+
+        </section>
+
+        <section class="dashboard__proyects">
+            <h3>Mi proyecto</h3>
+
+            <div class="filter">
+                <a class="nav__element nav__desaparecer" href="./index.html">Todos</a>
+                <a class="nav__element nav__desaparecer">En proceso</a>
+                <a class="nav__element nav__desaparecer">Terminados</a>
+            </div>
+
+            <div class="dashboard__content">
+                <img>
+                <h3>Aún no tienes proyectos</h3>
+                <p>Los proyectos realizados o en proceso de creación apareceran aquí.</p>
+                <div class="card">
+                    <div class="card__states">
+                        <div class="card__states--level">
+                            <div class="card__states--figure"></div>
+                            <p class="cardLevel">Tomamos parte</p>
+                        </div>
+                        <div class="card__states--progress">En proceso</div>
+                    </div>
+                    <div class="card__info">
+                        <p class="cardName">Uva proyecto 2</p>
+                        <p class="cardDate">21 Sep 2022</p>
+                        <p class="cardDescription">Lorem Ipsum is simply dummy text of the printing and typesetting...
+                        </p>
+                    </div>
+                    <div class="card__progress">
+                        <div class="card__progress--background">
+                            <div class="card__progress--progressBar progressBar"></div>
+                        </div>
+                        <p class="card__porcentaje">4%</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
 </body>
 
 <script type="module" src="./scripts/dashboard.js"></script>
