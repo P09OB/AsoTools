@@ -12,34 +12,53 @@
 
 <body>
 
-    <div class="content--white">
+    <nav class="nav">
+        <div class="nav__menu">
+            <a class="nav__logo"> <img class="nav__logo--img" src="imgs/logo-white.png"></a>
+            <a class="nav__element nav__desaparecer textStyles--white" href="./index.html">Inicio</a>
+            <a class="nav__element nav__desaparecer textStyles--white">Metodologías</a>
+        </div>
+        <div class="nav__profile">
+            <div>
+                <h4 class="nav__element nav__desaparecer">Juan David</h4>
+            </div>
+        </div>
+    </nav>
 
-    <form class="proyectForm">
-        <label class="input__label label-name">
-            Nombre del proyecto
-            <input class="input name" type="text" placeholder="Ingresa un nombre para el proyecto" name="nameProyect">
-        </label>
+    <div class="content">
 
-        <label class="input__label label-name">
-            Comunidad
-            <input class="input name" type="text" placeholder="Ingresa el nombre de la Comunidad" name="communityName">
-        </label>
+        <form class="banner__form banner__form--big proyectForm">
+            <h2 class="textStyles__title textStyles--darkGreen textStyles--center">Crear proyecto</h2>
+            
+            <label class="input__label label-name">
+                Nombre del proyecto
+                <input class="input name" type="text" placeholder="Ingresa un nombre para el proyecto"
+                    name="nameProyect">
+            </label>
 
-        <label class="input__label label-name">
-            Número de participantes
-            <input class="input name" type="text" placeholder="Describa que quiere lograr con este proyecto" name="numberParticipants">
-        </label>
+            <label class="input__label label-name">
+                Comunidad
+                <input class="input name" type="text" placeholder="Ingresa el nombre de la Comunidad"
+                    name="communityName">
+            </label>
 
-        <label class="input__label label-name">
-            Descripción
-            <input class="input name" type="text" placeholder="Describa que quiere lograr con este proyecto" name="description">
-        </label>
+            <label class="input__label input__number label-name">
+                Número de participantes
+                <input class="input name" type="number" placeholder="0"
+                    name="numberParticipants">
+            </label>
 
-        <button class="button">Crear</button>
+            <label class="input__label  label-name">
+                Descripción
+                <input class="input name" type="text" placeholder="Describa que quiere lograr con este proyecto"
+                    name="description">
+            </label>
 
-    </form>
+            <button class="button button--width">Crear</button>
 
-</div>
+        </form>
+
+    </div>
 
 </body>
 

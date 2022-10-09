@@ -1,22 +1,18 @@
-import {onGetProyects} from './firebase.js'
+import { onGetProyects } from './firebase.js'
 
 const cards = document.querySelector('.dashboard__content')
+const dashboardEmpaty = document.querySelector('.dashboard__empty')
 
-window.addEventListener('DOMContentLoaded', async ()=>{
+let idUser = localStorage.getItem('idUser');
 
-   // const onSnapshot = await getUser()
-
-
-    let idUser = localStorage.getItem('idUser');
-
-    onGetProyects((querySnapshot)=>{
+onGetProyects((querySnapshot) => {
 
     let html = ''
-
-        querySnapshot.forEach((doc) => {
-            const project = doc.data()
-            console.log(project)
-            html +=  `
+    querySnapshot.forEach((doc) => {
+        dashboardEmpaty.classList.add('hidden')
+        const project = doc.data()
+        console.log(project)
+        html += `
             <div class="card">
                 <div class="card__states">
                     <div class="card__states--level">
@@ -39,14 +35,7 @@ window.addEventListener('DOMContentLoaded', async ()=>{
                 
             </div>`
 
-        });
+    });
 
-        cards.innerHTML = html;
-    })
-
-
-    
+    cards.innerHTML = html;
 })
-
-
-

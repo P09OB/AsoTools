@@ -11,15 +11,17 @@
 </head>
 
 <body>
-
     <nav class="nav">
-
-        <a class="nav__logo"> <img class="nav__logo--img" src="imgs/logo-white.png"></a>
-        <a class="nav__element nav__desaparecer" href="./index.html">Inicio</a>
-        <a class="nav__element nav__desaparecer">Metodologías</a>
-        <a class="nav__element nav__desaparecer">Sobre nosotros</a>
-        <a class="nav__element nav__desaparecer"> Contáctenos</a>
-
+        <div class="nav__menu">
+            <a class="nav__logo"> <img class="nav__logo--img" src="imgs/logo-white.png"></a>
+            <a class="nav__element nav__desaparecer textStyles--white" href="./index.html">Inicio</a>
+            <a class="nav__element nav__desaparecer textStyles--white">Metodologías</a>
+        </div>
+        <div class="nav__profile">
+            <div>
+                <h4 class="nav__element nav__desaparecer">Juan David</h4>
+            </div>
+        </div>
     </nav>
 
     <div class="content--white">
@@ -28,19 +30,21 @@
         <div class="dashboard">
 
             <div class="dashboard__stages">
-                <h3 class="textStyles--clearGreen2 textStyles__title--1" >Fases</h3>
-                <div class="cardDiagnostico card--purpe card--state"> <h4>Díagnostico</h4>
+                <h3 class="textStyles--clearGreen2 textStyles__title--1">Fases</h3>
+                <div class="cardDiagnostico card--purpe card--state">
+                    <h4>Díagnostico</h4>
                     <img class="icon" src="./imgs/down.svg">
                 </div>
                 <div class="diagnosticoOpcions hidden">
-                    <div class="card--list card--transparentViolet"><a>Árbol de sueños, preocupaciones y compromisos</a></div>
+                    <div class="card--list card--transparentViolet"><a>Árbol de sueños, preocupaciones y compromisos</a>
+                    </div>
                     <div class="card--list card--transparentViolet"><a>Análisis diferenciado del bienestar</a></div>
                 </div>
-                
+
 
                 <div class="cardFundamentacion card--purpe card--state">Fundamentación</div>
                 <div class="fundamentacionOpcions hidden">
-                <div class="card--list card--transparentViolet"><a>Árbol del problema</a></div>
+                    <div class="card--list card--transparentViolet"><a>Árbol del problema</a></div>
                 </div>
 
                 <div class="cardObj card--green card--state ">Objetivos</div>
@@ -50,7 +54,8 @@
                 </div>
                 <div class="cardPropuesta card--green card--state">Propuesta</div>
                 <div class="propuestaOpcions hidden">
-                    <div class="card--list card--transparentGreen"><a>Identificación de soluciones locales o introducidas</a></div>
+                    <div class="card--list card--transparentGreen"><a>Identificación de soluciones locales o
+                            introducidas</a></div>
                     <div class="card--list card--transparentGreen"><a>Matriz de evaluación de soluciones</a></div>
                     <div class="card--list card--transparentGreen"><a>La gran idea</a></div>
                     <div class="card--list card--transparentGreen"><a>Análisis de impacto</a></div>
@@ -62,11 +67,12 @@
 
                 <div class="cardRecursos card--disabled card--state">Recursos</div>
                 <div class="recursosOpcions hidden">
-                    <div class="card--list card--transparentDisabled"><a>Matriz de necesidad y disponibilidad de recursos</a></div>
+                    <div class="card--list card--transparentDisabled"><a>Matriz de necesidad y disponibilidad de
+                            recursos</a></div>
                     <div class="card--list card--transparentDisabled"><a>Análisis PESTEL</a></div>
                     <div class="card--list card--transparentDisabled"><a>Mapa de intercambios</a></div>
                 </div>
-                
+
             </div>
 
             <div class="quadrant">
@@ -76,15 +82,17 @@
                     <div class="quadrant__medium quadrant--somosParte objGeneral">
                         <h4 class="textStyles--green textStyles__body"><span
                                 class=" textStyles__number textStyles__number--green">4</span>Objetivo General</h4>
-                        <p class="textStyles__body--small textObjGeneral">Desarrollar un acuerdo con la tiendas de insumos</p>
+                        <p class="textStyles__body--small textObjGeneral">Desarrollar un acuerdo con la tiendas de
+                            insumos</p>
                     </div>
                     <div class="quadrant__medium quadrant--somosParte objSpecific">
                         <h4 class="textStyles--green textStyles__body"><span
                                 class=" textStyles__number textStyles__number--green">5</span>Objetivos especificos</h4>
-                        <p class="textStyles__body--small textObjSpecific">Desarrollar un acuerdo con la tiendas de insumos</p>
+                        <p class="textStyles__body--small textObjSpecific">Desarrollar un acuerdo con la tiendas de
+                            insumos</p>
                     </div>
                 </div>
-        
+
                 <div class="quadrant__horizontal">
                     <div class="quadrant__vertical">
                         <div class="problem quadrant__small quadrant--soyParte">
@@ -98,7 +106,7 @@
                             <p class="textStyles__body--small textcauses">Los precios de la mayoria de cosas subio</p>
                         </div>
                     </div>
-        
+
                     <div class="quadrant__vertical">
                         <div class="quadrant__small quadrant--soyParte strengths">
                             <h4 class="textStyles--purpe textStyles__body"><span
@@ -107,17 +115,18 @@
                         </div>
                         <div class="quadrant__small quadrant--disabled alliances">
                             <h4 class="textStyles--disabled textStyles__body"><span
-                                    class="textStyles__number textStyles__number--disabled">10</span>Alianzas actuales</h4>
+                                    class="textStyles__number textStyles__number--disabled">10</span>Alianzas actuales
+                            </h4>
                             <p class="textStyles__body--small textAlliances"></p>
                         </div>
                     </div>
-        
+
                     <div class="proposal quadrant__long quadrant__vertical quadrant--somosParte">
                         <h4 class="textStyles--green textStyles__body"><span
                                 class="textStyles__number textStyles__number--green">6</span>Propuesta</h4>
                         <p class="textStyles__body--small textProposal"></p>
                     </div>
-        
+
                     <div class="quadrant__vertical">
                         <div class="resources quadrant__small quadrant--disabled">
                             <h4 class="textStyles--disabled textStyles__body"><span
@@ -126,7 +135,8 @@
                         </div>
                         <div class="alliance quadrant__small quadrant--disabled">
                             <h4 class="textStyles--disabled textStyles__body"><span
-                                    class="textStyles__number textStyles__number--disabled">10</span>Alianzas por establecer</h4>
+                                    class="textStyles__number textStyles__number--disabled">10</span>Alianzas por
+                                establecer</h4>
                             <p class="textStyles__body--small textAlliance"></p>
                         </div>
                     </div>
@@ -136,16 +146,18 @@
                         <p class="textStyles__body--small textActivity"></p>
                     </div>
                 </div>
-        
+
                 <div class="quadrant__horizontal">
                     <div class="quadrant__medium quadrant--disabled">
                         <h4 class="textStyles--disabled textStyles__body"><span
-                                class="textStyles__number textStyles__number--disabled">7</span>Impacto (beneficios)</h4>
+                                class="textStyles__number textStyles__number--disabled">7</span>Impacto (beneficios)
+                        </h4>
                         <p class="textStyles__body--small textBenefits"></p>
                     </div>
                     <div class="quadrant__medium quadrant--disabled">
                         <h4 class="textStyles--disabled textStyles__body"><span
-                                class="textStyles__number textStyles__number--disabled">7</span>Impacto (Problemas que pueden
+                                class="textStyles__number textStyles__number--disabled">7</span>Impacto (Problemas que
+                            pueden
                             resultar)</h4>
                         <p class="textStyles__body--small textImpactProblems"></p>
                     </div>
@@ -155,20 +167,20 @@
                     <div class="impact__benefit"></div>
                     <div class="impact__problems"></div>
                 </div>
-            
-        
+
+
             </div>
-            
+
 
         </div>
 
-    
+
 
     </div>
 
-    
 
-</div>
+
+    </div>
 
 </body>
 

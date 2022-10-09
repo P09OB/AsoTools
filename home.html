@@ -11,23 +11,24 @@
 
 <body>
     <nav class="nav">
-
-        <a class="nav__logo"> <img class="nav__logo--img" src="imgs/logo-white.png"></a>
-        <a class="nav__element nav__desaparecer" href="./index.html">Inicio</a>
-        <a class="nav__element nav__desaparecer">Metodologías</a>
-        <div>
-            <h3 class="nav__element nav__desaparecer">Nombre User</h3>
-            <a class="nav__element nav__desaparecer"> Foto user</a>
+        <div class="nav__menu">
+            <a class="nav__logo"> <img class="nav__logo--img" src="imgs/logo-white.png"></a>
+            <a class="nav__element nav__desaparecer textStyles--white" href="./index.html">Inicio</a>
+            <a class="nav__element nav__desaparecer textStyles--white">Metodologías</a>
         </div>
-
+        <div class="nav__profile">
+            <div>
+                <h4 class="nav__element nav__desaparecer">Juan David</h4>
+            </div>
+        </div>
     </nav>
 
     <div class="content--white">
         <section class="dashboard__info">
 
             <div>
-                <h2>Nombre del usuario</h2>
-                <h3>¿Preparado para realizar un nuevo proyecto?</h3>
+                <h2 class="textStyles__title--2 textStyles--darkGreen">Hola, Juan David</h2>
+                <p class="textStyles__body textStyles--darkGreen">¿Preparado para realizar un nuevo proyecto?</p>
             </div>
 
             <input type="button" class="button" onclick="location.href='formsProyect.html'"
@@ -35,42 +36,26 @@
 
         </section>
 
+        <div class="linea"></div>
+
+
         <section class="dashboard__proyects">
-            <h3>Mi proyecto</h3>
+            <h3 class="textStyles__title--1 textStyles--clearGreen2">Mis proyectos</h3>
 
             <div class="filter">
-                <a class="nav__element nav__desaparecer" href="./index.html">Todos</a>
-                <a class="nav__element nav__desaparecer">En proceso</a>
-                <a class="nav__element nav__desaparecer">Terminados</a>
+                <a class="filter--opcion textStyles--clearGreen2" href="">Todos</a>
+                <a class="filter--opcion textStyles--clearGreen2">En proceso</a>
+                <a class="filter--opcion textStyles--clearGreen2">Terminados</a>
             </div>
 
-            <div class="dashboard__content">
-                <img>
-                <h3>Aún no tienes proyectos</h3>
-                <p>Los proyectos realizados o en proceso de creación apareceran aquí.</p>
-                <div class="card">
-                    <div class="card__states">
-                        <div class="card__states--level">
-                            <div class="card__states--figure"></div>
-                            <p class="cardLevel">Tomamos parte</p>
-                        </div>
-                        <div class="card__states--progress">En proceso</div>
-                    </div>
-                    <div class="card__info">
-                        <p class="cardName">Uva proyecto 2</p>
-                        <p class="cardDate">21 Sep 2022</p>
-                        <p class="cardDescription">Lorem Ipsum is simply dummy text of the printing and typesetting...
-                        </p>
-                    </div>
-                    <div class="card__progress">
-                        <div class="card__progress--background">
-                            <div class="card__progress--progressBar progressBar"></div>
-                        </div>
-                        <p class="card__porcentaje">4%</p>
-                    </div>
-
-                </div>
+            <div class="dashboard__empty">
+                <img class="images--small" src="./imgs/sad.png">
+                <h3 class="textStyles__title textStyles--disabled">Aún no tienes proyectos</h3>
+                <p class="textStyles__body textStyles--disabled">Los proyectos realizados o en proceso de creación apareceran aquí.</p>
             </div>
+
+            <div class="dashboard__content"></div>
+
         </section>
     </div>
 </body>

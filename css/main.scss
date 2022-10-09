@@ -13,6 +13,16 @@
   color: #126a3a;
 }
 
+.linea{
+  border: 1px solid rgba(92, 146, 71, 0.2);
+  height: 2px;
+  max-width: 100%;
+  padding: 0;
+  margin-top: 15px;
+  margin-bottom: 20px;
+
+}
+
 body{
   background-color: #5C9247
 }
@@ -37,8 +47,10 @@ body{
 }
 
 a:hover {
-  color: #818181;
+  color: #8EC543;
+  border-bottom: 1px solid #126A3A;
 }
+
 
 .hidden {
   display: none !important;
@@ -52,3 +64,5 @@ a:hover {
 @import "./card";
 @import "./dashboard";
 @import "./quadrant";
+@import "./filter";
+@import "./images"

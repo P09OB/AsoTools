@@ -11,5 +11,15 @@
         width: 100%;
         font-weight: 600;
         padding-top: 20px;
+
+        &--description{
+            height: 60px;
+        }
+    }
+
+    
+
+    &__number{
+        width: 40%;
     }
 }

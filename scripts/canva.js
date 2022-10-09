@@ -13,57 +13,114 @@ const opcionPropuesta = document.querySelector('.propuestaOpcions')
 const opcionActividades = document.querySelector('.actividadesOpcions')
 const opcionRecursos = document.querySelector('.recursosOpcions')
 
+var viewDiagnostico = false
+var viewFundamentacion = false
+var viewObjetivos = false
+var viewPropuesta = false
+var viewActividades = false
+var viewRecursos = false
+
 
 diagnostico.addEventListener('click',(e)=>{
-    opcionDiagnostico.classList.remove('hidden')
-    opcionFundamentacion.classList.add('hidden')
-    objOpcions.classList.add('hidden')
-    opcionPropuesta.classList.add('hidden')
-    opcionActividades.classList.add('hidden')
-    opcionRecursos.classList.add('hidden')
+    
+    if(viewDiagnostico){
+        opcionDiagnostico.classList.add('hidden')
+        viewDiagnostico = false
+
+    } else{
+        opcionDiagnostico.classList.remove('hidden')
+        opcionFundamentacion.classList.add('hidden')
+        objOpcions.classList.add('hidden')
+        opcionPropuesta.classList.add('hidden')
+        opcionActividades.classList.add('hidden')
+        opcionRecursos.classList.add('hidden')
+        viewDiagnostico = true
+    }
 })
 
 fundamentacion.addEventListener('click',(e)=>{
-    opcionDiagnostico.classList.add('hidden')
-    opcionFundamentacion.classList.remove('hidden')
-    objOpcions.classList.add('hidden')
-    opcionPropuesta.classList.add('hidden')
-    opcionActividades.classList.add('hidden')
-    opcionRecursos.classList.add('hidden')
+
+    if(viewFundamentacion){
+        opcionFundamentacion.classList.add('hidden')
+        viewFundamentacion = false
+    }else{
+        opcionDiagnostico.classList.add('hidden')
+        opcionFundamentacion.classList.remove('hidden')
+        objOpcions.classList.add('hidden')
+        opcionPropuesta.classList.add('hidden')
+        opcionActividades.classList.add('hidden')
+        opcionRecursos.classList.add('hidden')
+        viewFundamentacion = true
+    }
+    
 })
 
 objetivos.addEventListener('click',(e)=>{
-    opcionDiagnostico.classList.add('hidden')
-    opcionFundamentacion.classList.add('hidden')
-    objOpcions.classList.remove('hidden')
-    opcionPropuesta.classList.add('hidden')
-    opcionActividades.classList.add('hidden')
-    opcionRecursos.classList.add('hidden')
+
+    if(viewObjetivos){
+        objOpcions.classList.add('hidden')
+        viewObjetivos = false
+
+    } else{
+        opcionDiagnostico.classList.add('hidden')
+        opcionFundamentacion.classList.add('hidden')
+        objOpcions.classList.remove('hidden')
+        opcionPropuesta.classList.add('hidden')
+        opcionActividades.classList.add('hidden')
+        opcionRecursos.classList.add('hidden')
+        viewObjetivos = true
+
+    }
+    
 })
 
 propuesta.addEventListener('click',(e)=>{
-    opcionDiagnostico.classList.add('hidden')
-    opcionFundamentacion.classList.add('hidden')
-    objOpcions.classList.add('hidden')
-    opcionPropuesta.classList.remove('hidden')
-    opcionActividades.classList.add('hidden')
-    opcionRecursos.classList.add('hidden')
+
+    if(viewPropuesta){
+        opcionPropuesta.classList.add('hidden')
+        viewPropuesta = false
+    } else{
+        opcionDiagnostico.classList.add('hidden')
+        opcionFundamentacion.classList.add('hidden')
+        objOpcions.classList.add('hidden')
+        opcionPropuesta.classList.remove('hidden')
+        opcionActividades.classList.add('hidden')
+        opcionRecursos.classList.add('hidden')
+        viewPropuesta = true
+    }
+    
 })
 
 actividades.addEventListener('click',(e)=>{
-    opcionDiagnostico.classList.add('hidden')
-    opcionFundamentacion.classList.add('hidden')
-    objOpcions.classList.add('hidden')
-    opcionPropuesta.classList.add('hidden')
-    opcionActividades.classList.remove('hidden')
-    opcionRecursos.classList.add('hidden')
+
+    if(viewActividades){
+        opcionActividades.classList.add('hidden')
+        viewActividades = false
+    } else{
+        opcionDiagnostico.classList.add('hidden')
+        opcionFundamentacion.classList.add('hidden')
+        objOpcions.classList.add('hidden')
+        opcionPropuesta.classList.add('hidden')
+        opcionActividades.classList.remove('hidden')
+        opcionRecursos.classList.add('hidden')
+        viewActividades = true
+    }
+    
 })
 
-opcionRecursos.addEventListener('click',(e)=>{
-    opcionDiagnostico.classList.add('hidden')
-    opcionFundamentacion.classList.add('hidden')
-    objOpcions.classList.add('hidden')
-    opcionPropuesta.classList.add('hidden')
-    opcionActividades.classList.add('hidden')
-    opcionRecursos.classList.remove('hidden')
+recursos.addEventListener('click',(e)=>{
+
+    if(viewRecursos){
+        opcionRecursos.classList.add('hidden')
+        viewRecursos = false
+    } else {
+        opcionDiagnostico.classList.add('hidden')
+        opcionFundamentacion.classList.add('hidden')
+        objOpcions.classList.add('hidden')
+        opcionPropuesta.classList.add('hidden')
+        opcionActividades.classList.add('hidden')
+        opcionRecursos.classList.remove('hidden')
+        viewRecursos = true
+    }
+    
 })
