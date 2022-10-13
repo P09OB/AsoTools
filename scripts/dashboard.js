@@ -13,6 +13,8 @@ onGetProyects((querySnapshot) => {
         const project = doc.data()
         console.log(project)
         html += `
+        <a class="listProducts__edit" href="./proyect.html?id=${doc.id}&name=${project.proyectName}">
+
             <div class="card">
                 <div class="card__states">
                     <div class="card__states--level">
@@ -33,7 +35,9 @@ onGetProyects((querySnapshot) => {
                     <p class="card__porcentaje">4%</p>
                 </div>
                 
-            </div>`
+            </div>
+            
+            </a>`
 
     });
 

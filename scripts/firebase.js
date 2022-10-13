@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
-import { getFirestore, collection, addDoc,getDoc, setDoc, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"
+import { getFirestore, collection, addDoc, getDocs,getDoc, setDoc, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -19,6 +19,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore()
 const auth = getAuth();
+let idMethodology = ""
 let loggedUser = null
 
 export const createUser = (name, email, password) =>
@@ -32,6 +33,7 @@ export const createUser = (name, email, password) =>
         id: user.uid
       }
       localStorage.setItem('idUser',user.uid)
+      localStorage.setItem('name',name)
       setDoc(doc(db, 'users', user.uid), userDoc).then(()=>{
         location.href="home.html";
 
@@ -87,3 +89,9 @@ export const onGetProyects = (callback) =>
 onSnapshot(collection(doc(db, 'users', localStorage.getItem('idUser')), 'proyects'),callback)
 
 
+export const onGetMethodologies = (callback) =>
+
+onSnapshot(collection(db, 'methodologies'),callback)
+
+
+export const getmethodology =() => getDocs( collection(db, 'methodologies'), localStorage.getItem('idMethodology'))

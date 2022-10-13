@@ -218,6 +218,9 @@ a:hover {
 .textStyles__legal {
   font-size: 10px;
 }
+.textStyles__alignText {
+  text-align: center;
+}
 .textStyles__number {
   border-radius: 0.8em;
   color: #ffffff;
@@ -295,6 +298,9 @@ a:hover {
   justify-content: flex-end;
   align-items: center;
   border-radius: 29px;
+  text-align: center;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 .card__methodology--process {
   background-color: #AF3FF8;
