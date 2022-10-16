@@ -8,4 +8,18 @@
 
         height: auto;
     }
+
+    &--big{
+        width: 100%;
+    }
+
+    &--icon{
+
+        position: absolute;
+        display: flex;
+        width: 96%;
+        padding-bottom: 50px;
+        top: -10px;
+        justify-content: flex-end;
+    }
 }

@@ -142,7 +142,7 @@ a:hover {
 }
 
 .button {
-  background-color: #126A3A;
+  background-color: #126a3a;
   color: white;
   width: auto;
   height: 50px;
@@ -159,9 +159,30 @@ a:hover {
 .button--width {
   width: 100%;
 }
-
+.button--simple {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 40%;
+  padding-top: 15px;
+  text-align: center;
+}
+.button--border {
+  height: 50px;
+  padding-left: 25px;
+  padding-right: 25px;
+  font-weight: 800;
+  font-size: 14px;
+  border-radius: 41px;
+  border: solid;
+  background-color: transparent;
+  border-color: #126a3a;
+  color: #126a3a;
+}
+.button--border:hover {
+  background-color: rgba(18, 106, 58, 0.1058823529);
+}
 .button:hover {
-  background-color: #8EC543;
+  background-color: #0f5a31;
 }
 
 .input {
@@ -537,4 +558,79 @@ a:hover {
 }
 .images--medium {
   height: auto;
+}
+.images--big {
+  width: 100%;
+}
+.images--icon {
+  position: absolute;
+  display: flex;
+  width: 96%;
+  padding-bottom: 50px;
+  top: -10px;
+  justify-content: flex-end;
+}
+
+.modal {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100vw;
+  height: 100vh;
+  padding: 40px;
+  display: none;
+  transition: opacity 0.5s ease;
+  opacity: 0;
+  color: green;
+}
+.modal__backdrop {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.modal__content {
+  padding: 60px 50px 60px;
+  box-sizing: border-box;
+  border-radius: 30px;
+  background-repeat: no-repeat;
+  margin: 10% auto;
+  width: 100%;
+  max-width: 1094px;
+  max-height: 608px;
+  transition: transform 0.5s ease;
+  transform: translate(0px, -500px);
+  position: relative;
+  background-color: #efefef;
+}
+.modal__close {
+  position: absolute;
+  width: 40px;
+  top: -15px;
+  right: -12px;
+}
+@media (max-width: 989px) {
+  .modal {
+    padding: 0;
+  }
+  .modal__content {
+    padding: 90px 5% 60px 5%;
+    margin: 23% 0%;
+    transform: translateX(0px);
+  }
+}
+.modal__head {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.modal__head--items {
+  display: flex;
+  flex-direction: column;
+}
+.modal__head--img {
+  width: 60%;
+  padding-right: 20px;
 }/*# sourceMappingURL=main.css.map */

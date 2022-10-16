@@ -21,8 +21,7 @@ window.addEventListener('DOMContentLoaded', async()=>{
         //PASOS
         console.log(project.steps[i])
     }
-    }
-    )
+    })
 
 })
 

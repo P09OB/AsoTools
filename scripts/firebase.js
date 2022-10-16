@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs,getDoc, setDoc, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"
+import { getFirestore, collection, addDoc, getDocs,getDoc, setDoc, doc, onSnapshot,where,query,collectionGroup } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -95,3 +95,31 @@ onSnapshot(collection(db, 'methodologies'),callback)
 
 
 export const getmethodology =() => getDocs( collection(db, 'methodologies'), localStorage.getItem('idMethodology'))
+
+export const getMethodologyName = (callback) =>
+
+ onSnapshot( query( collection(db, 'methodologies'), where('name', '==', localStorage.getItem('nameMethodology'))),callback)
+
+export const onGetProyect = () => getDocs( collection(db, 'proyects'), localStorage.getItem('idProyect'))
+
+export const createSesion = (code, idUser, idMethodology) =>{
+  const userRef = doc(collection(doc(db, 'users', idUser), 'sesion'))
+  const id = userRef.id
+  const user = []
+  const sesion = {
+    id,
+    idUser,
+    idMethodology,
+    code,
+    users: user,
+  }
+  setDoc(userRef, sesion).then(()=>{
+    localStorage.setItem('idSesion',id)
+   location.href="./interactiveTemplate.html";
+  })
+
+}
+
+export const onGetSesion = (callback) =>{
+  onSnapshot(doc(db, 'users', localStorage.getItem('idUser'),"sesion",localStorage.getItem('idSesion')),callback)
+}
