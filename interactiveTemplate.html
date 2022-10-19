@@ -5,14 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AsoTools</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/notes.css">
 </head>
 <body>
-    <h1 class="nameCode">Hola</h1>
-    <h2>Participantes</h2>
-    <div class="containedUsers"></div>
+    <nav class="nav"></nav>
+    <div class="content--white">
+<div class="card__code">
+    <div class="card__code--union">
+        <h3 class="card__code--link">Únete en: www.p09ob.github.io/AsoTools-Mobile/</h3>
+        <div>
+            <h3>Pin de sala:</h3>
+            <h1 class="nameCode">Hola</h1>
+        </div>
+    </div>
+    
+    <div id="qrcode">
+        <img class="images--medium card__code--qr " src="https://www.codigos-qr.com/qr/php/qr_img.php?d=https%3A%2F%2Fp09ob.github.io%2FAsoTools-Mobile%2F&s=8&e=q" alt="Generador de Códigos QR Codes"/>
+        <br/>
+        </div>
+</div>
+    <div class="card__users">
+        <h2 class="title">Participantes</h2>
+        <div class="card--containedUsers containedUsers">Esperando....</div>
+        <div class="card__question hidden">
+            <h3 class="question"></h3>
+        </div>
+        
+    </div>
+    <div class="wrapper hidden">
+        <div class="add-box hidden">
+            
+        </div>
+    </div>
+    <div class="card__button">    <button class="start button button--simple">Comenzar</button>    
+    
+
+    <div>
+        <h1 class="textFinal hidden">Gracias por participar!!</h1>
+        <div class="resume images__resume hidden">
+        </div>
+    </div>
+
+
     
 </body>
 
 <script type="module" src="./scripts/interactiveTemplate.js"></script>
+<script type="module" src="scripts/navModal.js"></script>
 
 </html>

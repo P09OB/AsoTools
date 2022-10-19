@@ -2,6 +2,15 @@
 
     background-color: white;
 
+    &__desc{
+    width: auto; 
+    background-color: rgba(217, 217, 217, 0.333);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    }
+
 
     &__content{
         display: flex;
@@ -22,7 +31,6 @@
         background-color:  rgba(217, 217, 217, 0.333);
         padding: 15px;
         border-radius: 10px;
-
     }
 
     &__empty{

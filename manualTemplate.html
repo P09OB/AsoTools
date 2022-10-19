@@ -1,12 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AsoTools</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AsoTools</title>
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/notes.css">
+
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
 </head>
+
 <body>
-    
+  <nav class="nav"></nav>
+  <div class="content--white">
+
+    <div class="card__users">
+      <div class="explain">
+        <p>Pasa tu sección a formato digital.</p>
+      </div>
+  
+      <h2 class="card__question question hidden">Pregunta</h2>
+    </div>
+   
+
+    <div class="popup-box">
+      <div class="popup">
+        <div class="content">
+          <header>
+            <p>Nuevo comentario</p>
+            <i class="uil uil-times"></i>
+          </header>
+          <form action="#">
+            <div class="row description">
+              <label class="text">Descripción</label>
+              <textarea spellcheck="false"></textarea>
+            </div>
+             <button class="button"></button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper hidden">
+      <li class="add-box">
+        <div class="icon"><i class="uil uil-plus"></i></div>
+        <p>Agrega un comentario</p>
+      </li>
+    </div>
+    <h1 class="textFinal hidden">Listo has completado la plantilla</h1>
+  <div class="resume images__resume hidden">   </div>
+
+    <div class="card__button"> <button class="start button">Comenzar</button> </div>
+
+      
+
 </body>
+
+<script type="module" src="./scripts/manualTemplate.js"></script>
+<script type="module" src="scripts/navModal.js"></script>
+
 </html>

@@ -32,7 +32,6 @@ body {
   background-size: cover;
   padding-left: 6%;
   padding-right: 6%;
-  padding-bottom: 150px;
 }
 .content--white {
   background-color: white;
@@ -40,11 +39,13 @@ body {
   padding-right: 6%;
   padding-bottom: 150px;
   border-radius: 27px;
+  padding-top: 14px;
+  height: 1122px;
 }
 
 a:hover {
   color: #8EC543;
-  border-bottom: 1px solid #126A3A;
+  cursor: pointer;
 }
 
 .hidden {
@@ -88,6 +89,10 @@ a:hover {
 }
 .nav__profile {
   display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: flex-end;
+  align-items: flex-end;
 }
 
 .banner {
@@ -139,6 +144,11 @@ a:hover {
   font-weight: 400;
   font-size: 15px;
   line-height: 128.4%;
+}
+.banner__form--group {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 7px;
 }
 
 .button {
@@ -231,9 +241,11 @@ a:hover {
   font-size: 20px;
 }
 .textStyles__body--small {
+  padding-top: 4px;
   font-size: 14px;
 }
 .textStyles__foornote {
+  padding-top: 6px;
   font-size: 12px;
 }
 .textStyles__legal {
@@ -301,7 +313,7 @@ a:hover {
   margin-top: 30px;
   color: white;
   width: 402px;
-  height: 200px;
+  height: auto;
   padding: 20px;
   box-shadow: 6px 7px 9px rgba(0, 0, 0, 0.18);
   border-radius: 29px;
@@ -333,6 +345,50 @@ a:hover {
   text-align: center;
   border-radius: 4px;
 }
+.card__question {
+  background-color: #eae8e8;
+  border-radius: 27px;
+  width: 60%;
+  height: auto;
+  padding: 25px;
+  text-align: center;
+}
+.card__code {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+.card__code--union {
+  display: inline-flex;
+  background-color: #8ec543;
+  border-radius: 27px;
+  padding: 25px;
+  box-sizing: border-box;
+}
+.card__code--link {
+  width: 130px;
+  width: 151px;
+  margin-right: 193px;
+}
+.card__code--qr {
+  max-width: 40%;
+  width: 40%;
+}
+.card__users {
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  align-items: center;
+}
+.card__button {
+  display: flex;
+  justify-content: center;
+}
 .card__states {
   display: flex;
   justify-content: space-between;
@@ -353,6 +409,17 @@ a:hover {
   border-radius: 7px;
   padding: 3px;
   width: auto;
+}
+.card--containedUsers {
+  height: 200px;
+  padding-top: 50px;
+  justify-content: center;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+.card--containedUsers--user {
+  padding-right: 120px;
 }
 .card__progress {
   display: flex;
@@ -391,6 +458,12 @@ a:hover {
   padding-left: 20px;
   padding-right: 5px;
 }
+.card--list:hover {
+  color: #C4C4C4;
+}
+.card--list:visited {
+  color: #C4C4C4;
+}
 .card--green {
   background-color: #0fb000;
 }
@@ -413,11 +486,23 @@ a:hover {
   background-color: rgba(254, 152, 0, 0.2);
 }
 .card--transparentDisabled {
-  background-color: #C4C4C4;
+  background-color: rgba(196, 196, 196, 0.5450980392);
+  color: #919191;
+}
+.card--transparentDisabled:hover {
+  color: black;
 }
 
 .dashboard {
   background-color: white;
+}
+.dashboard__desc {
+  width: auto;
+  background-color: rgba(217, 217, 217, 0.333);
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 .dashboard__content {
   display: flex;
@@ -569,6 +654,9 @@ a:hover {
   padding-bottom: 50px;
   top: -10px;
   justify-content: flex-end;
+}
+.images__resume {
+  background-image: url("../arbolCompromisos.png");
 }
 
 .modal {

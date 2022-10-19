@@ -34,7 +34,6 @@ body{
   background-size: cover;
   padding-left: 6%;
   padding-right: 6%;
-  padding-bottom: 150px;
 
   &--white{
   background-color: white;
@@ -42,13 +41,15 @@ body{
   padding-right: 6%;
   padding-bottom: 150px;
   border-radius: 27px;
+  padding-top: 14px;
+  height: 1122px;
 
   }
 }
 
 a:hover {
   color: #8EC543;
-  border-bottom: 1px solid #126A3A;
+  cursor: pointer; 
 }
 
 

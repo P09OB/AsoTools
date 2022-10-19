@@ -1,7 +1,8 @@
 import { onGetMethodologies } from './firebase.js'
 
 
-const cards = document.querySelector('.dashboard__methodology')
+const cards = document.querySelector('.dashboard__methodology'),
+addBtt = document.querySelector('.addBtt')
 
 window.addEventListener('DOMContentLoaded',()=>{
 
@@ -28,3 +29,7 @@ window.addEventListener('DOMContentLoaded',()=>{
     })
 })
 
+addBtt.addEventListener('click',()=>{
+    location.href = "./formsMethodology.html";
+
+})

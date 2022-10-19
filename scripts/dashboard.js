@@ -1,10 +1,12 @@
-import { onGetProyects } from './firebase.js'
+import { onGetProyects} from './firebase.js'
 
 const cards = document.querySelector('.dashboard__content')
 const dashboardEmpaty = document.querySelector('.dashboard__empty')
+const welcomeUser = document.querySelector('.welcomeUser')
 
 let idUser = localStorage.getItem('idUser');
 
+welcomeUser.innerHTML = "Hola,"+" "+localStorage.getItem('nameUser')
 onGetProyects((querySnapshot) => {
 
     let html = ''
@@ -19,14 +21,14 @@ onGetProyects((querySnapshot) => {
                 <div class="card__states">
                     <div class="card__states--level">
                         <div class="card__states--figure"></div>
-                        <p class="cardLevel">${project.level}</p>
+                        <b> <p class="cardLevel">${project.level}</p> </b> 
                     </div>
                     <div class="card__states--progress">${project.state}</div>
                 </div>
                 <div class="card__info">
-                    <p class="cardName">${project.proyectName}</p>
-                    <p class="cardDate">${project.creationDate}</p>
-                    <p class="cardDescription">${project.description}</p>
+                   <b> <p class="cardName textStyles__body--large">${project.proyectName}</p> </b> 
+                    <p class="cardDate textStyles__body--small">${project.creationDate}</p>
+                    <p class="cardDescription textStyles__foornote">${project.description}</p>
                 </div>
                 <div class="card__progress">
                     <div class="card__progress--background">

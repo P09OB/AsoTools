@@ -1,8 +1,4 @@
-import { getMethodologyName, onGetProyect,createSesion } from './firebase.js'
-
-const params = new URLSearchParams(location.search);
-const id = params.get('id');
-localStorage.setItem('idProyect',id)
+import { getMethodologyName, onGetProyect,createSesion,createManualSesion } from './firebase.js'
 
 const diagnostico = document.querySelector('.cardDiagnostico')
 const fundamentacion = document.querySelector('.cardFundamentacion')
@@ -19,6 +15,9 @@ const opcionActividades = document.querySelector('.actividadesOpcions')
 const opcionRecursos = document.querySelector('.recursosOpcions')
 
 const methodologyOne = document.querySelectorAll('.methodologyOne')
+const nameProject = document.querySelector('.nameProject')
+const community = document.querySelector('.community')
+const date = document.querySelector('.date')
 
 var viewDiagnostico = false
 var viewFundamentacion = false
@@ -28,15 +27,24 @@ var viewActividades = false
 var viewRecursos = false
 
 window.addEventListener('DOMContentLoaded', async()=>{
+    const params = new URLSearchParams(location.search);
+    const id = params.get('id');
+    localStorage.setItem('idProyect',id)
 
 const querySnapshot = await onGetProyect()
-
-querySnapshot.forEach( (doc)=>{
+querySnapshot.forEach((doc)=>{
     const project = doc.data()
-    console.log(project)
-
-
+    nameProject.innerHTML = project.proyectName
+    community.innerHTML = "Comunidad:" +" "+project.communityName
+    date.innerHTML = project.creationDate
 })
+})
+
+onGetProyect((querySnapshot) => {
+
+    console.log(querySnapshot)
+    
+
 })
 
 const authModal = document.createElement('section');
@@ -53,7 +61,7 @@ function create (methodologyName,methodologyId,methodologyObjetive) {
         <div class="modal__head">
             <div class= "modal__head--items">
                 <h2>${methodologyName}</h2>
-                <a class= "button button--simple bttManual" href="./manualTemplate.html?id=${methodologyId}&name=${methodologyName}">Llenar manualmente</a>
+                <a class= "button button--simple bttManual">Llenar manualmente</a>
                 <a class= "button--border button--simple bttInteractive">Desarrollar ahora</a>
             </div>
 
@@ -100,7 +108,15 @@ function appear() {
 
     modalClose.addEventListener('click', handleCloseModal);
     bttManual.addEventListener('click', ()=>{
-
+        getMethodologyName((querySnapshot) => {
+            let questions =''
+            querySnapshot.forEach((doc) => {
+        
+                const methodology = doc.data()
+                questions = methodology.questions
+            });
+        createManualSesion(localStorage.getItem('idUser'), localStorage.getItem('nameMethodology'),questions)
+    })
     })
 
     function code () {
@@ -115,7 +131,16 @@ function appear() {
     
     bttInteractive.addEventListener('click',()=>{
         localStorage.setItem('codeSesion', code())
-        createSesion(localStorage.getItem('codeSesion'), localStorage.getItem('idUser'), localStorage.getItem('nameMethodology'))
+        getMethodologyName((querySnapshot) => {
+            let questions =''
+            querySnapshot.forEach((doc) => {
+        
+                const methodology = doc.data()
+                questions = methodology.questions
+            });
+            createSesion(localStorage.getItem('codeSesion'), localStorage.getItem('idUser'), localStorage.getItem('nameMethodology'),questions)
+
+        })
     })
 
 
@@ -251,5 +276,18 @@ recursos.addEventListener('click', (e) => {
 
 })
 
+//HOVERS
 
+const textProblem = document.querySelector('.textProblem')
+const problemDiv = document.querySelector('.problem')
 
+problemDiv.addEventListener('mouseover', (e) => {
+
+    textProblem.innerHTML = "Desarrolla la fase díagnostico!!."
+
+})
+
+problemDiv.addEventListener('mouseout', ()=>{
+    textProblem.innerHTML = ""
+
+})

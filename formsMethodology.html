@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AsoTools</title>
+    <link rel="stylesheet" href="./css/main.css">
+
+</head>
+<body>
+
+    <nav class="nav"></nav>
+
+    <div class="content">
+
+        <form class="banner__form banner__form--big methodologyForm">
+            <h2 class="textStyles__title textStyles--darkGreen textStyles--center">Agregar Metodologia</h2>
+            
+            <label class="input__label label-name">
+                Nombre de la metodologia
+                <input class="input name" type="text" placeholder="Nombre la metodologia"
+                    name="nameMet">
+            </label>
+
+
+            <label class="input__label label-name">
+                Objetivo
+                <input class="input name" type="text" placeholder="Cual es el Objetivo"
+                    name="objMet">
+            </label>
+
+            <label class="input__label label-name">
+                Beneficio
+                <input class="input name" type="text" placeholder="Cual es el beneficio"
+                    name="beneMet">
+            </label>
+
+            <label for="type" class="input__label label-name">Nivel</label>
+            <select id="type" class="input name" name="level">
+                <option value="">Seleccione un nivel</option>
+                <option value="Soy parte">Soy parte</option>
+                <option value="Somos parte">Somos parte</option>
+                <option value="Tomamos Parte">Tomamos Parte</option>
+            </select>
+
+            <label for="type" class="input__label label-name">Fase</label>
+            <select id="type" class="input name" name="phase">
+                <option value="">Seleccione una fase</option>
+                <option value="Díagnostico">Díagnostico</option>
+                <option value="Fundamentación">Fundamentación</option>
+                <option value="Objetivos">Objetivos</option>
+                <option value="Propuesta">Propuesta</option>
+                <option value="Recursos">Recursos</option>
+                <option value="Actividades">Actividades</option>
+
+            </select>
+
+            <label class="input__label input__number label-name">
+                Tiempo
+                <input class="input name" type="number" placeholder="0"
+                    name="time">
+            </label>
+
+            <label class="input__label  label-name">
+                Precaución
+                <input class="input name" type="text" placeholder="Mencione la precaución"
+                    name="caution">
+            </label>
+
+            <label for="type" class="input__label label-name">Dificultad</label>
+            <select id="type" class="input name" name="dificulty">
+                <option value="">Seleccione una dificultad</option>
+                <option value="Fácil">Fácil</option>
+                <option value="Intermedio">Intermedio</option>
+                <option value="Dificil">Dificil</option>
+
+            </select>
+
+            <label class="input__label  label-name">
+                Pasos
+                <input class="input name" type="text" placeholder="Mencione los pasos"
+                    name="stepsMet">
+            </label>
+
+            <label class="input__label  label-name">
+                Preguntas
+                <input class="input name" type="text" placeholder="Que se le va a preguntar"
+                    name="questionsMet">
+            </label>
+
+            <label for="image" class="input__label  label-name">Fotos</label>
+            <section class="banner__form--group">
+                <div class="productForm__input--file-input">
+                    <input multiple id="image" class="productForm__input productForm__input--file" type="file"
+                        name="image">
+                    <label for="image">Select file</label>
+                </div>
+                <div class="productForm__images"></div>
+
+
+            </section>
+
+            <button class="button button--width">Crear</button>
+
+        </form>
+
+    </div>
+
+    
+</body>
+
+<script type="module" src="./scripts/formsMethodology.js"></script>
+<script type="module" src="scripts/navModal.js"></script>
+
+</html>

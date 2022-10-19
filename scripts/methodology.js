@@ -13,11 +13,12 @@ window.addEventListener('DOMContentLoaded', async()=>{
     console.log(querySnapshot)
 
     querySnapshot.forEach( (doc)=>{
-        const project = doc.data()
+        console.log('hola')
 
+        const project = doc.data()
+        var number = project.steps.length
         //HTML
-    
-    for (let i = 0; i < project.steps.length; i++) {
+    for (let i = 0; i < number; i++) {
         //PASOS
         console.log(project.steps[i])
     }
