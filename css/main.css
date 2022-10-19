@@ -40,7 +40,7 @@ body {
   padding-bottom: 150px;
   border-radius: 27px;
   padding-top: 14px;
-  height: 1122px;
+  height: 60%;
 }
 
 a:hover {
@@ -236,6 +236,7 @@ a:hover {
 .textStyles__body {
   font-size: 16px;
   font-weight: 500;
+  padding-top: 20px;
 }
 .textStyles__body--large {
   font-size: 20px;
@@ -561,12 +562,20 @@ a:hover {
   opacity: 0.08;
 }
 .dashboard__methodology--features {
-  width: 244px;
-  height: 340px;
+  width: 230px;
   background-color: rgba(217, 217, 217, 0.333);
   padding: 15px;
   margin-top: 50px;
   border-radius: 10px;
+  height: 55%;
+}
+.dashboard__methodology--steps {
+  padding: 40px;
+  max-width: 50%;
+  text-align: justify;
+}
+.dashboard__methodology--card {
+  padding-bottom: 15px;
 }
 .dashboard--content {
   background-color: white;
@@ -574,6 +583,7 @@ a:hover {
   display: flex;
   padding-left: 6%;
   padding-right: 6%;
+  justify-content: space-evenly;
 }
 
 .quadrant {
@@ -721,4 +731,12 @@ a:hover {
 .modal__head--img {
   width: 60%;
   padding-right: 20px;
+}
+
+.methodology--steps {
+  display: flex;
+  padding: 15px;
+}
+.methodology--number {
+  padding-right: 15px;
 }/*# sourceMappingURL=main.css.map */

@@ -44,8 +44,9 @@ window.addEventListener('DOMContentLoaded', async()=>{
         number.forEach((docs)=>{
             cantidad += 1
             const step = document.createElement('div');
+            step.classList.add('methodology--steps')
             step.innerHTML = `
-            <h3>${cantidad}</h3>
+            <h3 class="textStyles--darkGreen methodology--number">${cantidad}</h3>
             <p>${docs}</p>
             `
             steps.appendChild(step)
