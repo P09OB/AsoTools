@@ -92,7 +92,7 @@ export const onGetMethodologies = (callback) =>
   onSnapshot(collection(db, 'methodologies'), callback)
 
 
-export const getmethodology = () => getDocs(collection(db, 'methodologies'), localStorage.getItem('idMethodology'))
+export const getmethodology = (callback) => onSnapshot(query(collection(db, 'methodologies'),where('id', '==', localStorage.getItem('idMethodology'))),callback )
 
 export const getMethodologyName = (callback) =>
 

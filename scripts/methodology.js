@@ -4,25 +4,59 @@ const params = new URLSearchParams(location.search);
 const id = params.get('id');
 localStorage.setItem('idMethodology',id)
 
-if (!id) {
-    location.href = "./libray.html";
-}
+////
+const nameMet = document.querySelector('.nameMet')
+const beneMet = document.querySelector('.beneMet')
+const level = document.querySelector('.level')
+const duration = document.querySelector('.duration')
+const dificulty = document.querySelector('.dificulty')
+const phase = document.querySelector('.phase')
+
+const steps = document.querySelector('.steps')
+var number = ''
+////
 
 window.addEventListener('DOMContentLoaded', async()=>{
-    const querySnapshot = await getmethodology()
-    console.log(querySnapshot)
 
-    querySnapshot.forEach( (doc)=>{
-        console.log('hola')
-
-        const project = doc.data()
-        var number = project.steps.length
-        //HTML
-    for (let i = 0; i < number; i++) {
-        //PASOS
-        console.log(project.steps[i])
+    if (!id) {
+        location.href = "./libray.html";
     }
+    
+    getmethodology((querySnapshot) => {
+
+        querySnapshot.forEach( (doc)=>{
+            console.log(doc.data())
+    
+            const project = doc.data()
+             number = project.steps
+            //HTML
+            nameMet.innerHTML = project.name
+            beneMet.innerHTML = project.benefit
+            level.innerHTML = project.level
+            duration.innerHTML = project.time+" "+"Minutos"
+            dificulty.innerHTML = project.dificulty
+            phase.innerHTML = project.phase
+    
+            
+        })
+        steps.innerHTML = ''
+        var cantidad = 0
+        number.forEach((docs)=>{
+            cantidad += 1
+            const step = document.createElement('div');
+            step.innerHTML = `
+            <h3>${cantidad}</h3>
+            <p>${docs}</p>
+            `
+            steps.appendChild(step)
+    
     })
+        
+
+    })
+    
+
+    
 
 })
 
