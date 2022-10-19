@@ -13,6 +13,7 @@ const dificulty = document.querySelector('.dificulty')
 const phase = document.querySelector('.phase')
 
 const steps = document.querySelector('.steps')
+const plantilla = document.querySelector('.plantilla')
 var number = ''
 ////
 
@@ -36,6 +37,7 @@ window.addEventListener('DOMContentLoaded', async()=>{
             duration.innerHTML = project.time+" "+"Minutos"
             dificulty.innerHTML = project.dificulty
             phase.innerHTML = project.phase
+            plantilla.src = "./imgs/"+project.id+".png"
     
             
         })
