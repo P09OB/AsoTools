@@ -169,6 +169,13 @@ a:hover {
 .button--width {
   width: 100%;
 }
+.button--small {
+  margin-top: 0;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-left: 10px;
+}
 .button--simple {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -210,6 +217,9 @@ a:hover {
 }
 .input__label--description {
   height: 60px;
+}
+.input__group {
+  display: flex;
 }
 .input__number {
   width: 40%;
@@ -297,6 +307,9 @@ a:hover {
 }
 .textStyles--disabled {
   color: #C4C4C4;
+}
+.textStyles--grey {
+  color: rgb(157, 157, 157);
 }
 .textStyles--white {
   color: white;
@@ -665,9 +678,6 @@ a:hover {
   top: -10px;
   justify-content: flex-end;
 }
-.images__resume {
-  background-image: url("../arbolCompromisos.png");
-}
 
 .modal {
   position: fixed;
@@ -680,6 +690,7 @@ a:hover {
   transition: opacity 0.5s ease;
   opacity: 0;
   color: green;
+  z-index: 2;
 }
 .modal__backdrop {
   position: absolute;
@@ -737,6 +748,237 @@ a:hover {
   display: flex;
   padding: 15px;
 }
+.methodology--question {
+  display: flex;
+  padding: 15px;
+}
 .methodology--number {
   padding-right: 15px;
+}
+
+.productForm {
+  display: block;
+  width: 852px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  color: #182a30;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 16px;
+  padding-left: 49px;
+  font-family: Poppins;
+}
+.productForm__group {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 7px;
+}
+.productForm__label {
+  display: block;
+  margin-top: 30px;
+}
+.productForm__label--checkbox {
+  margin-top: 8px;
+}
+.productForm__label--auth {
+  margin-top: 20px;
+  font-family: "Raleway", sans-serif;
+  font-size: 15px;
+}
+.productForm__input {
+  display: block;
+  margin-top: 7px;
+  width: 60%;
+  height: 47px;
+  border: 1px solid #003548;
+  padding-left: 10px;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.productForm__input--auth {
+  background-color: bisque;
+  background: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  border-radius: 16px;
+}
+.productForm__input--price {
+  background-image: url("../imag/CurrencyDollar.png");
+  background-repeat: no-repeat;
+  background-position: 10px 13px;
+  padding-left: 35px;
+}
+.productForm__input--duration {
+  width: 8%;
+}
+.productForm__input--file {
+  opacity: 0;
+  width: 0.1px;
+  height: 0.1px;
+  position: absolute;
+}
+.productForm__input--file-input label {
+  display: block;
+  border-radius: 4px;
+  background-image: url("../imgs/add.png");
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  background-position: 27px 13px;
+  margin-right: 10px;
+  width: 105px;
+  height: 105px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding-top: 40px;
+  border: 1px solid #003548;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #003548;
+  font-weight: bold;
+  cursor: pointer;
+}
+.productForm__button {
+  display: block;
+  margin-top: 40px;
+}
+.productForm__img {
+  width: 105px;
+  height: 105px;
+  margin: 0px 10px 0 0;
+  border-radius: 4px;
+  border: 1px solid rgb(182, 181, 181);
+}
+.productForm__imgs {
+  width: 105px;
+  height: 105px;
+  margin: 0px 10px 0 0;
+  border-radius: 4px;
+  border: 1px solid rgb(182, 181, 181);
+}
+.productForm__images {
+  display: flex;
+}
+.productForm__image {
+  display: flex;
+}
+.productForm__addAd {
+  background-color: #cfa24f;
+  display: flex;
+  align-items: center;
+  color: white;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+.productForm__load {
+  background-color: #04171e;
+  display: flex;
+  align-items: center;
+  color: white;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+.productForm__wrong {
+  background-color: #ab2e2e;
+  display: flex;
+  align-items: center;
+  color: white;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+.productForm__wrong--text {
+  color: #ab2e2e;
+  font-size: 12px;
+}
+.productForm__state {
+  width: 58px;
+  margin-right: 10px;
+  margin-left: 50px;
+}
+.productForm__checkbox {
+  margin-right: 10px;
+}
+
+:root {
+  --circle-size: clamp(1.8rem, 2vw, 3rem);
+  --spacing: clamp(0.25rem, 2vw, 0.5rem);
+}
+
+.c-stepper__item {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  padding-bottom: 1em;
+}
+.c-stepper__item:before {
+  content: "";
+  flex: 0 0 var(--circle-size);
+  height: var(--circle-size);
+  border-radius: 50%;
+  background-color: lightgrey;
+}
+.c-stepper__item:not(:last-child):after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: calc(var(--circle-size) + var(--spacing));
+  bottom: var(--spacing);
+  z-index: 1;
+  transform: translateX(calc(var(--circle-size) / 2));
+  width: 2px;
+  background-color: lightgrey;
+}
+
+.c-stepper__item--active:before {
+  background-color: rgba(142, 197, 67, 0.07);
+  border-color: #126A3A;
+  border: 2px solid #126A3A;
+}
+.c-stepper__item--active:not(:last-child):after {
+  background-color: #126A3A;
+}
+
+.c-stepper__item--check:before {
+  background-image: url(../imgs/check.svg);
+  background-size: contain;
+}
+
+.c-stepper__add {
+  color: #126A3A;
+  display: flex;
+  cursor: pointer;
+}
+.c-stepper__add--img {
+  margin-right: 5px;
+}
+
+.c-stepper__title {
+  font-weight: bold;
+  font-size: clamp(1rem, 4vw, 1.25rem);
+  margin-bottom: clamp(0.85rem, 2vmax, 1rem);
+  padding-top: 5px;
+  cursor: pointer;
+}
+
+.c-stepper__desc {
+  color: grey;
+  font-size: clamp(0.85rem, 2vmax, 1rem);
+  margin-bottom: 15px;
+}
+
+.c-stepper__content {
+  max-width: 700px;
+}
+
+/*** Non-demo CSS ***/
+.wrapper {
+  max-width: 1000px;
+  margin: 2rem auto 0;
+}
+
+:before,
+:after {
+  box-sizing: border-box;
 }/*# sourceMappingURL=main.css.map */

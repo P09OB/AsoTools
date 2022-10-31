@@ -14,6 +14,7 @@ const phase = document.querySelector('.phase')
 
 const steps = document.querySelector('.steps')
 const plantilla = document.querySelector('.plantilla')
+const imageLogo = document.querySelector('.imageLogo')
 var number = ''
 ////
 
@@ -37,7 +38,8 @@ window.addEventListener('DOMContentLoaded', async()=>{
             duration.innerHTML = project.time+" "+"Minutos"
             dificulty.innerHTML = project.dificulty
             phase.innerHTML = project.phase
-            plantilla.src = "./imgs/"+project.id+".png"
+            imageLogo.src = project.profilePicture[0].url
+            plantilla.src = project.templates[0].url
     
             
         })
@@ -52,14 +54,7 @@ window.addEventListener('DOMContentLoaded', async()=>{
             <p>${docs}</p>
             `
             steps.appendChild(step)
-    
     })
-        
-
     })
-    
-
-    
-
 })
 

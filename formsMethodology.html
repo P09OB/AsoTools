@@ -11,7 +11,7 @@
 <body>
 
     <nav class="nav"></nav>
-
+    
     <div class="content">
 
         <form class="banner__form banner__form--big methodologyForm">
@@ -47,13 +47,15 @@
             <label for="type" class="input__label label-name">Fase</label>
             <select id="type" class="input name" name="phase">
                 <option value="">Seleccione una fase</option>
-                <option value="Díagnostico">Díagnostico</option>
-                <option value="Fundamentación">Fundamentación</option>
-                <option value="Objetivos">Objetivos</option>
+                <option value="Problema">Problema</option>
+                <option value="Fortalezas">Fortalezas</option>
+                <option value="Objetivo General">Objetivo General</option>
+                <option value="Objetivo Específicos">Objetivos Específicos</option>
                 <option value="Propuesta">Propuesta</option>
-                <option value="Recursos">Recursos</option>
+                <option value="Impacto">Impacto</option>
                 <option value="Actividades">Actividades</option>
-
+                <option value="Recursos">Recursos</option>
+                <option value="Alianzas actuales y necesarias">Alianzas actuales y necesarias</option>
             </select>
 
             <label class="input__label input__number label-name">
@@ -77,33 +79,82 @@
 
             </select>
 
+            <button class="button button--width">Siguiente</button>
+
+        </form>
+
+        <form class="banner__form banner__form--big stepsForm hidden">
+            <h2 class="textStyles__title textStyles--darkGreen textStyles--center">Agrega los pasos</h2>
+
             <label class="input__label  label-name">
                 Pasos
+                <div class="input__group">
                 <input class="input name" type="text" placeholder="Mencione los pasos"
                     name="stepsMet">
+                    <button class="addStepBttn button button--small">Agregar</button>
+                </div>
             </label>
+
+            <div class="dashboard__methodology--steps">
+                <h3 class="textStyles--darkGreen">Pasos</h3>
+    
+                <div class=" steps"></div>
+                
+            </div>
+
+            <button class="nextBtt button button--width hidden">Siguiente</button>
+
+        </form>
+
+        <form class="banner__form banner__form--big questionsForm hidden">
+            <h2 class="textStyles__title textStyles--darkGreen textStyles--center">Agrega las preguntas</h2>
 
             <label class="input__label  label-name">
                 Preguntas
+                <div class="input__group">
+
                 <input class="input name" type="text" placeholder="Que se le va a preguntar"
                     name="questionsMet">
+                    <button class="addQuestionsBttn button button--small">Agregar</button>
+                </div>
             </label>
 
-            <label for="image" class="input__label  label-name">Fotos</label>
-            <section class="banner__form--group">
+            <div class="dashboard__methodology--steps">
+                <h3 class="textStyles--darkGreen">Preguntas</h3>
+    
+                <div class="questions"></div>
+                
+            </div>
+
+            <button class="nextBttQues button button--width hidden">Siguiente</button>
+        </form>
+
+        <form class="banner__form banner__form--big pictures hidden">
+            <h2 class="textStyles__title textStyles--darkGreen textStyles--center">Agrega las imagenes</h2>
+
+            <label for="image" class="productForm__label">Plantilla</label>
+            <section class="productForm__group">
                 <div class="productForm__input--file-input">
                     <input multiple id="image" class="productForm__input productForm__input--file" type="file"
                         name="image">
                     <label for="image">Select file</label>
                 </div>
                 <div class="productForm__images"></div>
+            </section>
 
-
+            <label for="porfileImag" class="productForm__label">Portada</label>
+            <section class="productForm__group">
+                <div class="productForm__input--file-input">
+                    <input multiple id="porfileImag" class="productForm__input productForm__input--file" type="file"
+                        name="porfileImag">
+                    <label for="porfileImag">Select file</label>
+                </div>
+                <div class="productForm__image"></div>
             </section>
 
             <button class="button button--width">Crear</button>
-
         </form>
+
 
     </div>
 

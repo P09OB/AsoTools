@@ -2,6 +2,9 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
 import { getFirestore, collection, addDoc, getDocs, getDoc, setDoc, doc, onSnapshot, where, query, collectionGroup,updateDoc, arrayUnion} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"
 import { signOut, getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js"
+import { getStorage, ref, uploadBytes,uploadBytesResumable,getDownloadURL } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js";
+
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -19,6 +22,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore()
 const auth = getAuth();
+const storage = getStorage(app);
+let updateOne = false;
+let updateTwo = false;
+
 let idMethodology = ""
 let loggedUser = null
 
@@ -63,21 +70,24 @@ export const checkUser = (email, password) => {
 
 }
 
-export const addProyect = (id, proyectName, communityName, creationDate, description, level, progress, state) => {
+export const addProyect = (idUser, proyectName, communityName, creationDate, description, level, progress, state,) => {
 
-  console.log(loggedUser)
+  const userRef = doc(collection(doc(db, 'users', idUser), 'proyects'))
+  const id = userRef.id
+
   const proyect = {
+    id,
     proyectName,
     communityName,
     creationDate,
     description,
     level,
     progress,
-    state
+    state,
+    progress: 0,
   }
-  const userRef = doc(db, 'users', id);
-  addDoc(collection(userRef, 'proyects'), proyect).then(() => {
-    location.href = "proyect.html";
+  setDoc(userRef,proyect).then(() => {
+    location.href = `./proyect.html?id=${id}&name=${proyectName}`
   })
 
 }
@@ -98,7 +108,9 @@ export const getMethodologyName = (callback) =>
 
   onSnapshot(query(collection(db, 'methodologies'), where('name', '==', localStorage.getItem('nameMethodology'))), callback)
 
-export const onGetProyect = () => getDocs(collectionGroup(db, 'proyects'), localStorage.getItem('idProyect'))
+export const onGetProyect = (callback) => 
+
+onSnapshot(doc(db, 'users', localStorage.getItem('idUser'), "proyects", localStorage.getItem('idProyect')), callback)
 
 export const createSesion = (code, idUser, idMethodology, questions) => {
   const userRef = doc(collection(doc(db, 'users', idUser), 'sesion'))
@@ -108,7 +120,7 @@ export const createSesion = (code, idUser, idMethodology, questions) => {
 
 
   for (let i = 0; i < questions.length; i++) {
-    objQuestions.push({ question: questions[i], code: crypto.randomUUID() })
+    objQuestions.push({ question: questions[i], code: 'questions'+[i] })
   }
   const sesion = {
     id,
@@ -127,12 +139,12 @@ export const createSesion = (code, idUser, idMethodology, questions) => {
   })
 }
 
-export const createManualSesion = (idUser, idMethodology,questions) =>{
+export const createManualSesion = (idUser, idMethodology,questions,template) =>{
   const userRef = doc(collection(doc(db, 'users', idUser), 'sesion'))
   const id = userRef.id
   var objQuestions = []
   for (let i = 0; i < questions.length; i++) {
-    objQuestions.push({ question: questions[i], code: crypto.randomUUID() })
+    objQuestions.push({ question: questions[i], code: 'questions'+[i] })
   }
   const sesion = {
     id,
@@ -141,6 +153,7 @@ export const createManualSesion = (idUser, idMethodology,questions) =>{
     objQuestions,
     counter: 0,
     start: false,
+    template
   }
 
   setDoc(userRef,sesion).then(()=>{
@@ -190,11 +203,13 @@ export const setSesionCompleted = (completed) =>{
     })
 }
 
-export const addMethodology = (name,objetive,benefit,level,phase,dificulty,caution,time) =>{
-  const ref = collection(db, 'methodologies')
-  const id = ref.id
-  const steps = []
-  const questions = []
+export const addMethodology = (name,objetive,benefit,level,phase,dificulty,caution,time,steps, questions,templatesFiles,profileFiles) =>{
+  const refe = doc(collection(db, 'methodologies'))
+  const id = refe.id
+  const uploadPromises = [];
+  const downloadUrlPromises = [];
+  const downloadUrlPromisesPP = [];
+
 
   const methodology ={
     id,
@@ -211,5 +226,76 @@ export const addMethodology = (name,objetive,benefit,level,phase,dificulty,cauti
 
   }
 
-  addDoc(ref,methodology)
+  setDoc(refe,methodology).then(()=>{
+
+
+    templatesFiles.forEach((file) => {
+
+      const storageRef = ref(storage,`methodologies/${id}`);
+
+      const refStorage =  uploadBytesResumable(ref(storageRef,`templates/${file.name}`), file)
+      refStorage.on('state', (snapshot)=>{
+
+        var progess = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log("Upload"+ progess + "%")
+      }, 
+
+      (error) =>{
+        console.log("Error")
+      },
+
+      ()=>{
+        getDownloadURL(refStorage.snapshot.ref).then((downloadURL)=>{
+          downloadUrlPromises.push({
+            url: downloadURL
+          })
+
+          updateDoc(refe, {
+            templates: downloadUrlPromises
+
+          }).then(()=>{
+            updateOne = true;
+            if(updateOne & updateTwo){
+              location.href =`./methodology.html?id=${id}&name=${name}`
+            }
+          });
+        })
+      })
+  });
+
+  profileFiles.forEach((file) => {
+
+    const storageRef = ref(storage,`methodologies/${id}`);
+
+    const refStorage =  uploadBytesResumable(ref(storageRef,`profile/${file.name}`), file)
+    refStorage.on('state', (snapshot)=>{
+
+      var progess = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      console.log("Upload"+ progess + "%")
+    }, 
+
+    (error) =>{
+      console.log("Error")
+    },
+
+    ()=>{
+      getDownloadURL(refStorage.snapshot.ref).then((downloadURL)=>{
+        downloadUrlPromisesPP.push({
+          url: downloadURL
+        })
+
+        updateDoc(refe, {
+          profilePicture: downloadUrlPromisesPP
+        }).then(()=>{
+          updateTwo = true;
+          if(updateOne & updateTwo){
+            location.href =`./methodology.html?id=${id}&name=${name}`
+          }
+        }
+
+        );
+      })
+    })
+  })
+  })
 }

@@ -1,18 +1,26 @@
 import { getMethodologyName, onGetProyect,createSesion,createManualSesion } from './firebase.js'
 
-const diagnostico = document.querySelector('.cardDiagnostico')
-const fundamentacion = document.querySelector('.cardFundamentacion')
-const objetivos = document.querySelector('.cardObj')
+const problem = document.querySelector('.cardProblem')
+const strengths = document.querySelector('.cardStrengths')
+const causes = document.querySelector('.cardCauses')
+const objectiveG = document.querySelector('.cardObjectiveG')
+const objectiveE = document.querySelector('.cardObjectiveE')
 const propuesta = document.querySelector('.cardPropuesta')
+const impact = document.querySelector('.cardImpact')
 const actividades = document.querySelector('.cardActividades')
 const recursos = document.querySelector('.cardRecursos')
+const partnerships = document.querySelector('.cardPartnerships')
 
-const opcionDiagnostico = document.querySelector('.diagnosticoOpcions')
-const opcionFundamentacion = document.querySelector('.fundamentacionOpcions')
-const objOpcions = document.querySelector('.objOpcions')
+const opcionProblem = document.querySelector('.problemOpcions')
+const opcionStrengths = document.querySelector('.strengthsOpcions')
+const opcionCauses = document.querySelector('.causesOpcions')
+const objGOpcions = document.querySelector('.objectivegOpcions')
+const objEOpcions = document.querySelector('.objectiveeOpcions')
 const opcionPropuesta = document.querySelector('.propuestaOpcions')
+const opcionImpact = document.querySelector('.impactOpcions')
 const opcionActividades = document.querySelector('.actividadesOpcions')
 const opcionRecursos = document.querySelector('.recursosOpcions')
+const opcionPartnerships = document.querySelector('.partnershipsOpcions')
 
 const methodologyOne = document.querySelectorAll('.methodologyOne')
 const nameProject = document.querySelector('.nameProject')
@@ -31,26 +39,23 @@ window.addEventListener('DOMContentLoaded', async()=>{
     const id = params.get('id');
     localStorage.setItem('idProyect',id)
 
-const querySnapshot = await onGetProyect()
-querySnapshot.forEach((doc)=>{
-    const project = doc.data()
-    nameProject.innerHTML = project.proyectName
-    community.innerHTML = "Comunidad:" +" "+project.communityName
-    date.innerHTML = project.creationDate
-})
-})
+    onGetProyect((querySnapshot) => {
+        const project = querySnapshot.data()
+        console.log(project)
+        nameProject.innerHTML = project.proyectName
+        community.innerHTML = "Comunidad:" +" "+project.communityName
+        date.innerHTML = project.creationDate
+    })
 
-onGetProyect((querySnapshot) => {
-
-    console.log(querySnapshot)
     
 
 })
 
+
 const authModal = document.createElement('section');
 authModal.classList.add('modal');
 
-function create (methodologyName,methodologyId,methodologyObjetive) {
+function create (methodologyName,methodologyId,methodologyObjetive,methodologyTemplate) {
     authModal.innerHTML = `
     <div class="modal__backdrop"></div>
 
@@ -66,7 +71,7 @@ function create (methodologyName,methodologyId,methodologyObjetive) {
             </div>
 
             <div class= "modal__head--img">
-                <img class="images--big" src="arbolCompromisos.png">
+                <img class="images--big" src="${methodologyTemplate}">
             </div>
         </div>
 
@@ -110,12 +115,19 @@ function appear() {
     bttManual.addEventListener('click', ()=>{
         getMethodologyName((querySnapshot) => {
             let questions =''
+            let template = ''
             querySnapshot.forEach((doc) => {
         
                 const methodology = doc.data()
                 questions = methodology.questions
+                template = methodology.templates[0].url
             });
-        createManualSesion(localStorage.getItem('idUser'), localStorage.getItem('nameMethodology'),questions)
+            console.log(template)
+            setTimeout(function () {
+
+        createManualSesion(localStorage.getItem('idUser'), localStorage.getItem('nameMethodology'),questions,template)
+    }, 500);
+
     })
     })
 
@@ -152,17 +164,18 @@ methodologyOne.forEach((elem) => {
     elem.addEventListener('click', (e) => {
         let nameMethodology = elem.textContent
         localStorage.setItem('nameMethodology', nameMethodology)
-        console.log(localStorage.getItem('nameMethodology'))
 
         getMethodologyName((querySnapshot) => {
 
             querySnapshot.forEach((doc) => {
-        
+                console.log("entre")
+
                 const methodology = doc.data()
                  let methodologyName = methodology.name
                  let methodologyId = methodology.id
                  let methodologyObjetive = methodology.objetive
-                 create(methodologyName,methodologyId,methodologyObjetive)
+                 let methodologyTemplate = methodology.templates[0].url
+                 create(methodologyName,methodologyId,methodologyObjetive,methodologyTemplate)
                  appear()
 
             });
@@ -172,71 +185,160 @@ methodologyOne.forEach((elem) => {
     })
 })
 
-diagnostico.addEventListener('click', (e) => {
+problem.addEventListener('click', (e) => {
 
     if (viewDiagnostico) {
-        opcionDiagnostico.classList.add('hidden')
+        opcionProblem.classList.add('hidden')
         viewDiagnostico = false
 
     } else {
-        opcionDiagnostico.classList.remove('hidden')
-        opcionFundamentacion.classList.add('hidden')
-        objOpcions.classList.add('hidden')
+        opcionProblem.classList.remove('hidden')
+        opcionStrengths.classList.add('hidden')
+        opcionCauses.classList.add('hidden')
+        objGOpcions.classList.add('hidden')
+        objEOpcions.classList.add('hidden')
         opcionPropuesta.classList.add('hidden')
+        opcionImpact.classList.add('hidden')
         opcionActividades.classList.add('hidden')
         opcionRecursos.classList.add('hidden')
+        opcionPartnerships.classList.add('hidden')
+
         viewDiagnostico = true
     }
 })
 
-fundamentacion.addEventListener('click', (e) => {
+strengths.addEventListener('click', (e) => {
 
     if (viewFundamentacion) {
-        opcionFundamentacion.classList.add('hidden')
+        opcionStrengths.classList.add('hidden')
         viewFundamentacion = false
     } else {
-        opcionDiagnostico.classList.add('hidden')
-        opcionFundamentacion.classList.remove('hidden')
-        objOpcions.classList.add('hidden')
+        opcionProblem.classList.add('hidden')
+        opcionStrengths.classList.remove('hidden')
+        opcionCauses.classList.add('hidden')
+        objGOpcions.classList.add('hidden')
+        objEOpcions.classList.add('hidden')
         opcionPropuesta.classList.add('hidden')
+        opcionImpact.classList.add('hidden')
         opcionActividades.classList.add('hidden')
         opcionRecursos.classList.add('hidden')
+        opcionPartnerships.classList.add('hidden')
+
+
         viewFundamentacion = true
     }
 
 })
 
-objetivos.addEventListener('click', (e) => {
+causes.addEventListener('click', (e) => {
+
+    if (viewFundamentacion) {
+        opcionCauses.classList.add('hidden')
+        viewFundamentacion = false
+    } else {
+        opcionProblem.classList.add('hidden')
+        opcionStrengths.classList.add('hidden')
+        opcionCauses.classList.remove('hidden')
+        objGOpcions.classList.add('hidden')
+        objEOpcions.classList.add('hidden')
+        opcionPropuesta.classList.add('hidden')
+        opcionImpact.classList.add('hidden')
+        opcionActividades.classList.add('hidden')
+        opcionRecursos.classList.add('hidden')
+        opcionPartnerships.classList.add('hidden')
+
+
+        viewFundamentacion = true
+    }
+
+})
+
+objectiveG.addEventListener('click', (e) => {
 
     if (viewObjetivos) {
-        objOpcions.classList.add('hidden')
+        objGOpcions.classList.add('hidden')
         viewObjetivos = false
 
     } else {
-        opcionDiagnostico.classList.add('hidden')
-        opcionFundamentacion.classList.add('hidden')
-        objOpcions.classList.remove('hidden')
+        opcionProblem.classList.add('hidden')
+        opcionStrengths.classList.add('hidden')
+        opcionCauses.classList.add('hidden')
+        objGOpcions.classList.remove('hidden')
+        objEOpcions.classList.add('hidden')
         opcionPropuesta.classList.add('hidden')
+        opcionImpact.classList.add('hidden')
         opcionActividades.classList.add('hidden')
         opcionRecursos.classList.add('hidden')
+        opcionPartnerships.classList.add('hidden')
+
         viewObjetivos = true
 
     }
 
 })
 
+objectiveE.addEventListener('click', (e) => {
+
+    if (viewObjetivos) {
+        objEOpcions.classList.add('hidden')
+        viewObjetivos = false
+
+    } else {
+        opcionProblem.classList.add('hidden')
+        opcionStrengths.classList.add('hidden')
+        opcionCauses.classList.add('hidden')
+        objGOpcions.classList.add('hidden')
+        objEOpcions.classList.remove('hidden')
+        opcionPropuesta.classList.add('hidden')
+        opcionImpact.classList.add('hidden')
+        opcionActividades.classList.add('hidden')
+        opcionRecursos.classList.add('hidden')
+        opcionPartnerships.classList.add('hidden')
+
+        viewObjetivos = true
+
+    }
+
+})
 propuesta.addEventListener('click', (e) => {
 
     if (viewPropuesta) {
         opcionPropuesta.classList.add('hidden')
         viewPropuesta = false
     } else {
-        opcionDiagnostico.classList.add('hidden')
-        opcionFundamentacion.classList.add('hidden')
-        objOpcions.classList.add('hidden')
+        opcionProblem.classList.add('hidden')
+        opcionStrengths.classList.add('hidden')
+        opcionCauses.classList.add('hidden')
+        objGOpcions.classList.add('hidden')
+        objEOpcions.classList.add('hidden')
         opcionPropuesta.classList.remove('hidden')
+        opcionImpact.classList.add('hidden')
         opcionActividades.classList.add('hidden')
         opcionRecursos.classList.add('hidden')
+        opcionPartnerships.classList.add('hidden')
+
+        viewPropuesta = true
+    }
+
+})
+
+impact.addEventListener('click', (e) => {
+
+    if (viewPropuesta) {
+        opcionImpact.classList.add('hidden')
+        viewPropuesta = false
+    } else {
+        opcionProblem.classList.add('hidden')
+        opcionStrengths.classList.add('hidden')
+        opcionCauses.classList.add('hidden')
+        objGOpcions.classList.add('hidden')
+        objEOpcions.classList.add('hidden')
+        opcionPropuesta.classList.add('hidden')
+        opcionImpact.classList.remove('hidden')
+        opcionActividades.classList.add('hidden')
+        opcionRecursos.classList.add('hidden')
+        opcionPartnerships.classList.add('hidden')
+
         viewPropuesta = true
     }
 
@@ -248,12 +350,16 @@ actividades.addEventListener('click', (e) => {
         opcionActividades.classList.add('hidden')
         viewActividades = false
     } else {
-        opcionDiagnostico.classList.add('hidden')
-        opcionFundamentacion.classList.add('hidden')
-        objOpcions.classList.add('hidden')
+        opcionProblem.classList.add('hidden')
+        opcionStrengths.classList.add('hidden')
+        objGOpcions.classList.add('hidden')
+        objEOpcions.classList.add('hidden')
         opcionPropuesta.classList.add('hidden')
+        opcionImpact.classList.add('hidden')
         opcionActividades.classList.remove('hidden')
         opcionRecursos.classList.add('hidden')
+        opcionPartnerships.classList.add('hidden')
+
         viewActividades = true
     }
 
@@ -265,12 +371,37 @@ recursos.addEventListener('click', (e) => {
         opcionRecursos.classList.add('hidden')
         viewRecursos = false
     } else {
-        opcionDiagnostico.classList.add('hidden')
-        opcionFundamentacion.classList.add('hidden')
-        objOpcions.classList.add('hidden')
+        opcionProblem.classList.add('hidden')
+        opcionStrengths.classList.add('hidden')
+        objGOpcions.classList.add('hidden')
+        objEOpcions.classList.add('hidden')
         opcionPropuesta.classList.add('hidden')
+        opcionImpact.classList.add('hidden')
         opcionActividades.classList.add('hidden')
         opcionRecursos.classList.remove('hidden')
+        opcionPartnerships.classList.add('hidden')
+
+        viewRecursos = true
+    }
+
+})
+
+partnerships.addEventListener('click', (e) => {
+
+    if (viewRecursos) {
+        opcionPartnerships.classList.add('hidden')
+        viewRecursos = false
+    } else {
+        opcionProblem.classList.add('hidden')
+        opcionStrengths.classList.add('hidden')
+        objGOpcions.classList.add('hidden')
+        objEOpcions.classList.add('hidden')
+        opcionPropuesta.classList.add('hidden')
+        opcionImpact.classList.add('hidden')
+        opcionActividades.classList.add('hidden')
+        opcionRecursos.classList.add('hidden')
+        opcionPartnerships.classList.remove('hidden')
+
         viewRecursos = true
     }
 
@@ -283,7 +414,7 @@ const problemDiv = document.querySelector('.problem')
 
 problemDiv.addEventListener('mouseover', (e) => {
 
-    textProblem.innerHTML = "Desarrolla la fase díagnostico!!."
+    textProblem.innerHTML = "¡¡Desarrolla la fase problema!!"
 
 })
 
@@ -291,3 +422,4 @@ problemDiv.addEventListener('mouseout', ()=>{
     textProblem.innerHTML = ""
 
 })
+

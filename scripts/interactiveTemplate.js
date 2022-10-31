@@ -36,6 +36,8 @@ onGetSesion((querySnapshot) => {
     date = sesion.objQuestions[counter]
     obtener = date.question
     codeObtener = date.code
+    resume.style.backgroundImage = `url(${sesion.template})`
+
     if (sesion.start) {
         question.innerHTML = obtener
     }

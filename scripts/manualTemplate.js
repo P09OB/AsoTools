@@ -17,6 +17,9 @@ let isUpdate = false, updateId;
 const explain = document.querySelector(".explain")
 const wrapper = document.querySelector('.wrapper')
 const textFinal = document.querySelector('.textFinal')
+const resume = document.querySelector('.resume')
+let tag = document.querySelector('.resumeAnswers')
+
 //////
 
 let counter = 0
@@ -35,10 +38,12 @@ onGetSesion((querySnapshot) => {
     let html = ''
     let liTag = ''
     sesion = querySnapshot.data()
+    console.log(sesion)
     numberOfQuestions = sesion.objQuestions.length - 2
     date = sesion.objQuestions[counter]
     obtener = date.question
     codeObtener = date.code
+    resume.src = sesion.template
     if (sesion.start) {
         question.innerHTML = obtener
     }
@@ -69,11 +74,23 @@ bttStart.addEventListener('click', () => {
         question.classList.add('hidden')
         wrapper.classList.add('hidden')
         textFinal.classList.remove('hidden')
+        resume.classList.remove('hidden')
         bttStart.innerHTML = 'Volver'
         //location.href = "./proyect.html";
 
+        const array = sesion.questions1
+        tag.innerHTML =''
+        array.forEach((info)=>{
+            const resumeAnswers =  document.createElement('div');
 
-        
+            resumeAnswers.innerHTML = `
+                <div>${info}</div>
+            `;
+        tag.appendChild(resumeAnswers)
+
+        })
+        console.log(array)
+
     } else{
         if (start) {
             view = false

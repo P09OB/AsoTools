@@ -21,65 +21,129 @@
 
         </div>
 
+
+
         <div class="dashboard">
 
             <div class="dashboard__stages">
-                <h3 class="textStyles--clearGreen2 textStyles__title--1">Fases</h3>
-                <div class="cardDiagnostico card--purpe card--state">
-                    <h4>Díagnostico</h4>
-                    <img class="icon" src="./imgs/down.svg">
-                </div>
-                <div class="diagnosticoOpcions hidden">
-                    <div class="card--list card--transparentViolet"><a class="methodologyOne">Árbol de sueños, preocupaciones y compromisos</a>
-                    </div>
-                    <div class="card--list card--transparentViolet"><a  class="methodologyOne">Análisis diferenciado del bienestar</a></div>
-                </div>
+                <div class="wrapper">
+                    <ol class="c-stepper">
+                        <li class="c-stepper__item c-stepper__item--active">
+                            <div class="c-stepper__conten">
+                                <h3 class="c-stepper__title textStyles--darkGreen cardProblem">Problema</h3>
+                                <div class="problemOpcions hidden">
+                                    <div class="c-stepper__desc">
+                                        <a class="methodologyOne">Árbol de sueños, preocupaciones y compromisos</a>
+                                    </div>
+                                    <div class="c-stepper__desc"><a class="methodologyOne">Análisis diferenciado del bienestar</a></div>
+                                    <div class="c-stepper__add"><div><img src="./imgs/add.svg" class="c-stepper__add--img"></div> Agregar</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="c-stepper__item cardStrengths">
+                            <div class="c-stepper__content">
+                                <h3 class="c-stepper__title textStyles--grey">Fortalezas</h3>
+                                <div class="strengthsOpcions hidden">
+                                    <div class="c-stepper__desc"><a>Análisis DAFO</a></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="c-stepper__item cardCauses">
+                            <div class="c-stepper__content">
+                                <h3 class="c-stepper__title textStyles--grey">Causas</h3>
+                                <div class="causesOpcions hidden">
+                                    <div class="c-stepper__desc"><a>Árbol del problema</a></div>
+                                </div>
+                            </div>
 
 
-                <div class="cardFundamentacion card--disabled card--purpe card--state">
-                    <h4>Fundamentación</h4>
-                    <img class="icon" src="./imgs/down.svg">
-                </div>
-                <div class="fundamentacionOpcions hidden">
-                    <div class="card--list card--transparentViolet card--transparentDisabled"><a>Árbol del problema</a></div>
-                </div>
+                        </li>
+                        <li class="c-stepper__item cardObjectiveG">
 
-                <div class="cardObj card--disabled card--green card--state ">
-                    <h4>Objetivos</h4>
-                    <img class="icon" src="./imgs/down.svg">
-                </div>
-                <div class="objOpcions hidden">
-                    <div class="card--list card--transparentGreen card--transparentDisabled"><a>Árbol de objetivos</a></div>
-                    <div class="card--list card--transparentGreen card--transparentDisabled"><a>Análisis de alternativas</a></div>
-                </div>
-                <div class="cardPropuesta card--disabled card--green card--state">
-                    <h4>Propuesta</h4>
-                    <img class="icon" src="./imgs/down.svg">
-                </div>
-                <div class="propuestaOpcions hidden">
-                    <div class="card--list card--transparentGreen card--transparentDisabled"><a>Identificación de soluciones locales o
-                            introducidas</a></div>
-                    <div class="card--list card--transparentGreen card--transparentDisabled"><a>Matriz de evaluación de soluciones</a></div>
-                    <div class="card--list card--transparentGreen card--transparentDisabled"><a>La gran idea</a></div>
-                    <div class="card--list card--transparentGreen card--transparentDisabled"><a>Análisis de impacto</a></div>
-                </div>
-                <div class="cardActividades card--disabled card--state">
-                    <h4>Actividades</h4>
-                    <img class="icon" src="./imgs/down.svg">
-                </div>
-                <div class="actividadesOpcions hidden">
-                    <div class="card--list card--transparentDisabled"><a>Matriz de indicadores y actividades</a></div>
-                </div>
+                            <div class="c-stepper__content">
+                                <h3 class="c-stepper__title textStyles--grey">Objetivo General</h3>
+                                <div class="objectivegOpcions hidden">
 
-                <div class="cardRecursos card--disabled card--state">
-                    <h4>Recursos</h4>
-                    <img class="icon" src="./imgs/down.svg">
-                </div>
-                <div class="recursosOpcions hidden">
-                    <div class="card--list card--transparentDisabled"><a>Matriz de necesidad y disponibilidad de
-                            recursos</a></div>
-                    <div class="card--list card--transparentDisabled"><a>Análisis PESTEL</a></div>
-                    <div class="card--list card--transparentDisabled"><a>Mapa de intercambios</a></div>
+                                    <div class="c-stepper__desc"><a>Árbol de objetivos</a></div>
+                                </div>
+
+                            </div>
+                        </li>
+
+                        <li class="c-stepper__item cardObjectiveE">
+
+                            <div class="c-stepper__content">
+                                <h3 class="c-stepper__title textStyles--grey">Objetivos Específicos</h3>
+                                <div class="objectiveeOpcions hidden">
+
+                                    <div class="c-stepper__desc"><a>Análisis de alternativas</a></div>
+                                </div>
+
+                            </div>
+                        </li>
+
+                        <li class="c-stepper__item cardPropuesta">
+
+                            <div class="c-stepper__content">
+                                <h3 class="c-stepper__title textStyles--grey">Propuesta</h3>
+                                <div class="propuestaOpcions hidden">
+
+                                    <div class="c-stepper__desc"><a>Identificación de soluciones locales o
+                                            introducidas</a></div>
+                                    <div class="c-stepper__desc"><a>Matriz de evaluación de soluciones</a></div>
+                                    <div class="c-stepper__desc"><a>La gran idea</a></div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="c-stepper__item cardImpact">
+
+                            <div class="c-stepper__content">
+                                <h3 class="c-stepper__title textStyles--grey">Impacto</h3>
+                                <div class="impactOpcions hidden">
+                                    <div class="c-stepper__desc"><a>Análisis de impacto</a></div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="c-stepper__item cardActividades">
+
+                            <div class="c-stepper__content">
+                                <h3 class="c-stepper__title textStyles--grey">Actividades</h3>
+                                <div class="actividadesOpcions hidden">
+
+                                    <div class="c-stepper__desc"><a>Matriz de indicadores y actividades</a></div>
+                                </div>
+
+                            </div>
+                        </li>
+
+                        <li class="c-stepper__item cardRecursos">
+
+                            <div class="c-stepper__content">
+                                <h3 class="c-stepper__title textStyles--grey">Recursos</h3>
+                                <div class="recursosOpcions hidden">
+
+                                    <div class="c-stepper__desc"><a>Matriz de necesidad y disponibilidad de recursos</a></div>
+                                </div>
+
+                            </div>
+                        </li>
+
+                        <li class="c-stepper__item cardPartnerships">
+
+                            <div class="c-stepper__content">
+                                <h3 class="c-stepper__title textStyles--grey">Alianzas actuales y necesarias</h3>
+                                <div class="partnershipsOpcions hidden">
+
+                                    <div class="c-stepper__desc"><a>Análisis PESTEL</a></div>
+                                        <div class="c-stepper__desc"><a>Mapa de intercambios</a></div>
+                            </div>
+
+                            </div>
+                        </li>
+
+                    </ol>
                 </div>
 
             </div>
@@ -90,12 +154,14 @@
                 <div class="quadrant__horizontal ">
                     <div class="quadrant__medium quadrant--somosParte  quadrant--disabled objGeneral">
                         <h4 class="textStyles--green textStyles--disabled textStyles__body "><span
-                                class=" textStyles__number textStyles__number--green textStyles__number--disabled ">4</span>Objetivo General</h4>
+                                class=" textStyles__number textStyles__number--green textStyles__number--disabled ">4</span>Objetivo
+                            General</h4>
                         <p class="textStyles__body--small textObjGeneral"></p>
                     </div>
                     <div class="quadrant__medium quadrant--somosParte  quadrant--disabled objSpecific">
                         <h4 class="textStyles--green textStyles--disabled textStyles__body"><span
-                                class=" textStyles__number textStyles__number--green textStyles__number--disabled">5</span>Objetivos especificos</h4>
+                                class=" textStyles__number textStyles__number--green textStyles__number--disabled">5</span>Objetivos
+                            especificos</h4>
                         <p class="textStyles__body--small textObjSpecific"></p>
                     </div>
                 </div>
@@ -109,7 +175,8 @@
                         </div>
                         <div class="causes quadrant__small quadrant--soyParte  quadrant--disabled">
                             <h4 class="textStyles--purpe textStyles--disabled textStyles__body"><span
-                                    class="textStyles__number textStyles__number--violet textStyles__number--disabled">3</span>Causas</h4>
+                                    class="textStyles__number textStyles__number--violet textStyles__number--disabled">3</span>Causas
+                            </h4>
                             <p class="textStyles__body--small textcauses"></p>
                         </div>
                     </div>
@@ -117,7 +184,8 @@
                     <div class="quadrant__vertical">
                         <div class="quadrant__small quadrant--soyParte  quadrant--disabled strengths">
                             <h4 class="textStyles--disabled textStyles--purpe textStyles__body"><span
-                                    class="textStyles__number textStyles__number--violet textStyles__number--disabled">2</span>Fortalezas</h4>
+                                    class="textStyles__number textStyles__number--violet textStyles__number--disabled">2</span>Fortalezas
+                            </h4>
                             <p class="textStyles__body--small textStrengths"></p>
                         </div>
                         <div class="quadrant__small quadrant--disabled alliances">
@@ -130,7 +198,8 @@
 
                     <div class="proposal quadrant__long quadrant__vertical  quadrant--disabled quadrant--somosParte">
                         <h4 class="textStyles--disabled textStyles--green textStyles__body"><span
-                                class="textStyles__number textStyles__number--green textStyles__number--disabled">6</span>Propuesta</h4>
+                                class="textStyles__number textStyles__number--green textStyles__number--disabled">6</span>Propuesta
+                        </h4>
                         <p class="textStyles__body--small textProposal"></p>
                     </div>
 
