@@ -7,17 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AsoTools</title>
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon_package_v0.16/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon_package_v0.16/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon_package_v0.16/favicon-16x16.png">
+    <link rel="manifest" href="./favicon_package_v0.16/site.webmanifest">
+    <link rel="mask-icon" href="./favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 </head>
 
 <body>
 
-    <nav class="nav nav--main">
-        <a class="nav__logo"> <img class="nav__logo--img" src="imgs/logo-white.png"></a>
-        <a class="nav__element nav__desaparecer textStyles--white" href="./index.html">Inicio</a>
-        <a class="nav__element nav__desaparecer textStyles--white">Metodologías</a>
-        <a class="nav__element nav__desaparecer textStyles--white">Sobre nosotros</a>
-        <a class="nav__element nav__desaparecer textStyles--white"> Contáctenos</a>
-    </nav>
+    <nav class="nav"></nav>
 
     <div class="content">
         <section class="banner">
@@ -27,15 +28,14 @@
                 <p class="banner__p">Accede a nuestra canasta de metodologías para aumentar la participación de los
                     miembros
                     de su asociados por medio de la creación de un proyecto.</p>
-                <button type="button" class="button">Conoce más</button>
+                <button type="button" class="button moreInfo">Conoce más</button>
             </article>
 
             <form class="banner__form authform productForm__auth">
                 <h1 class="titleForm textStyles__title textStyles--darkGreen">Inicia Sesión</h1>
 
-                <a class="banner__form--a textForm">Ingresa con tu correo y contraseña para acceder a los recursos que
-                    te
-                    ofrecemos.</a>
+                <p class="banner__form--a textForm">Ingresa con tu correo y contraseña para acceder a los recursos que
+                    te ofrecemos.</p>
 
                 <label class="input__label label-name hidden">
                     Nombre
@@ -44,32 +44,157 @@
 
                 <label class="input__label">
                     Correo
-                    <input class="input" type="Email" placeholder="Ingresa un correo" name="email">
+                    <input class="input" type="Email" placeholder="Ingresa un correo" name="email" required>
                 </label>
 
                 <label class="input__label">
                     Contraseña
-                    <input class="input" type="password" placeholder="Ingresa una contraseña" name="password">
-                    <p class="productForm__error"></p>
-
                 </label>
+
+                    <div class="input inner-addon right-addon form-group">
+                        <span class="input__icon glyphicon icon-input"></span>
+                        <input class="input__vacio" type="password" placeholder="Ingresa una contraseña" name="password" required>
+                        <p class="productForm__error"></p>
+                    </div>
                 <button class="button button--width button-login" type="submit">Iniciar
-                    Sesión</button>
+                    Sesión
+                </button>
 
-                <button class="button button--width hidden button-signUp" type="submit">Regístrate</button>
+                <button class="button button--width hidden button-signUp" type="submit">Regístrate
+                </button>
 
-                <p class="link-signUp">¿No tiene una cuenta? <b><a class="textStyles--darkGreen" href="">Regístrate</a></b></p>
+                <p class="link-signUp">¿No tiene una cuenta? <b><a class="textStyles--darkGreen"
+                            href="">Regístrate</a></b></p>
 
-                <p class="link-login hidden">¿Tiene una cuenta? <b><a class="textStyles--darkGreen" href="">Inicia Sesión</a></b></p>
+                <p class="link-login hidden">¿Tiene una cuenta? <b><a class="textStyles--darkGreen" href="">Inicia
+                            Sesión</a></b></p>
             </form>
 
             <div class="banner__img"></div>
         </section>
     </div>
 
+    <section class="content--white section">
+        <h1 class="textStyles--darkGreen textStyles__alignText textStyles__space textStyles__title--2">Las comunidades
+            serán capaces de crear <br> proyectos colaborativos</h1>
+        <p class="textStyles--darkGreen textStyles__alignText textStyles__body--large">Te presentamos <b>ASOTOOLS</b>,
+            una plataforma que contiene una ruta metodológica que<br> incentiva
+            la participación de los miembros de las comunidades <br>por medio de la creación de un
+            proyecto colaborativo.</p>
+    </section>
+    <img src="./imgs/gente.png" class="images--big">
+
+    <section class="section__background section section__background--green">
+        <h1 class="textStyles__alignText textStyles__space textStyles__title--2 textStyles--white">¿Por qué utilizar
+            AsoTools?</h1>
+        <div class="banner__cards">
+
+            <div class="banner__cards--card banner__cards--clearGreen">
+                <div class="banner__cards--flex">
+                    <h1 class="textStyles__space textStyles__title--3">1</h1>
+                    <h3 class="textStyles__space textStyles__title--1">La ruta</h3>
+                </div>
+
+                <p class="banner__card--height">La ruta metodológica está especialmente diseñada para
+                    permitirle a las comunidades idear por sí mismas proyectos colaborativos,
+                    y de esta manera incentivar la participación de todos sus miembros.</p>
+                <img class="images--big" src="./imgs/ilus1.png">
+            </div>
+            <div class="banner__cards--card banner__cards--clearGreen">
+                <div class="banner__cards--flex">
+                    <h1 class="textStyles__space textStyles__title--3">2</h1>
+                    <h3 class="textStyles__space textStyles__title--1">El material</h3>
+                </div>
+
+                <p class="section__text">Tendrás acceso a todo el material, como las guías y plantillas
+                    necesarias para el desarrollo de las metodologías que propone la ruta.</p>
+                <img class="images--big" src="./imgs/material.png">
+            </div>
+            <div class="banner__cards--card banner__cards--clearGreen">
+                <div class="banner__cards--flex">
+                    <h1 class="textStyles__space textStyles__title--3">3</h1>
+                    <h3 class="textStyles__space textStyles__title--1">Registro de todo el proceso</h3>
+                </div>
+
+                <p class="section__text">Podrás guardar todos los resultados de los
+                    diferentes procesos o talleres que desarrolles.</p>
+                <img class="images--big" src="./imgs/registro.png">
+            </div>
+            <div class="banner__cards--card banner__cards--clearGreen">
+                <div class="banner__cards--flex">
+                    <h1 class="textStyles__space textStyles__title--3">4</h1>
+                    <h3 class="textStyles__space textStyles__title--1">Enriquece el proceso</h3>
+                </div>
+
+                <p class="section__text">Tendrás acceso a una librería de metodologías
+                    complementarias, las cuales puedes añadir a la ruta principal de AsoTools
+                    para personalizarla según la información que necesitas recolectar.</p>
+                <img class="images--big" src="./imgs/proceso.png">
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="section">
+        <div class="banner__cards--flex">
+            <div class="banner__cards--flex">
+            <div class="textStyles--darkGreen section__tam">
+                <div class="banner__cards--flex">
+                    <h1 class="textStyles__space textStyles__title--3 textStyles--darkGreen ">5</h1>
+                    <h3 class="textStyles__space textStyles__title--1 textStyles--darkGreen">Visualización de los resultados</h3>
+                </div>
+                <div class="textStyles__padding">
+                    <div >Al final de todo el proceso de ideación, todos los <br> resultados se sintetizan en el Canva
+                        AsoTools</div>
+                    <button class="button moreInfo">Conoce más</button>
+                </div>
+            </div>
+        </div class="textStyles__padding">
+            <img class="images--big" src="./imgs/canvaLleno.png">
+
+        </div>
+
+       
+
+    </section>
+
+    <section class="section">
+        <div class="banner__cards--flex">
+            <h1 class="textStyles__space textStyles__title--3 textStyles--darkGreen">6</h1>
+            <div class="textStyles--darkGreen">
+                <h3 class="textStyles__space textStyles__title--1">Modalidades</h3>
+                <div>AsoTools ofrece dos modalidades para desarrollar la ruta</div>
+            </div>
+
+
+        </div>
+    </section>
+
+
+        <div class="section__flex">
+            <div class="section__background section__background--darkGreen section__flex--card">
+                <div>
+                    <h1 class="textStyles__space textStyles__title--1 textStyles--white">Impresa</h1>
+                    <p class="textStyles__space--big">Es la forma tradicional del desarrollo de metodologías, donde se <br> imprime la plantilla y se trabaja
+                        con post-it y lápiz.</p>
+                </div>
+                
+                <img class="images--big"src="./imgs/participacion.png">
+            </div>
+            <div class="section__background section__background--green section__flex--card">
+                <h3 class="textStyles__space textStyles__title--1 textStyles--white">Virtual</h3>
+                <p class="textStyles__space--big">Es una nueva forma de desarrollar metodologías de ideación. Aquí los <br> involucrados
+                    pueden completar la metodologia a través de sus<br> dispositivos digitales.</p>
+                <img>
+
+            </div>
+
+        </div>
 
 </body>
 
 <script type="module" src="./scripts/index.js"></script>
+<script type="module" src="scripts/navModal.js"></script>
 
 </html>

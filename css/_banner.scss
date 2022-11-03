@@ -65,4 +65,55 @@
         }
 
     }
+
+    &__card{
+
+        &--height{
+            height: 150px;
+        }
+    }
+
+    &__cards{
+        display: flex;
+        height: 500px;
+        justify-content: center;
+        width: 100%;
+        padding-top: 40px;
+
+        &--flex{
+            display: flex;
+            align-items: center;
+            align-content: center;
+
+        }
+
+        &--color{
+            background-color: white;
+        }
+
+        &--card{
+            color: white;
+            border-radius: 27px;
+            padding: 29px;
+            margin-right: 10px;
+            width: 28%;
+        }
+
+        &--purple{
+            background-color: #6700A9;
+        }
+
+        &--orange{
+            background-color: #FE9800;
+
+        }
+        &--green{
+            background-color: #0FB000;
+
+        }
+        &--clearGreen{
+            background-color:#8EC543;
+        }
+    
+    }
 }

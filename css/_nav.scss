@@ -3,6 +3,8 @@
     color: white;
     background-color:#5C9247;
     display: flex;
+    position: sticky;
+    top: 0;
     justify-content: space-between;
     align-items: center;
     padding-top: 35px;
@@ -10,10 +12,12 @@
     font-style: normal;
     font-weight: 500;
     font-size: 15px;
+    position: sticky;
 
     padding-left: 6%;
     padding-right: 7%;
     padding-bottom: 30px;
+    z-index: 10;
 
     &--main{
        justify-content: flex-start;
@@ -51,4 +55,7 @@
     
     }
 
+    
+
 }
+

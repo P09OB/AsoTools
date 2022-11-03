@@ -25,6 +25,16 @@
 
     }
 
+    &__space{
+        padding-bottom: 10px;
+        padding-right: 10px;
+
+        &--big{
+        padding-bottom: 50px;
+
+        }
+    }
+
     &__body{
         font-size: 16px;
         font-weight: 500;
@@ -77,6 +87,10 @@
         &--disabled{
             background-color: #C4C4C4;
         }
+    }
+
+    &__padding{
+        padding-left: 40px;
     }
 
     &--clearGreen2{

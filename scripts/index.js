@@ -14,13 +14,21 @@ const textForm = document.querySelector('.textForm')
 
 const loginButton = document.querySelector('.button-login')
 const signUpButton = document.querySelector('.button-signUp')
+const infoButton = document.querySelectorAll('.moreInfo')
 
 const loginLink = document.querySelector('.link-login')
 const signUpLink = document.querySelector('.link-signUp')
+
+const iconInput = document.querySelector('.icon-input')
 let isLogin = true;
 
-
-
+infoButton.forEach(element => {
+    element.addEventListener('click',(e)=>{
+    
+            location.href = "./levels.html"
+    
+})
+});
 loginLink.addEventListener('click',(e)=>{
     e.preventDefault()
 
@@ -49,11 +57,9 @@ signUpLink.addEventListener('click',(e)=>{
 
     signUpLink.classList.add('hidden')
     loginButton.classList.add('hidden')
-
-    //createUser(userEmail.value,userPassword.value)
-
     
 })
+
 
 loginButton.addEventListener('click',()=> isLogin = true)
 signUpButton.addEventListener('click',()=> isLogin = false)
@@ -61,15 +67,25 @@ signUpButton.addEventListener('click',()=> isLogin = false)
 
 userForm.addEventListener('submit',(e)=>{
     e.preventDefault()
-
     if(isLogin){
-
-        checkUser(userForm.email.value,userForm.password.value)
-
+        checkUser(userForm.email.value,userForm.password.value)      
     } else{
         createUser(userForm.name.value,userForm.email.value,userForm.password.value)
     }
 
     userForm.reset()
 
+})
+
+iconInput.addEventListener('click',()=>{
+
+    if(userForm.password.type == "password"){
+        userForm.password.type = "text";
+        iconInput.style.backgroundImage = 'url(../imgs/eye-slash-fill.png)'
+
+    }else{
+        userForm.password.type = "password"
+        iconInput.style.backgroundImage = 'url(../imgs/eye-fill.svg)'
+
+    }
 })

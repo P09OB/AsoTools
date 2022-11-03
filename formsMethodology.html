@@ -1,43 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AsoTools</title>
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon_package_v0.16/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon_package_v0.16/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon_package_v0.16/favicon-16x16.png">
+    <link rel="manifest" href="./favicon_package_v0.16/site.webmanifest">
+    <link rel="mask-icon" href="./favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 
 </head>
+
 <body>
 
     <nav class="nav"></nav>
-    
+
     <div class="content">
 
         <form class="banner__form banner__form--big methodologyForm">
             <h2 class="textStyles__title textStyles--darkGreen textStyles--center">Agregar Metodologia</h2>
-            
+
             <label class="input__label label-name">
                 Nombre de la metodologia
-                <input class="input name" type="text" placeholder="Nombre la metodologia"
-                    name="nameMet">
+                <input class="input name" type="text" placeholder="Nombre la metodologia" name="nameMet" required>
             </label>
 
 
             <label class="input__label label-name">
                 Objetivo
-                <input class="input name" type="text" placeholder="Cual es el Objetivo"
-                    name="objMet">
+                <input class="input name" type="text" placeholder="Cual es el Objetivo" name="objMet" required>
             </label>
 
             <label class="input__label label-name">
                 Beneficio
-                <input class="input name" type="text" placeholder="Cual es el beneficio"
-                    name="beneMet">
+                <input class="input name" type="text" placeholder="Cual es el beneficio" name="beneMet" required>
             </label>
 
             <label for="type" class="input__label label-name">Nivel</label>
-            <select id="type" class="input name" name="level">
+            <select id="type" class="input name" name="level" required>
                 <option value="">Seleccione un nivel</option>
                 <option value="Soy parte">Soy parte</option>
                 <option value="Somos parte">Somos parte</option>
@@ -45,7 +51,7 @@
             </select>
 
             <label for="type" class="input__label label-name">Fase</label>
-            <select id="type" class="input name" name="phase">
+            <select id="type" class="input name" name="phase" required>
                 <option value="">Seleccione una fase</option>
                 <option value="Problema">Problema</option>
                 <option value="Fortalezas">Fortalezas</option>
@@ -60,18 +66,16 @@
 
             <label class="input__label input__number label-name">
                 Tiempo
-                <input class="input name" type="number" placeholder="0"
-                    name="time">
+                <input class="input name" type="number" placeholder="0" name="time" required>
             </label>
 
             <label class="input__label  label-name">
                 Precaución
-                <input class="input name" type="text" placeholder="Mencione la precaución"
-                    name="caution">
+                <input class="input name" type="text" placeholder="Mencione la precaución" name="caution">
             </label>
 
             <label for="type" class="input__label label-name">Dificultad</label>
-            <select id="type" class="input name" name="dificulty">
+            <select id="type" class="input name" name="dificulty" required>
                 <option value="">Seleccione una dificultad</option>
                 <option value="Fácil">Fácil</option>
                 <option value="Intermedio">Intermedio</option>
@@ -89,17 +93,16 @@
             <label class="input__label  label-name">
                 Pasos
                 <div class="input__group">
-                <input class="input name" type="text" placeholder="Mencione los pasos"
-                    name="stepsMet">
+                    <textarea class="input input__text name" type="text" placeholder="Mencione los pasos" name="stepsMet"></textarea>
                     <button class="addStepBttn button button--small">Agregar</button>
                 </div>
             </label>
 
-            <div class="dashboard__methodology--steps">
+            <div class="productForm__tam">
                 <h3 class="textStyles--darkGreen">Pasos</h3>
-    
-                <div class=" steps"></div>
-                
+
+                <div class="productForm__tam steps"></div>
+
             </div>
 
             <button class="nextBtt button button--width hidden">Siguiente</button>
@@ -113,17 +116,16 @@
                 Preguntas
                 <div class="input__group">
 
-                <input class="input name" type="text" placeholder="Que se le va a preguntar"
-                    name="questionsMet">
+                    <textarea class="input input__text name" type="text" placeholder="Que se le va a preguntar" name="questionsMet"></textarea>
                     <button class="addQuestionsBttn button button--small">Agregar</button>
                 </div>
             </label>
 
-            <div class="dashboard__methodology--steps">
+            <div class="productForm__tam">
                 <h3 class="textStyles--darkGreen">Preguntas</h3>
-    
-                <div class="questions"></div>
-                
+
+                <div class="productForm__tam questions"></div>
+
             </div>
 
             <button class="nextBttQues button button--width hidden">Siguiente</button>
@@ -158,7 +160,7 @@
 
     </div>
 
-    
+
 </body>
 
 <script type="module" src="./scripts/formsMethodology.js"></script>

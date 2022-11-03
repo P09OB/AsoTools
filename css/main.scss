@@ -24,7 +24,7 @@
 }
 
 body{
-  background-color: #5C9247
+  background-color: white
 }
 
 .content{
@@ -34,6 +34,7 @@ body{
   background-size: cover;
   padding-left: 6%;
   padding-right: 6%;
+  padding-bottom: 130px;
 
   &--white{
   background-color: white;
@@ -71,3 +72,6 @@ a:hover {
 @import "./methodology";
 @import "./productForm";
 @import "./stepper";
+@import "./section";
+@import "./list";
+@import "./icono"

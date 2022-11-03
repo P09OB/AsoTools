@@ -51,7 +51,12 @@ export const createUser = (name, email, password) =>
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
+
+      console.log(errorMessage)
+
     });
+
+
 
 export const checkUser = (email, password) => {
   signInWithEmailAndPassword(auth, email, password)
@@ -65,7 +70,10 @@ export const checkUser = (email, password) => {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      alert(errorMessage)
+
+      console.log(errorCode)
+
+
     });
 
 }

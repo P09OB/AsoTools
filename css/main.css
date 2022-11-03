@@ -22,7 +22,7 @@
 }
 
 body {
-  background-color: #5C9247;
+  background-color: white;
 }
 
 .content {
@@ -32,6 +32,7 @@ body {
   background-size: cover;
   padding-left: 6%;
   padding-right: 6%;
+  padding-bottom: 130px;
 }
 .content--white {
   background-color: white;
@@ -56,6 +57,9 @@ a:hover {
   color: white;
   background-color: #5C9247;
   display: flex;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   justify-content: space-between;
   align-items: center;
   padding-top: 35px;
@@ -63,9 +67,11 @@ a:hover {
   font-style: normal;
   font-weight: 500;
   font-size: 15px;
+  position: sticky;
   padding-left: 6%;
   padding-right: 7%;
   padding-bottom: 30px;
+  z-index: 10;
 }
 .nav--main {
   justify-content: flex-start;
@@ -150,6 +156,43 @@ a:hover {
   flex-wrap: wrap;
   margin-top: 7px;
 }
+.banner__card--height {
+  height: 150px;
+}
+.banner__cards {
+  display: flex;
+  height: 500px;
+  justify-content: center;
+  width: 100%;
+  padding-top: 40px;
+}
+.banner__cards--flex {
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+.banner__cards--color {
+  background-color: white;
+}
+.banner__cards--card {
+  color: white;
+  border-radius: 27px;
+  padding: 29px;
+  margin-right: 10px;
+  width: 28%;
+}
+.banner__cards--purple {
+  background-color: #6700A9;
+}
+.banner__cards--orange {
+  background-color: #FE9800;
+}
+.banner__cards--green {
+  background-color: #0FB000;
+}
+.banner__cards--clearGreen {
+  background-color: #8EC543;
+}
 
 .button {
   background-color: #126a3a;
@@ -224,6 +267,51 @@ a:hover {
 .input__number {
   width: 40%;
 }
+.input__icon {
+  background-image: url("../imgs/eye-fill.svg");
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 20px;
+  display: block;
+  float: left;
+}
+.input__vacio {
+  border-color: transparent;
+  margin-top: 5px;
+  width: 85%;
+  height: 38px;
+  border-radius: 14px;
+  cursor: pointer;
+}
+.input__text {
+  padding-top: 15px;
+  max-height: 120px;
+  min-height: 120px;
+  margin-bottom: 20px;
+}
+
+.inner-addon {
+  position: relative;
+}
+
+.right-addon .glyphicon {
+  right: 0px;
+}
+
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 12px;
+  margin-top: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.left-addon input {
+  padding-left: 30px;
+  width: 100%;
+  height: 50px;
+  padding-left: 15px;
+}
 
 .textStyles__title {
   font-family: "Raleway", sans-serif;
@@ -242,6 +330,13 @@ a:hover {
 }
 .textStyles__title--level {
   font-size: 104px;
+}
+.textStyles__space {
+  padding-bottom: 10px;
+  padding-right: 10px;
+}
+.textStyles__space--big {
+  padding-bottom: 50px;
 }
 .textStyles__body {
   font-size: 16px;
@@ -286,6 +381,9 @@ a:hover {
 }
 .textStyles__number--disabled {
   background-color: #C4C4C4;
+}
+.textStyles__padding {
+  padding-left: 40px;
 }
 .textStyles--clearGreen2 {
   color: #5C9247;
@@ -661,6 +759,9 @@ a:hover {
   margin-right: 20px;
 }
 
+.images {
+  padding-top: 6%;
+}
 .images--small {
   width: 10%;
 }
@@ -900,6 +1001,13 @@ a:hover {
 .productForm__checkbox {
   margin-right: 10px;
 }
+.productForm__tam {
+  width: 100%;
+}
+.productForm__text {
+  width: 80%;
+  text-align: justify;
+}
 
 :root {
   --circle-size: clamp(1.8rem, 2vw, 3rem);
@@ -981,4 +1089,65 @@ a:hover {
 :before,
 :after {
   box-sizing: border-box;
+}
+
+.section {
+  background-color: white;
+  padding-left: 6%;
+  padding-right: 6%;
+  padding-top: 6%;
+  padding-bottom: 6%;
+}
+.section__img {
+  padding-left: 6%;
+  padding-right: 6%;
+  padding-top: 6%;
+  color: white;
+  height: 590px;
+  background-image: url("../imgs/fondoAso.png");
+  line-height: 1.8;
+}
+.section__background {
+  background-image: url("../imgs/backgroundGreen.png");
+}
+.section__background--green {
+  background-color: #5C9247;
+}
+.section__background--darkGreen {
+  background-color: #126A3A;
+}
+.section__text {
+  padding-top: 3%;
+}
+.section__tam {
+  width: 400px;
+}
+.section__flex {
+  display: flex;
+  width: 100%;
+}
+.section__flex--card {
+  width: 50%;
+  padding: 80px;
+  color: white;
+}
+
+.list {
+  padding-left: 14px;
+}
+
+.icono {
+  display: flex;
+}
+.icono__trash {
+  background-image: url("../imgs/trash-fill.svg");
+  height: 60px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+.icono__edit {
+  background-image: url("../imgs/pencil-fill.svg");
+  height: 60px;
+  cursor: pointer;
+  margin-left: 16px;
 }/*# sourceMappingURL=main.css.map */

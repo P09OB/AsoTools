@@ -38,7 +38,11 @@ addStepBttn.addEventListener('click',(e)=>{
             step.classList.add('methodology--steps')
             step.innerHTML = `
             <h3 class="textStyles--darkGreen methodology--number">${cantidad}</h3>
-            <p>${docs}</p>
+            <p class= "productForm__text">${docs}</p>
+            <div class= "icono">
+            <span class="input__icon glyphicon icon-input icono__edit"></span>
+            <span class="input__icon glyphicon icon-input icono__trash"></span>
+            </div>
             `
             steps.appendChild(step)
     
@@ -66,7 +70,11 @@ addQuestionsBttn.addEventListener('click',(e)=>{
             question.classList.add('methodology--question')
             question.innerHTML = `
             <h3 class="textStyles--darkGreen methodology--number">${cantidad}</h3>
-            <p>${docs}</p>
+            <p class= "productForm__text">${docs}</p>
+            <div class= "icono">
+            <span class="input__icon glyphicon icon-input icono__edit"></span>
+            <span class="input__icon glyphicon icon-input icono__trash"></span>
+            </div>
             `
             questions.appendChild(question)
     
