@@ -1,52 +1,52 @@
-.section{
+.section {
     background-color: white;
     padding-left: 6%;
     padding-right: 6%;
     padding-top: 6%;
     padding-bottom: 6%;
 
-
-    &__img{
+    &__img {
         padding-left: 6%;
-    padding-right: 6%;
-    padding-top: 6%;
-    color: white;
-    height: 590px;
-    background-image: url("../imgs/fondoAso.png");
-    line-height: 1.8;
+        padding-right: 6%;
+        padding-top: 6%;
+        color: white;
+        height: 590px;
+        background-image: url("../imgs/fondoAso.png");
+        line-height: 1.8;
     }
 
-    &__background{
+    &__background {
         background-image: url("../imgs/backgroundGreen.png");
 
-        &--green{
-            background-color: #5C9247;
+        &--green {
+            background-color: #5c9247;
         }
 
-        &--darkGreen{
-            background-color: #126A3A;
+        &--darkGreen {
+            background-color: #126a3a;
+        }
 
+        &--other {
+            background-color: #126a3a;
         }
     }
 
-    &__text{
+    &__text {
         padding-top: 3%;
     }
 
-    &__tam{
+    &__tam {
         width: 400px;
     }
 
-    &__flex{
+    &__flex {
         display: flex;
         width: 100%;
 
-        &--card{
-        width: 50%;
-        padding: 80px;
-        color: white;
-
+        &--card {
+            width: 50%;
+            padding: 80px;
+            color: white;
         }
     }
-
 }

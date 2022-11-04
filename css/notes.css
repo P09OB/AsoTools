@@ -85,7 +85,7 @@
     font-size: 15px;
   }
   .settings .menu{
-    z-index: 1;
+    z-index: -4;
     bottom: 0;
     right: -5px;
     padding: 5px 0;
@@ -124,7 +124,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: 11;
     height: 100%;
     width: 100%;
     background: rgba(0,0,0,0.4);
@@ -133,7 +133,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    z-index: 3;
+    z-index: 11;
     width: 100%;
     max-width: 400px;
     justify-content: center;
@@ -151,29 +151,29 @@
   .popup-box.show .popup{
     transform: translate(-50%, -50%) scale(1);
   }
-  .popup .content{
+  .popup .contentN{
     border-radius: 5px;
     background: #fff;
     width: calc(100% - 15px);
     box-shadow: 0 0 15px rgba(0,0,0,0.1);
   }
-  .content header{
+  .contentN header{
     padding: 15px;
     border-bottom: 1px solid #ccc;
   }
-  .content header p{
+  .contentN header p{
     font-size: 20px;
     font-weight: 500;
   }
-  .content header i{
+  .contentN header i{
     color: #8b8989;
     cursor: pointer;
     font-size: 23px;
   }
-  .content form{
+  .contentN form{
     margin: 15px 25px 35px;
   }
-  .content form .row{
+  .contentN form .row{
   }
   form .row label{
     font-size: 18px;

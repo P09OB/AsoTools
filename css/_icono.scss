@@ -2,7 +2,7 @@
     display: flex;
     &__trash{
         background-image: url("../imgs/trash-fill.svg");
-        height: 60px;
+        height: 23px;
         cursor: pointer;
         margin-left: 20px;
 
@@ -10,7 +10,7 @@
 
     &__edit{
         background-image: url("../imgs/pencil-fill.svg");
-        height: 60px;
+        height: 23px;
         cursor: pointer;
         margin-left: 16px;
 

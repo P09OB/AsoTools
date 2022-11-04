@@ -6,6 +6,8 @@ const stepsForm = document.querySelector('.stepsForm');
 const questionsForm = document.querySelector('.questionsForm')
 const methoImages = document.querySelector('.productForm__images');
 const porfileImage = document.querySelector('.productForm__image');
+const templateExample = document.querySelector('.productForm__examples');
+
 const addStepBttn = document.querySelector('.addStepBttn');
 const steps = document.querySelector('.steps')
 const questions = document.querySelector('.questions')
@@ -17,6 +19,8 @@ const stepsArray = []
 const questionsArray = []
 let templatesFiles = [];
 let profileFiles = [];
+let templatesExamples = [];
+
 
 methodologyForm.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -120,6 +124,21 @@ picturesForm.porfileImag.addEventListener('change',()=>{
     
 })
 
+picturesForm.templateExample.addEventListener('change',()=>{
+    const file = picturesForm.templateExample.files[0];
+    if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        const profileExample = document.createElement('img');
+        profileExample.classList.add('productForm__example');
+        profileExample.setAttribute('src', e.target.result);
+        templateExample.appendChild(profileExample);
+    }
+    reader.readAsDataURL(file);
+    templatesExamples.push(file);
+    
+})
+
 picturesForm.addEventListener('submit',(e)=>{
     e.preventDefault()
     console.log(questionsArray)
@@ -135,6 +154,12 @@ picturesForm.addEventListener('submit',(e)=>{
         stepsArray,
         questionsArray,
         templatesFiles,
-        profileFiles
+        profileFiles,
+        templatesExamples
     )
+
+    methodologyForm.reset()
+    stepsForm.reset()
+    questionsForm.reset()
+    picturesForm.reset()
 })

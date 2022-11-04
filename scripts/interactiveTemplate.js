@@ -8,6 +8,9 @@ const question = document.querySelector('.question')
 const containedAnswers = document.querySelector('.containedAnswers')
 const textFinal = document.querySelector('.textFinal')
 const resume = document.querySelector('.resume')
+const next = document.querySelector('.next')
+const sesionVirtual = document.querySelector('.sesionVirtual')
+const infoVirtual = document.querySelector('.infoVirtual')
 
 let counter = 0
 let numberOfQuestions = 0
@@ -139,4 +142,9 @@ bttStart.addEventListener('click', () => {
         }
 
     }
+})
+
+next.addEventListener('click',()=>{
+    sesionVirtual.classList.remove('hidden')
+    infoVirtual.classList.add('hidden')
 })

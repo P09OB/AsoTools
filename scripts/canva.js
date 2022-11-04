@@ -65,9 +65,9 @@ function create (methodologyName,methodologyId,methodologyObjetive,methodologyTe
 
         <div class="modal__head">
             <div class= "modal__head--items">
-                <h2>${methodologyName}</h2>
-                <a class= "button button--simple bttManual">Llenar manualmente</a>
-                <a class= "button--border button--simple bttInteractive">Desarrollar ahora</a>
+                <h2 class="textStyles__space--medium">${methodologyName}</h2>
+                <a class= "button button--big bttManual">Modalidad tradicional</a>
+                <a class= "button--border button--big bttInteractive">Modalidad digital</a>
             </div>
 
             <div class= "modal__head--img">
@@ -75,7 +75,7 @@ function create (methodologyName,methodologyId,methodologyObjetive,methodologyTe
             </div>
         </div>
 
-    <h3>Acerca de la metodologia</h3>
+    <h3 class="textStyles__space">Acerca de la metodologia</h3>
     <p>${methodologyObjetive}</p> <a href="./methodology.html?id=${methodologyId}&name=${methodologyName}" target="_blank">Lee más acerca de la metodología →</a>
 
     </article>
@@ -116,16 +116,18 @@ function appear() {
         getMethodologyName((querySnapshot) => {
             let questions =''
             let template = ''
+            let level = ''
             querySnapshot.forEach((doc) => {
         
                 const methodology = doc.data()
                 questions = methodology.questions
                 template = methodology.templates[0].url
+                level = methodology.level
             });
             console.log(template)
             setTimeout(function () {
 
-        createManualSesion(localStorage.getItem('idUser'), localStorage.getItem('nameMethodology'),questions,template)
+        createManualSesion(localStorage.getItem('idUser'), localStorage.getItem('nameMethodology'),questions,level,template)
     }, 500);
 
     })
@@ -145,12 +147,16 @@ function appear() {
         localStorage.setItem('codeSesion', code())
         getMethodologyName((querySnapshot) => {
             let questions =''
+            let level = ''
+
             querySnapshot.forEach((doc) => {
         
                 const methodology = doc.data()
                 questions = methodology.questions
+                level = methodology.level
+
             });
-            createSesion(localStorage.getItem('codeSesion'), localStorage.getItem('idUser'), localStorage.getItem('nameMethodology'),questions)
+            createSesion(localStorage.getItem('codeSesion'), localStorage.getItem('idUser'), localStorage.getItem('nameMethodology'),questions,level)
 
         })
     })
@@ -411,15 +417,8 @@ partnerships.addEventListener('click', (e) => {
 
 const textProblem = document.querySelector('.textProblem')
 const problemDiv = document.querySelector('.problem')
-
-problemDiv.addEventListener('mouseover', (e) => {
-
-    textProblem.innerHTML = "¡¡Desarrolla la fase problema!!"
-
-})
-
-problemDiv.addEventListener('mouseout', ()=>{
-    textProblem.innerHTML = ""
+problemDiv.addEventListener('click', (e) => {
+    opcionProblem.classList.remove('hidden')
 
 })
 

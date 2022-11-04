@@ -25,6 +25,7 @@ const auth = getAuth();
 const storage = getStorage(app);
 let updateOne = false;
 let updateTwo = false;
+let updateThree = false
 
 let idMethodology = ""
 let loggedUser = null
@@ -55,8 +56,6 @@ export const createUser = (name, email, password) =>
       console.log(errorMessage)
 
     });
-
-
 
 export const checkUser = (email, password) => {
   signInWithEmailAndPassword(auth, email, password)
@@ -104,11 +103,9 @@ export const onGetProyects = (callback) =>
 
   onSnapshot(collection(doc(db, 'users', localStorage.getItem('idUser')), 'proyects'), callback)
 
-
 export const onGetMethodologies = (callback) =>
 
   onSnapshot(collection(db, 'methodologies'), callback)
-
 
 export const getmethodology = (callback) => onSnapshot(query(collection(db, 'methodologies'),where('id', '==', localStorage.getItem('idMethodology'))),callback )
 
@@ -120,7 +117,7 @@ export const onGetProyect = (callback) =>
 
 onSnapshot(doc(db, 'users', localStorage.getItem('idUser'), "proyects", localStorage.getItem('idProyect')), callback)
 
-export const createSesion = (code, idUser, idMethodology, questions) => {
+export const createSesion = (code, idUser, idMethodology, questions,level) => {
   const userRef = doc(collection(doc(db, 'users', idUser), 'sesion'))
   const id = userRef.id
   const user = []
@@ -136,6 +133,7 @@ export const createSesion = (code, idUser, idMethodology, questions) => {
     idMethodology,
     code,
     objQuestions,
+    level,
     counter: 0,
     users: user,
     start: false,
@@ -147,7 +145,7 @@ export const createSesion = (code, idUser, idMethodology, questions) => {
   })
 }
 
-export const createManualSesion = (idUser, idMethodology,questions,template) =>{
+export const createManualSesion = (idUser, idMethodology,questions,level,template) =>{
   const userRef = doc(collection(doc(db, 'users', idUser), 'sesion'))
   const id = userRef.id
   var objQuestions = []
@@ -159,6 +157,7 @@ export const createManualSesion = (idUser, idMethodology,questions,template) =>{
     idUser,
     idMethodology,
     objQuestions,
+    level,
     counter: 0,
     start: false,
     template
@@ -211,7 +210,7 @@ export const setSesionCompleted = (completed) =>{
     })
 }
 
-export const addMethodology = (name,objetive,benefit,level,phase,dificulty,caution,time,steps, questions,templatesFiles,profileFiles) =>{
+export const addMethodology = (name,objetive,benefit,level,phase,dificulty,caution,time,steps, questions,templatesFiles,profileFiles,templatesExamples) =>{
   const refe = doc(collection(db, 'methodologies'))
   const id = refe.id
   const uploadPromises = [];
@@ -263,7 +262,7 @@ export const addMethodology = (name,objetive,benefit,level,phase,dificulty,cauti
 
           }).then(()=>{
             updateOne = true;
-            if(updateOne & updateTwo){
+            if(updateOne & updateTwo & updateThree){
               location.href =`./methodology.html?id=${id}&name=${name}`
             }
           });
@@ -296,7 +295,7 @@ export const addMethodology = (name,objetive,benefit,level,phase,dificulty,cauti
           profilePicture: downloadUrlPromisesPP
         }).then(()=>{
           updateTwo = true;
-          if(updateOne & updateTwo){
+          if(updateOne & updateTwo & updateThree){
             location.href =`./methodology.html?id=${id}&name=${name}`
           }
         }
@@ -305,5 +304,43 @@ export const addMethodology = (name,objetive,benefit,level,phase,dificulty,cauti
       })
     })
   })
+
+  templatesExamples.forEach((file) => {
+
+    const storageRef = ref(storage,`methodologies/${id}`);
+
+    const refStorage =  uploadBytesResumable(ref(storageRef,`example/${file.name}`), file)
+    refStorage.on('state', (snapshot)=>{
+
+      var progess = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      console.log("Upload"+ progess + "%")
+    }, 
+
+    (error) =>{
+      console.log("Error")
+    },
+
+    ()=>{
+      getDownloadURL(refStorage.snapshot.ref).then((downloadURL)=>{
+        downloadUrlPromisesPP.push({
+          url: downloadURL
+        })
+
+        updateDoc(refe, {
+          exampleTemplate: downloadUrlPromisesPP
+        }).then(()=>{
+          updateThree = true;
+          if(updateOne & updateTwo & updateThree){
+            location.href =`./methodology.html?id=${id}&name=${name}`
+          }
+        }
+
+        );
+      })
+    })
+  })
+
+
+
   })
 }

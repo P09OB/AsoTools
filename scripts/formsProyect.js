@@ -13,4 +13,6 @@ proyectForm.addEventListener('submit',(e)=>{
 
     addProyect(idUser, proyectForm.nameProyect.value, proyectForm.communityName.value, data, proyectForm.description.value,'Soy parte',0,'En proceso')
 
+    proyectForm.reset()
+
 })

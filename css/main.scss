@@ -24,7 +24,7 @@
 }
 
 body{
-  background-color: white
+  background-color: #5C9247
 }
 
 .content{
@@ -44,6 +44,13 @@ body{
   border-radius: 27px;
   padding-top: 14px;
   height: 60%;
+
+  }
+
+  &--margin{
+
+    margin-top: 13px;
+    height: 50px;
 
   }
 }

@@ -82,9 +82,7 @@
                 <option value="Dificil">Dificil</option>
 
             </select>
-
             <button class="button button--width">Siguiente</button>
-
         </form>
 
         <form class="banner__form banner__form--big stepsForm hidden">
@@ -144,6 +142,16 @@
                 <div class="productForm__images"></div>
             </section>
 
+            <label for="templateExample" class="productForm__label">Plantilla de Ejemplo</label>
+            <section class="productForm__group">
+                <div class="productForm__input--file-input">
+                    <input multiple id="templateExample" class="productForm__input productForm__input--file" type="file"
+                        name="templateExample">
+                    <label for="templateExample">Select file</label>
+                </div>
+                <div class="productForm__examples"></div>
+            </section>
+
             <label for="porfileImag" class="productForm__label">Portada</label>
             <section class="productForm__group">
                 <div class="productForm__input--file-input">
@@ -154,13 +162,11 @@
                 <div class="productForm__image"></div>
             </section>
 
+            
+
             <button class="button button--width">Crear</button>
         </form>
-
-
     </div>
-
-
 </body>
 
 <script type="module" src="./scripts/formsMethodology.js"></script>

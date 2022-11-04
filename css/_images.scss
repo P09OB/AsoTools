@@ -25,5 +25,12 @@
         justify-content: flex-end;
     }
 
+    &--background{
+        width: 100%;
+        height: 700px;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
     
 }

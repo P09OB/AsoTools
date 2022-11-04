@@ -110,11 +110,23 @@
         border: 1px solid rgb(182, 181, 181);
     }
 
+    &__example {
+        width: 105px;
+        height: 105px;
+        margin: 0px 10px 0 0;
+        border-radius: 4px;
+        border: 1px solid rgb(182, 181, 181);
+    }
+
     &__images {
         display: flex;
     }
 
     &__image {
+        display: flex;
+    }
+
+    &__examples{
         display: flex;
     }
 

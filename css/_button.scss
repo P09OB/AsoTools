@@ -28,12 +28,28 @@
 
     }
 
+    &--big{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 42%;
+        padding-top: 15px;
+        text-align: center;
+    }
+
     &--simple {
         margin-top: 10px;
         margin-bottom: 10px;
         width: 40%;
         padding-top: 15px;
         text-align: center;
+    }
+    &--a{
+        padding: 15px;
+        padding-right: 30px;
+        padding-left: 30px;
+        margin-left: 59px;
+        margin-top: 0;
+        width: fit-content;
     }
 
     &--border {

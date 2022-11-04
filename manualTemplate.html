@@ -8,13 +8,13 @@
   <title>AsoTools</title>
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./css/notes.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="./favicon_package_v0.16/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon_package_v0.16/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./favicon_package_v0.16/favicon-16x16.png">
-    <link rel="manifest" href="./favicon_package_v0.16/site.webmanifest">
-    <link rel="mask-icon" href="./favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
+  <link rel="apple-touch-icon" sizes="180x180" href="./favicon_package_v0.16/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon_package_v0.16/favicon-16x16.png">
+  <link rel="manifest" href="./favicon_package_v0.16/site.webmanifest">
+  <link rel="mask-icon" href="./favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
@@ -22,20 +22,96 @@
 
 <body>
   <nav class="nav"></nav>
-  <div class="content--white">
 
-    <div class="card__users">
-      <div class="explain">
-        <p>Pasa tu sección a formato digital.</p>
+  <div class="explain">
+
+    <section class="section__background section section__background--green">
+      <h1 class="textStyles__alignText textStyles__space textStyles__title--2 textStyles--white">¿Cómo funciona la
+        modalidad tradicional?</h1>
+      <div class="banner__cards">
+
+        <div class="banner__cards--card banner__cards--clearGreen">
+          <div class="banner__cards--flex banner__cards--flex--align">
+            <h1 class="textStyles__space textStyles__title--2">1</h1>
+            <p class="banner__card--height banner__card">Asegúrate de leer y comprender bien las metodologías que deseas
+              desarrollar, esto te ayudara a entender que es lo que debes hacer durante la sesión y qué resultados
+              obtendrás.</p>
+
+          </div>
+
+          <img class="images--big" src="./imgs/proceso.png">
+        </div>
+        <div class="banner__cards--card banner__cards--clearGreen">
+          <div>
+            <div class="banner__cards--flex banner__cards--flex--align">
+              <h1 class="textStyles__space textStyles__title--2">2</h1>
+              <p class="banner__card--height banner__card">Descarga la plantilla de esta metodología. Se recomienda
+                imprimir las plantillas
+                en un tamaño grande para poder trabajar mejor en ellas.
+                <b>Tamaño recomendado: 25 x 38 cm</b> <br><br>
+                <b>Descarga aqui la plantilla:</b>
+              </p>
+            </div>
+            <a class="button button--a download" download>Descargar</a>
+          </div>
+          <img class="images--big" src="./imgs/material.png">
+        </div>
+        <div class="banner__cards--card banner__cards--clearGreen">
+          <div class="banner__cards--flex banner__cards--flex--align">
+            <h1 class="textStyles__space textStyles__title--2">3</h1>
+            <p class="banner__card--height banner__card">Desarrolla la metodología con la comunidad de la forma
+              tradicional.<b>Se
+                recomienda tomarle foto
+                a la plantilla al finalizar la metodología,</b> esto para prevenir que se puedan perder algunas
+              respuestas en caso de perderse los post-its.</p>
+          </div>
+          <img class="images--big" src="./imgs/completeTemplete.png">
+        </div>
+        <div class="banner__cards--card banner__cards--clearGreen">
+          <div>
+            <div class="banner__cards--flex banner__cards--flex--align">
+              <h1 class="textStyles__space textStyles__title--2">4</h1>
+              <p class="banner__card--height banner__card"><b>Después de terminar toda la sesión, es necesario que
+                  transcribas todos los
+                  resultados
+                  de los post-its de cada metodología que desarrollaste, a la plataforma de Asotools,</b> de esta manera
+                podrás
+                llevar un registro del proceso que realizaste.</p>
+            </div>
+            <button class="button button--a start">Ir a la plantilla</button>
+          </div>
+          <img class="images--big" src="./imgs/digital.png">
+        </div>
+
       </div>
-  
-      <h2 class="card__question question hidden">Pregunta</h2>
+      <div class="content--white content--margin">
+        <h1 class="textStyles__title--2 textStyles--darkGreen">Materiales</h1>
+        <p class="section__text textStyles--darkGreen">Plantilla impresa, post-it y lápiz.</p>
+      </div>
+    </section>
+  </div>
+
+  <div class="content--white section__background section__background--green interactive hidden">
+
+    <h2 class="textStyles--white nameMetho"></h2>
+    <div class="card--group">
+
+      <div class="card__question card--counter textStyles--darkGreen">
+        <h1 class="counter">1 de 3</h1>
+      </div>
+
+      <div class="card__users">
+        <div class="card--level level card">Level</div>
+        <h2 class="card__question question textStyles--darkGreen">Pregunta</h2>
+      </div>
+
+      <div class="card__button hidden"> <button class="start button">Siguiente Pregunta</button> </div>
+
     </div>
-   
 
     <div class="popup-box">
       <div class="popup">
-        <div class="content">
+        <div class="contentN">
           <header>
             <p>Nuevo comentario</p>
             <i class="uil uil-times"></i>
@@ -43,9 +119,9 @@
           <form action="#">
             <div class="row description">
               <label class="text">Descripción</label>
-              <textarea spellcheck="false"></textarea>
+              <textarea class="desc" spellcheck="false"></textarea>
             </div>
-             <button class="button"></button>
+            <button class="button button--width"></button>
           </form>
         </div>
       </div>
@@ -56,14 +132,21 @@
         <p>Agrega un comentario</p>
       </li>
     </div>
-    <h1 class="textFinal hidden">Listo has completado la plantilla</h1>
-    <img class="resume images__resume images--big hidden">
-    <div class="resumeAnswers"></div>
 
-    <div class="card__button"> <button class="start button">Comenzar</button> </div>
+  </div>
 
-      
+  <div class="content--white section__background section__background--green">
 
+    <div class="interactiv dashboard--flex">
+      <h1 class="textFinal textStyles--white hidden">Plantilla completada</h1>
+      <button class="button finish hidden">Finalizar</button>
+    </div>
+    <div class="resume images__resume images--background images--big hidden card--answers">
+      <div class="resumeAnswers1 card--resume"></div>
+      <div class="resumeAnswers2 card--resume"></div>
+      <div class="resumeAnswers card--resume"></div>
+    </div>
+  </div>
 </body>
 
 <script type="module" src="./scripts/manualTemplate.js"></script>
