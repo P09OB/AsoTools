@@ -147,16 +147,21 @@ function appear() {
         localStorage.setItem('codeSesion', code())
         getMethodologyName((querySnapshot) => {
             let questions =''
+            let template = ''
             let level = ''
 
             querySnapshot.forEach((doc) => {
         
                 const methodology = doc.data()
                 questions = methodology.questions
+                template = methodology.templates[0].url
                 level = methodology.level
 
             });
-            createSesion(localStorage.getItem('codeSesion'), localStorage.getItem('idUser'), localStorage.getItem('nameMethodology'),questions,level)
+            setTimeout(function () {
+
+            createSesion(localStorage.getItem('codeSesion'), localStorage.getItem('idUser'), localStorage.getItem('nameMethodology'),questions,level,template)
+        }, 500);
 
         })
     })

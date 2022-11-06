@@ -117,7 +117,7 @@ export const onGetProyect = (callback) =>
 
 onSnapshot(doc(db, 'users', localStorage.getItem('idUser'), "proyects", localStorage.getItem('idProyect')), callback)
 
-export const createSesion = (code, idUser, idMethodology, questions,level) => {
+export const createSesion = (code, idUser, idMethodology, questions,level,template) => {
   const userRef = doc(collection(doc(db, 'users', idUser), 'sesion'))
   const id = userRef.id
   const user = []
@@ -135,6 +135,7 @@ export const createSesion = (code, idUser, idMethodology, questions,level) => {
     objQuestions,
     level,
     counter: 0,
+    template,
     users: user,
     start: false,
     completed: false,

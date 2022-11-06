@@ -58,26 +58,16 @@
         display: flex;
         width: 100%;
         justify-content: center;
-        align-content: center;
-        flex-wrap: nowrap;
-        align-items: stretch;
-        border-radius: 20px;
+        padding-top: 65px;
 
-        box-sizing: border-box;
 
         &--union {
             display: inline-flex;
-            background-color: #8ec543;
             border-radius: 27px;
             padding: 25px;
             box-sizing: border-box;
         }
 
-        &--link {
-            width: 130px;
-            width: 151px;
-            margin-right: 193px;
-        }
         &--qr {
             max-width: 40%;
             width: 40%;
@@ -130,7 +120,10 @@
         width: 100%;
 
         &--user {
-            padding-right: 120px;
+            margin-right: 33px;
+            padding: 15px;
+            width: auto;
+            border-radius: 15px;
         }
     }
 
@@ -190,7 +183,7 @@
         text-align: center;
         padding: 13px;
         position: absolute;
-        top: 139px;
+        top: 172px;
         border-radius: 25px;
     }
 
@@ -228,9 +221,44 @@
         margin-right: 10px;
     }
 
+    &--participants{
+        padding: 32px;
+        border-radius: 19px;
+        margin-top: 20px;
+        background-color: rgb(18 106 58 / 21%);
+        margin: 25px;
+
+        &--participant{
+            margin-bottom: 15px;
+        }
+
+    }
+
+    &--box{
+        border-radius: 20px;
+        padding: 20px;
+        color: #126a3a;
+        margin-left: 20px;
+
+        &--code{
+            width: 300px;
+            text-align: center;
+        }
+    }
+
+    &--containedInfo{
+        background-color: #8ec54352;
+        padding-top: 1px;
+        box-sizing: border-box;
+        border-radius: 20px 20px 20px 20px;
+        margin: 6%;
+        height: 590px;
+        margin-top: 44px;
+    }
 
     &--counter {
         width: max-content;
+        padding-top: 26px;
     }
     &--green {
         background-color: #0fb000;
@@ -245,6 +273,10 @@
         background-color: #c4c4c4;
     }
 
+    &--white{
+        background-color: white;
+    }
+
     &--transparentViolet {
         background-color: rgba(103, 0, 169, 0.6);
     }
@@ -253,6 +285,11 @@
     }
     &--transparentOrange {
         background-color: rgba(254, 152, 0, 0.2);
+    }
+
+    &--transparentWhite{
+        background-color: rgba(255, 255, 255, 0.32);
+
     }
     &--transparentDisabled {
         background-color: #c4c4c48b;

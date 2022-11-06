@@ -81,11 +81,11 @@ iconInput.addEventListener('click',()=>{
 
     if(userForm.password.type == "password"){
         userForm.password.type = "text";
-        iconInput.style.backgroundImage = 'url(../imgs/eye-slash-fill.png)'
+        iconInput.style.backgroundImage = 'url(./imgs/eye-slash-fill.png)'
 
     }else{
         userForm.password.type = "password"
-        iconInput.style.backgroundImage = 'url(../imgs/eye-fill.svg)'
+        iconInput.style.backgroundImage = 'url(./imgs/eye-fill.svg)'
 
     }
 })
