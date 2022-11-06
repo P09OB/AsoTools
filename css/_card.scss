@@ -16,11 +16,11 @@
     &__methodology {
         display: flex;
         width: 295px;
+        
         height: 237px;
         color: white;
         margin-top: 30px;
         padding-bottom: 30px;
-        background-color: #6700a9;
         flex-direction: column;
         align-content: center;
         justify-content: flex-end;
@@ -29,9 +29,12 @@
         text-align: center;
         padding-left: 8px;
         padding-right: 8px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-position-y: 10px;
 
         &--process {
-            background-color: #af3ff8;
             width: auto;
             padding-left: 10px;
             padding-right: 10px;
@@ -246,6 +249,8 @@
         }
     }
 
+
+
     &--containedInfo{
         background-color: #8ec54352;
         padding-top: 1px;
@@ -256,12 +261,30 @@
         margin-top: 44px;
     }
 
+    &--info{
+        width: 79%;
+        border-radius: 10px;
+        margin-bottom: 20px;
+
+        &--space{
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 33px;
+        }
+
+    }
+
     &--counter {
         width: max-content;
         padding-top: 26px;
     }
+
     &--green {
         background-color: #0fb000;
+    }
+
+    &--clearGreen{
+        background-color:#8EC543;
     }
     &--purpe {
         background-color: #6700a9;
@@ -299,4 +322,29 @@
             color: black;
         }
     }
+
+    &--soyParte{
+        background-color:  #6700a9; 
+
+        &--second{
+            background-color:  #AF3FF8;
+        }
+    }
+
+    &--somosParte{
+        background-color: #0fb000;
+        &--second{
+            background-color:  #6CCE63;
+        }
+    }
+
+    &--tomamosParte{
+        background-color:  #fe9800;
+
+        &--second{
+            background-color:  #FFB23F;
+        }
+
+    }
+
 }

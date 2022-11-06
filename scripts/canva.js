@@ -21,6 +21,7 @@ const opcionImpact = document.querySelector('.impactOpcions')
 const opcionActividades = document.querySelector('.actividadesOpcions')
 const opcionRecursos = document.querySelector('.recursosOpcions')
 const opcionPartnerships = document.querySelector('.partnershipsOpcions')
+const librayBtt = document.querySelector('.libray')
 
 const methodologyOne = document.querySelectorAll('.methodologyOne')
 const nameProject = document.querySelector('.nameProject')
@@ -418,6 +419,9 @@ partnerships.addEventListener('click', (e) => {
 
 })
 
+librayBtt.addEventListener('click',(e)=>{
+    location.href = './libray.html'
+})
 //HOVERS
 
 const textProblem = document.querySelector('.textProblem')

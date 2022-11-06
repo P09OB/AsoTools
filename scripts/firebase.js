@@ -217,6 +217,8 @@ export const addMethodology = (name,objetive,benefit,level,phase,dificulty,cauti
   const uploadPromises = [];
   const downloadUrlPromises = [];
   const downloadUrlPromisesPP = [];
+  const downloadUrlPromisesPPP = [];
+
 
 
   const methodology ={
@@ -323,12 +325,12 @@ export const addMethodology = (name,objetive,benefit,level,phase,dificulty,cauti
 
     ()=>{
       getDownloadURL(refStorage.snapshot.ref).then((downloadURL)=>{
-        downloadUrlPromisesPP.push({
+        downloadUrlPromisesPPP.push({
           url: downloadURL
         })
 
         updateDoc(refe, {
-          exampleTemplate: downloadUrlPromisesPP
+          exampleTemplate: downloadUrlPromisesPPP
         }).then(()=>{
           updateThree = true;
           if(updateOne & updateTwo & updateThree){

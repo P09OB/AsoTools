@@ -19,7 +19,7 @@
         }
 
         &--level{
-            font-size: 104px;
+            font-size: 80px;
 
         }
 
@@ -140,6 +140,11 @@
 
     &--center{
         margin: 0 auto;
+    }
+    &--opcion{
+        padding-top: 10px;
+    font-weight: bold;
+
     }
 
 }

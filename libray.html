@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,44 +15,49 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 </head>
+
 <body>
     <nav class="nav"></nav>
 
     <div class="content--white">
 
         <div class="dashboard__search">
-            <h2 class="textStyles--darkGreen">Busca en la canasta</h2>
+            <h2 class="textStyles--darkGreen">Busca en nuestra libreria</h2>
             <label class="input__label  label-name">
-                <input class="input name" type="text" placeholder="Árbol del problema"
-                    name="methodology">
+                <input class="input name" type="text" placeholder="Árbol del problema" name="methodology">
             </label>
         </div>
-
         <div class="linea"></div>
 
-        <h3 class="textStyles__title--1 textStyles--clearGreen2">Canasta</h3>
+        <div class="dashboard--flex">
 
-        <div class="filter">
-            <a class="filter--opcion textStyles--clearGreen2">Todos</a>
-            <a class="filter--opcion textStyles--clearGreen2">Soy parte</a>
-            <a class="filter--opcion textStyles--clearGreen2">Somos parte</a>
-            <a class="filter--opcion textStyles--clearGreen2">Tomamos parte</a>
+            <div>
+
+            <h3 class="textStyles__title--1 textStyles--clearGreen2">Libreria de metodologías</h3>
+
+            <div class="filter">
+                <a class="filter--opcion textStyles--clearGreen2">Todos</a>
+                <a class="filter--opcion textStyles--clearGreen2">Soy parte</a>
+                <a class="filter--opcion textStyles--clearGreen2">Somos parte</a>
+                <a class="filter--opcion textStyles--clearGreen2">Tomamos parte</a>
+
+            </div>
+            </div>
+            <button class="button addBtt">Agregar</button>
+        </div>
+
+        <div class="dashboard__methodology dashboard__methodology--wrap">
+
+
 
         </div>
 
-        <button class="button addBtt">Agregar</button>
-        <div class="dashboard__methodology">
-
-            
-
-        </div>
 
 
-        
 
 
     </div>
-    
+
 </body>
 <script type="module" src="./scripts/libray.js"></script>
 <script type="module" src="scripts/navModal.js"></script>
