@@ -11,9 +11,9 @@ nav.innerHTML=`
             <a class="nav__element nav__desaparecer textStyles--white" href="./levels.html">Ruta</a>
         </div>
         <div class="nav__profile profile">
-                <h4 class="nav__element nav__desaparecer">${localStorage.getItem('nameUser')
+                <h4 class="textStyles__space--small">${localStorage.getItem('nameUser')
             }</h4>
-                <a class= "logOut">Cerrar sesión</a>
+                <a class= "nav__element logOut">Cerrar sesión</a>
         </div>
 `;
 

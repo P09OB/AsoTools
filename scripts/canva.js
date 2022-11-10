@@ -1,4 +1,4 @@
-import { getMethodologyName, onGetProyect,createSesion,createManualSesion } from './firebase.js'
+import { getMethodologyName, onGetProyect, createSesion, createManualSesion } from './firebase.js'
 
 const problem = document.querySelector('.cardProblem')
 const strengths = document.querySelector('.cardStrengths')
@@ -10,6 +10,7 @@ const impact = document.querySelector('.cardImpact')
 const actividades = document.querySelector('.cardActividades')
 const recursos = document.querySelector('.cardRecursos')
 const partnerships = document.querySelector('.cardPartnerships')
+const commitments = document.querySelector('.cardCommitments')
 
 const opcionProblem = document.querySelector('.problemOpcions')
 const opcionStrengths = document.querySelector('.strengthsOpcions')
@@ -21,6 +22,8 @@ const opcionImpact = document.querySelector('.impactOpcions')
 const opcionActividades = document.querySelector('.actividadesOpcions')
 const opcionRecursos = document.querySelector('.recursosOpcions')
 const opcionPartnerships = document.querySelector('.partnershipsOpcions')
+const opcionCommitments = document.querySelector('.commitmentsOpcions')
+
 const librayBtt = document.querySelector('.libray')
 
 const methodologyOne = document.querySelectorAll('.methodologyOne')
@@ -28,6 +31,7 @@ const nameProject = document.querySelector('.nameProject')
 const community = document.querySelector('.community')
 const date = document.querySelector('.date')
 
+var project = ''
 var viewDiagnostico = false
 var viewFundamentacion = false
 var viewObjetivos = false
@@ -35,28 +39,24 @@ var viewPropuesta = false
 var viewActividades = false
 var viewRecursos = false
 
-window.addEventListener('DOMContentLoaded', async()=>{
+window.addEventListener('DOMContentLoaded', async () => {
     const params = new URLSearchParams(location.search);
     const id = params.get('id');
-    localStorage.setItem('idProyect',id)
+    localStorage.setItem('idProyect', id)
 
     onGetProyect((querySnapshot) => {
-        const project = querySnapshot.data()
+        project = querySnapshot.data()
         console.log(project)
         nameProject.innerHTML = project.proyectName
-        community.innerHTML = "Comunidad:" +" "+project.communityName
+        community.innerHTML = "Comunidad:" + " " + project.communityName
         date.innerHTML = project.creationDate
     })
-
-    
-
 })
-
 
 const authModal = document.createElement('section');
 authModal.classList.add('modal');
 
-function create (methodologyName,methodologyId,methodologyObjetive,methodologyTemplate) {
+function create(methodologyName, methodologyId, methodologyObjetive, methodologyTemplate) {
     authModal.innerHTML = `
     <div class="modal__backdrop"></div>
 
@@ -65,10 +65,12 @@ function create (methodologyName,methodologyId,methodologyObjetive,methodologyTe
     <input class="images--icon modal__close" type="image" src="./imgs/x-icon.svg">
 
         <div class="modal__head">
-            <div class= "modal__head--items">
+            <div class= "button--tam">
                 <h2 class="textStyles__space--medium">${methodologyName}</h2>
-                <a class= "button button--big bttManual">Modalidad tradicional</a>
-                <a class= "button--border button--big bttInteractive">Modalidad digital</a>
+                    <div class="button--container">
+                        <a class= "button button--big button--auto bttManual">Modalidad tradicional</a>
+                        <a class= "button--border button--big button--auto bttInteractive">Modalidad digital</a>
+                    </div>
             </div>
 
             <div class= "modal__head--img">
@@ -82,9 +84,8 @@ function create (methodologyName,methodologyId,methodologyObjetive,methodologyTe
     </article>
 `;
 
-document.body.appendChild(authModal);
+    document.body.appendChild(authModal);
 }
-
 
 function appear() {
     const authModalContent = document.querySelector('.modal__content');
@@ -113,56 +114,78 @@ function appear() {
     }
 
     modalClose.addEventListener('click', handleCloseModal);
-    bttManual.addEventListener('click', ()=>{
+    bttManual.addEventListener('click', () => {
         getMethodologyName((querySnapshot) => {
-            let questions =''
+            let questions = ''
             let template = ''
             let level = ''
+            let evaluate = ''
+            var evaluateAns = false
+
             querySnapshot.forEach((doc) => {
-        
+
                 const methodology = doc.data()
                 questions = methodology.questions
                 template = methodology.templates[0].url
                 level = methodology.level
             });
-            console.log(template)
+
+            if (localStorage.getItem('nameMethodology') === 'Análisis diferenciado del bienestar') {
+                evaluate = project.stages[0].answers[counter].answer
+                evaluateAns = true
+                
+            } else {
+                evaluate = []
+            }
             setTimeout(function () {
 
-        createManualSesion(localStorage.getItem('idUser'), localStorage.getItem('nameMethodology'),questions,level,template)
-    }, 500);
+                createManualSesion(localStorage.getItem('idUser'), localStorage.getItem('nameMethodology')
+                    , questions, evaluate, level, template, localStorage.getItem('idProyect'),evaluateAns)
+            }, 500);
 
-    })
+        })
     })
 
-    function code () {
+    function code() {
         let randomOne = Math.floor(Math.random() * 9)
         let randomTwo = Math.floor(Math.random() * 9)
         let randomThree = Math.floor(Math.random() * 9)
         let randomFour = Math.floor(Math.random() * 9)
         let randomFive = Math.floor(Math.random() * 9)
-        let code = randomOne+""+randomTwo+""+randomThree+""+randomFour+""+randomFive
+        let code = randomOne + "" + randomTwo + "" + randomThree + "" + randomFour + "" + randomFive
         return code
     }
-    
-    bttInteractive.addEventListener('click',()=>{
+
+    bttInteractive.addEventListener('click', () => {
         localStorage.setItem('codeSesion', code())
         getMethodologyName((querySnapshot) => {
-            let questions =''
+            let questions = ''
             let template = ''
             let level = ''
+            let evaluate = ''
+            var evaluateAns = false
+
 
             querySnapshot.forEach((doc) => {
-        
+
                 const methodology = doc.data()
                 questions = methodology.questions
                 template = methodology.templates[0].url
                 level = methodology.level
-
             });
+
+            if (localStorage.getItem('nameMethodology') === 'Análisis diferenciado del bienestar') {
+                evaluate = project.stages[0].answers
+                evaluateAns = true
+            } else {
+                evaluate = []
+            }
+
             setTimeout(function () {
 
-            createSesion(localStorage.getItem('codeSesion'), localStorage.getItem('idUser'), localStorage.getItem('nameMethodology'),questions,level,template)
-        }, 500);
+                createSesion(localStorage.getItem('codeSesion'), localStorage.getItem('idUser'), localStorage.getItem('nameMethodology')
+                    ,questions,evaluate, level, template, localStorage.getItem('idProyect'),evaluateAns)
+            }, 500);
 
         })
     })
@@ -180,18 +203,17 @@ methodologyOne.forEach((elem) => {
         getMethodologyName((querySnapshot) => {
 
             querySnapshot.forEach((doc) => {
-                console.log("entre")
 
                 const methodology = doc.data()
-                 let methodologyName = methodology.name
-                 let methodologyId = methodology.id
-                 let methodologyObjetive = methodology.objetive
-                 let methodologyTemplate = methodology.templates[0].url
-                 create(methodologyName,methodologyId,methodologyObjetive,methodologyTemplate)
-                 appear()
+                let methodologyName = methodology.name
+                let methodologyId = methodology.id
+                let methodologyObjetive = methodology.objetive
+                let methodologyTemplate = methodology.templates[0].url
+                create(methodologyName, methodologyId, methodologyObjetive, methodologyTemplate)
+                appear()
 
             });
-        
+
         })
 
     })
@@ -214,7 +236,7 @@ problem.addEventListener('click', (e) => {
         opcionActividades.classList.add('hidden')
         opcionRecursos.classList.add('hidden')
         opcionPartnerships.classList.add('hidden')
-
+        opcionCommitments.classList.add('hidden')
         viewDiagnostico = true
     }
 })
@@ -235,6 +257,7 @@ strengths.addEventListener('click', (e) => {
         opcionActividades.classList.add('hidden')
         opcionRecursos.classList.add('hidden')
         opcionPartnerships.classList.add('hidden')
+        opcionCommitments.classList.add('hidden')
 
 
         viewFundamentacion = true
@@ -258,6 +281,7 @@ causes.addEventListener('click', (e) => {
         opcionActividades.classList.add('hidden')
         opcionRecursos.classList.add('hidden')
         opcionPartnerships.classList.add('hidden')
+        opcionCommitments.classList.add('hidden')
 
 
         viewFundamentacion = true
@@ -282,6 +306,7 @@ objectiveG.addEventListener('click', (e) => {
         opcionActividades.classList.add('hidden')
         opcionRecursos.classList.add('hidden')
         opcionPartnerships.classList.add('hidden')
+        opcionCommitments.classList.add('hidden')
 
         viewObjetivos = true
 
@@ -306,6 +331,7 @@ objectiveE.addEventListener('click', (e) => {
         opcionActividades.classList.add('hidden')
         opcionRecursos.classList.add('hidden')
         opcionPartnerships.classList.add('hidden')
+        opcionCommitments.classList.add('hidden')
 
         viewObjetivos = true
 
@@ -328,6 +354,7 @@ propuesta.addEventListener('click', (e) => {
         opcionActividades.classList.add('hidden')
         opcionRecursos.classList.add('hidden')
         opcionPartnerships.classList.add('hidden')
+        opcionCommitments.classList.add('hidden')
 
         viewPropuesta = true
     }
@@ -350,6 +377,7 @@ impact.addEventListener('click', (e) => {
         opcionActividades.classList.add('hidden')
         opcionRecursos.classList.add('hidden')
         opcionPartnerships.classList.add('hidden')
+        opcionCommitments.classList.add('hidden')
 
         viewPropuesta = true
     }
@@ -371,6 +399,7 @@ actividades.addEventListener('click', (e) => {
         opcionActividades.classList.remove('hidden')
         opcionRecursos.classList.add('hidden')
         opcionPartnerships.classList.add('hidden')
+        opcionCommitments.classList.add('hidden')
 
         viewActividades = true
     }
@@ -392,6 +421,7 @@ recursos.addEventListener('click', (e) => {
         opcionActividades.classList.add('hidden')
         opcionRecursos.classList.remove('hidden')
         opcionPartnerships.classList.add('hidden')
+        opcionCommitments.classList.add('hidden')
 
         viewRecursos = true
     }
@@ -413,13 +443,37 @@ partnerships.addEventListener('click', (e) => {
         opcionActividades.classList.add('hidden')
         opcionRecursos.classList.add('hidden')
         opcionPartnerships.classList.remove('hidden')
+        opcionCommitments.classList.add('hidden')
 
         viewRecursos = true
     }
 
 })
 
-librayBtt.addEventListener('click',(e)=>{
+commitments.addEventListener('click', (e) => {
+    if (viewRecursos) {
+        opcionCommitments.classList.add('hidden')
+        viewRecursos = false
+    } else {
+        opcionProblem.classList.add('hidden')
+        opcionStrengths.classList.add('hidden')
+        objGOpcions.classList.add('hidden')
+        objEOpcions.classList.add('hidden')
+        opcionPropuesta.classList.add('hidden')
+        opcionImpact.classList.add('hidden')
+        opcionActividades.classList.add('hidden')
+        opcionRecursos.classList.add('hidden')
+        opcionPartnerships.classList.add('hidden')
+        opcionCommitments.classList.remove('hidden')
+
+        viewRecursos = true
+    }
+
+})
+
+
+
+librayBtt.addEventListener('click', (e) => {
     location.href = './libray.html'
 })
 //HOVERS

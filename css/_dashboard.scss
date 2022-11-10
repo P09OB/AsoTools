@@ -158,4 +158,16 @@
         margin-right: 10px;
         width: 23%;
     }
+
+    &__emojis{
+        display: flex;
+        color: white;
+        padding-top: 37px;
+        justify-content: center;
+
+        &--emoji{
+            padding-right: 40px;
+
+        }
+    }
 }

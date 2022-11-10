@@ -1,4 +1,4 @@
-import { onGetSesion, setSesion, addAnswer, newAnswer } from './firebase.js'
+import { onGetSesion, setSesion, addAnswer, newAnswer, onGetProyect } from './firebase.js'
 const bttStart = document.querySelectorAll('.start')
 const question = document.querySelector('.question')
 const cardUsers = document.querySelector('.card__users')
@@ -50,7 +50,6 @@ onGetSesion((querySnapshot) => {
     let html = ''
     let liTag = ''
     sesion = querySnapshot.data()
-    console.log(sesion)
     numberOfQuestions = sesion.objQuestions.length - 2
     date = sesion.objQuestions[counter]
     obtener = date.question
@@ -82,6 +81,10 @@ onGetSesion((querySnapshot) => {
             addBox.insertAdjacentHTML("afterend", liTag);
         })
     }
+
+})
+
+onGetProyect((querySnapshot)=>{
 
 })
 
@@ -210,5 +213,5 @@ addBtn.addEventListener("click", e => {
 });
 
 finish.addEventListener('click',()=>{
-    location.href = '../proyect.html'
+    location.href = `./proyect.html?id=${sesion.idProyect}`
 })

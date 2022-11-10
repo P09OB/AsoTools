@@ -15,6 +15,7 @@
         width: 20%;
         margin-right: 5px;
         margin-bottom: 5px;
+        cursor: pointer;
     }
 
     &__medium{
@@ -22,6 +23,7 @@
         padding: 6px;
         height: 123px;
         margin-right: 5px;
+        cursor: pointer;
     }
 
     &__small{
@@ -29,11 +31,13 @@
         width: 100%;
         height: 180px;
         margin-top: 5px;
+        cursor: pointer;
     }
 
     &__long{
         padding: 6px;
         margin-top: 5px;
+        cursor: pointer;
     }
 
     &--soyParte{

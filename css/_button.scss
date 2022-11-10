@@ -94,6 +94,21 @@
     &:hover {
         background-color: #0f5a31;
     }
+
+    &--container{
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+    }
+
+    &--auto{
+        width: auto;
+    }
+
+    &--tam{
+        width: 50%;
+
+    }
 }
 
 .button:hover {

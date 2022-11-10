@@ -77,7 +77,7 @@ export const checkUser = (email, password) => {
 
 }
 
-export const addProyect = (idUser, proyectName, communityName, creationDate, description, level, progress, state,) => {
+export const addProyect = (idUser, proyectName, communityName, creationDate, description, level, progress, state,stages,canva) => {
 
   const userRef = doc(collection(doc(db, 'users', idUser), 'proyects'))
   const id = userRef.id
@@ -91,6 +91,8 @@ export const addProyect = (idUser, proyectName, communityName, creationDate, des
     level,
     progress,
     state,
+    stages,
+    canva,
     progress: 0,
   }
   setDoc(userRef,proyect).then(() => {
@@ -117,28 +119,36 @@ export const onGetProyect = (callback) =>
 
 onSnapshot(doc(db, 'users', localStorage.getItem('idUser'), "proyects", localStorage.getItem('idProyect')), callback)
 
-export const createSesion = (code, idUser, idMethodology, questions,level,template) => {
+export const createSesion = (code, idUser, idMethodology, questions,evaluateAnswers,level,template, idProyect,evaluateAns) => {
   const userRef = doc(collection(doc(db, 'users', idUser), 'sesion'))
   const id = userRef.id
   const user = []
   var objQuestions = []
+  var objEvaluate = []
 
 
   for (let i = 0; i < questions.length; i++) {
     objQuestions.push({ question: questions[i], code: 'questions'+[i] })
   }
+  for (let i = 0; i < evaluateAnswers.length; i++) {
+    objEvaluate.push({ evaluate: evaluateAnswers[i], code: 'evaluate'+[i] })
+  }
+
   const sesion = {
     id,
     idUser,
     idMethodology,
     code,
     objQuestions,
+    objEvaluate,
     level,
     counter: 0,
     template,
+    idProyect,
     users: user,
     start: false,
     completed: false,
+    evaluateAns,
   }
   setDoc(userRef, sesion).then(() => {
     localStorage.setItem('idSesion', id)
@@ -146,22 +156,28 @@ export const createSesion = (code, idUser, idMethodology, questions,level,templa
   })
 }
 
-export const createManualSesion = (idUser, idMethodology,questions,level,template) =>{
+export const createManualSesion = (idUser, idMethodology,questions,evaluateAnswers,level,template,idProyect,evaluateAns ) =>{
   const userRef = doc(collection(doc(db, 'users', idUser), 'sesion'))
   const id = userRef.id
   var objQuestions = []
   for (let i = 0; i < questions.length; i++) {
     objQuestions.push({ question: questions[i], code: 'questions'+[i] })
   }
-  const sesion = {
+  for (let i = 0; i < evaluateAnswers.length; i++) {
+    objEvaluate.push({ evaluate: evaluateAnswers[i], code: 'evaluate'+[i] })
+  }
+  const sesion ={
     id,
     idUser,
     idMethodology,
     objQuestions,
+    evaluateAnswers,
     level,
+    idProyect,
     counter: 0,
     start: false,
-    template
+    template,
+    evaluateAns,
   }
 
   setDoc(userRef,sesion).then(()=>{
@@ -183,6 +199,15 @@ export const setSesion = (counter,start) =>{
     })
 }
 
+export const modifyProyect = (stages)=>{
+
+  const ref = doc(db, 'users', localStorage.getItem('idUser'), "proyects", localStorage.getItem('idProyect'));
+
+  updateDoc(ref,
+    {stages
+    })
+}
+
 export const addAnswer = (answer) =>{
 
   const ref = doc(db, "users", localStorage.getItem('idUser'),"sesion",localStorage.getItem('idSesion'));
@@ -193,6 +218,18 @@ export const newAnswer = (code, answer) =>{
   const ref = doc(db, "users", localStorage.getItem('idUser'),"sesion",localStorage.getItem('idSesion'));
   updateDoc(ref, {[code]: arrayUnion(answer)}).then(()=>{
   })
+}
+
+export const addCalculation = (code, veryBad, bad, regular, nice) =>{
+  const ref = doc(db, "users", localStorage.getItem('idUser'),"sesion",localStorage.getItem('idSesion'));
+  updateDoc(ref,
+    {calculateAnswers: arrayUnion({code,
+        veryBad,
+        bad,
+        regular,
+        nice})
+    })
+
 }
 
 export const logOut = () =>{

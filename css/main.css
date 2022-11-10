@@ -49,7 +49,7 @@ body {
 }
 
 a:hover {
-  color: #95eb1c;
+  color: #188d4d;
   cursor: pointer;
 }
 
@@ -320,6 +320,17 @@ a:hover {
 .button:hover {
   background-color: #0f5a31;
 }
+.button--container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.button--auto {
+  width: auto;
+}
+.button--tam {
+  width: 50%;
+}
 
 .input {
   width: 100%;
@@ -416,6 +427,9 @@ a:hover {
 }
 .textStyles__space--big {
   padding-bottom: 50px;
+}
+.textStyles__space--small {
+  padding-bottom: 5px;
 }
 .textStyles__body {
   font-size: 16px;
@@ -937,6 +951,15 @@ a:hover {
   margin-right: 10px;
   width: 23%;
 }
+.dashboard__emojis {
+  display: flex;
+  color: white;
+  padding-top: 37px;
+  justify-content: center;
+}
+.dashboard__emojis--emoji {
+  padding-right: 40px;
+}
 
 .quadrant {
   width: 79%;
@@ -954,22 +977,26 @@ a:hover {
   width: 20%;
   margin-right: 5px;
   margin-bottom: 5px;
+  cursor: pointer;
 }
 .quadrant__medium {
   width: 50%;
   padding: 6px;
   height: 123px;
   margin-right: 5px;
+  cursor: pointer;
 }
 .quadrant__small {
   padding: 6px;
   width: 100%;
   height: 180px;
   margin-top: 5px;
+  cursor: pointer;
 }
 .quadrant__long {
   padding: 6px;
   margin-top: 5px;
+  cursor: pointer;
 }
 .quadrant--soyParte {
   background: rgba(103, 0, 169, 0.2);
