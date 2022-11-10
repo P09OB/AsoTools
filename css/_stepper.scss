@@ -61,6 +61,12 @@
     display: flex;
     cursor: pointer; 
 
+    &:hover{
+      color:#8EC543;
+
+
+    }
+
     &--img{
       margin-right: 5px;
     }

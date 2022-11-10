@@ -23,6 +23,7 @@ const opcionActividades = document.querySelector('.actividadesOpcions')
 const opcionRecursos = document.querySelector('.recursosOpcions')
 const opcionPartnerships = document.querySelector('.partnershipsOpcions')
 const opcionCommitments = document.querySelector('.commitmentsOpcions')
+const addMeth = document.querySelectorAll('.addMethodology')
 
 const librayBtt = document.querySelector('.libray')
 
@@ -484,4 +485,12 @@ problemDiv.addEventListener('click', (e) => {
     opcionProblem.classList.remove('hidden')
 
 })
+
+addMeth.forEach((elem)=>{
+    elem.addEventListener('click',()=>{
+        location.href = './libray.html'
+    })
+})
+
+
 

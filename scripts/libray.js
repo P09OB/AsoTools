@@ -14,6 +14,7 @@ window.addEventListener('DOMContentLoaded',()=>{
         let html = ''
         let color = ''
         let secondColor = ''
+        let route = ''
         querySnapshot.forEach((doc) => {
             const methodology = doc.data()
             if(methodology.level == 'Soy parte'){
@@ -29,12 +30,24 @@ window.addEventListener('DOMContentLoaded',()=>{
                 secondColor = 'card--tomamosParte--second';
             }
 
-            html += `
-            
+
+            if(methodology.route){
+                route = 'Ruta'
+            } else{
+                route = 'Complementaria'
+            }
+
+            html += `            
             <a class="methodology" href="./methodology.html?id=${methodology.id}&name=${methodology.name}">
             <div class="card__methodology ${color}" style="background-image: url(${methodology.profilePicture[0].url})">
-                    <div class="card__methodology--process ${secondColor}">${methodology.phase}</div>
-                    <h3 class="">${methodology.name}</h3>
+            <div class="card__states--level card__states--level--route">
+                        <div class="card__states--figure card--white"></div>
+                        <b> <p class="cardLevel"></p>${route} </b> 
+                    </div>
+                    <div class="card__methodology--details">
+                        <div class="card__methodology--process ${secondColor}">${methodology.phase}</div>
+                        <h3 class="">${methodology.name}</h3>
+                    </div>
                 </div>
              </a>
             `

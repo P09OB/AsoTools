@@ -19,11 +19,13 @@ const phase = document.querySelector('.phase')
 const warning = document.querySelector('.warning')
 const cardCaution = document.querySelector('.card__caution')
 const download = document.querySelector('.download')
+const addRoute = document.querySelector('.addRoute')
 
 const steps = document.querySelector('.steps')
 const plantilla = document.querySelector('.plantilla')
 const imageLogo = document.querySelector('.imageLogo')
 const background = document.querySelector('.dashboard__methodology--intro')
+
 var number = ''
 let color = ''
 ////
@@ -50,6 +52,10 @@ window.addEventListener('DOMContentLoaded', async()=>{
             }  
             if(project.level == 'Tomamos parte'){
                 color =  '#fe9800';
+            }
+
+            if(!project.route){
+                addRoute.classList.remove('hidden')
             }
 
             background.style.backgroundColor = color

@@ -128,6 +128,11 @@ onGetSesion((querySnapshot) => {
                 addBox.insertAdjacentHTML("afterend", liTag);
 
             } else {
+                //CAMBIAR LOGICA
+                veryBad = []
+                bad = []
+                regular = []
+                nice = []
 
                 if (e.answer == 'veryBad') {
                     veryBad.push(e.name)

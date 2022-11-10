@@ -545,8 +545,7 @@ a:hover {
   padding-bottom: 30px;
   flex-direction: column;
   align-content: center;
-  justify-content: flex-end;
-  align-items: center;
+  justify-content: space-between;
   border-radius: 29px;
   text-align: center;
   padding-left: 8px;
@@ -557,13 +556,20 @@ a:hover {
   background-position-y: 10px;
 }
 .card__methodology--process {
-  width: auto;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
   padding-left: 10px;
   padding-right: 10px;
   height: 20px;
   margin-bottom: 10px;
   text-align: center;
   border-radius: 4px;
+}
+.card__methodology--details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .card__question {
   background-color: white;
@@ -607,6 +613,10 @@ a:hover {
 }
 .card__states--level {
   display: flex;
+}
+.card__states--level--route {
+  margin-top: 25px;
+  margin-left: 15px;
 }
 .card__states--figure {
   background-color: #6700a9;
@@ -1027,6 +1037,10 @@ a:hover {
 .filter--opcion {
   margin-right: 20px;
 }
+.filter--opcion--select {
+  padding-bottom: 5px;
+  border-bottom: 2px solid #126A3A;
+}
 
 .images {
   padding-top: 6%;
@@ -1350,6 +1364,9 @@ a:hover {
   color: #126A3A;
   display: flex;
   cursor: pointer;
+}
+.c-stepper__add:hover {
+  color: #8EC543;
 }
 .c-stepper__add--img {
   margin-right: 5px;
