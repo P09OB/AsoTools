@@ -40,7 +40,7 @@ proyectForm.addEventListener('submit',(e)=>{
         })
     })
 
-    let data = f.getDate() + "-"+ f.getMonth()+ "-" +f.getFullYear();
+    let data = f.getDate() + "-"+ (f.getMonth()+1)+ "-" +f.getFullYear();
 
     addProyect(idUser, proyectForm.nameProyect.value, proyectForm.communityName.value, data, proyectForm.description.value,'Soy parte',0,'En proceso',stages,canva)
 

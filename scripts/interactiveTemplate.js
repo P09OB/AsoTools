@@ -1,4 +1,4 @@
-import { onGetSesion, setSesion, addAnswer, setSesionCompleted, onGetProyect, modifyProyect, addCalculation } from './firebase.js'
+import { onGetSesion, setSesion, addAnswer, setSesionCompleted, onGetProyect, modifyProyect, addCalculation, modifyCanvaProject } from './firebase.js'
 
 const addBox = document.querySelector(".add-box")
 const containedUsers = document.querySelector('.containedUsers')
@@ -36,10 +36,10 @@ let tag1 = document.querySelector('.resumeAnswers1')
 let tag2 = document.querySelector('.resumeAnswers2')
 
 let numberOfEvaluate, dateEvaluate, obtEvaluate, codeEvaluate = ''
-let veryBad = []
-let bad = []
-let regular = []
-let nice = []
+let veryBad = ''
+let bad = ''
+let regular = ''
+let nice = ''
 let counter = 0
 let numberOfQuestions = 0
 let codeObtener = ''
@@ -49,6 +49,10 @@ var proyect = ''
 var arrayEnd = ''
 let date = ''
 let arrayAnswer = ''
+let arrayEvaluate = ''
+let canva = ''
+let problemCanva = ''
+let answerEvaluate = ''
 let start = false
 let view = false
 let completed = false
@@ -60,6 +64,7 @@ onGetProyect((querySnapshot) => {
 
     proyect = querySnapshot.data()
     arrayEnd = proyect.stages
+    canva = proyect.canva
 
 })
 
@@ -70,6 +75,7 @@ onGetSesion((querySnapshot) => {
     counter = sesion.counter
     completed = sesion.completed
     evaluate = sesion.evaluateAns
+    arrayEvaluate = sesion.objEvaluate
 
     if (!evaluate) {
 
@@ -111,10 +117,9 @@ onGetSesion((querySnapshot) => {
         let name = ''
         let arrayName = []
 
-
-
         document.querySelectorAll(".note").forEach(li => li.remove());
         arrayAnswer = sesion[localStorage.getItem("code")]
+        
         arrayAnswer.forEach(e => {
 
             if (!evaluate) {
@@ -127,39 +132,39 @@ onGetSesion((querySnapshot) => {
             `;
                 addBox.insertAdjacentHTML("afterend", liTag);
 
-            } else {
-                //CAMBIAR LOGICA
-                veryBad = []
-                bad = []
-                regular = []
-                nice = []
-
-                if (e.answer == 'veryBad') {
-                    veryBad.push(e.name)
-                }
-                if (e.answer == 'bad') {
-                    bad.push(e.name)
-                }
-                if (e.answer == 'regular') {
-                    regular.push(e.name)
-                }
-                if (e.answer == 'nice') {
-                    nice.push(e.name)
-                }
-
-                veryBadTx.innerHTML = veryBad.length
-                badTx.innerHTML = bad.length
-                regTx.innerHTML = regular.length
-                niceTx.innerHTML = nice.length
-
-
-
             }
 
             if (!arrayName.includes(e.name)) {
                 arrayName.push(e.name);
             }
         })
+
+        if (evaluate) {
+
+        veryBad = arrayAnswer.filter((doc)=>{
+            return doc.answer == 'veryBad'
+        })
+
+        bad = arrayAnswer.filter((doc)=>{
+            return doc.answer == 'bad'
+        })
+
+        regular = arrayAnswer.filter((doc)=>{
+            return doc.answer == 'regular'
+        })
+
+        nice = arrayAnswer.filter((doc)=>{
+            return doc.answer == 'nice'
+        })
+
+
+        veryBadTx.innerHTML = veryBad.length
+        badTx.innerHTML = bad.length
+        regTx.innerHTML = regular.length
+        niceTx.innerHTML = nice.length
+
+        }
+
         participants.innerHTML = ''
 
         arrayName.forEach(elem => {
@@ -223,7 +228,7 @@ bttStart.forEach((e) => {
 
                     setSesionCompleted(completed)
                     sesion.calculateAnswers.forEach((doc) => {
-                        console.log(doc)
+                        answerEvaluate = ''
                         let numerodeParticipantes = doc.veryBad +doc.bad+doc.regular+doc.nice
                         let veryBad =doc.veryBad  * 0
                         let bad = doc.bad * 1
@@ -246,14 +251,24 @@ bttStart.forEach((e) => {
                             });
 
                             problemShow.forEach((doc)=>{
+                                problemCanva = doc.evaluate.answer
                                 problem.innerHTML = doc.evaluate.answer
                             })
-                        } else  {
-                            console.log('Todo bien con: ' + doc.code)
-                        }
+                        } 
+
+                            var result = sesion.objEvaluate.filter(function(search) {
+                                return search.code === doc.code;
+                            });
+
+                            result.forEach((doc)=>{
+                                answerEvaluate = doc.evaluate.answer
+
+                            })
+
+                        
 
                         html += `<div>
-                        <div class="dashboard--flex--group">${doc.code}</div>
+                        <div class="dashboard--flex--group">${answerEvaluate}</div>
                         <div class="dashboard--flex--group">
                             <h3>${doc.veryBad}</h3>
                             <h3>${doc.bad}</h3>
@@ -265,18 +280,26 @@ bttStart.forEach((e) => {
 
                                                 
                     })
+                canva.map((doc)=>{
+                    if(doc.phase == 'problema'){
+                        doc.answers = problemCanva
+                        doc.state = true
+                    }
+                    return doc;
+
+                })
+
+                var progress = 100/15
+
+                modifyCanvaProject(canva,progress)
+
+                console.log(canva)
                 }, 2000);
 
-                //ENVIAR AL CANVA EL PROBLEMA SELECCIONADO
 
                 
 
-                
 
-                veryBad = []
-                bad = []
-                regular = []
-                nice = []
 
             } else {
                 //set cambiar 
@@ -395,7 +418,9 @@ bttStart.forEach((e) => {
                     return dato
                 })
 
-                modifyProyect(arrayEnd)
+                var progress = 100/15
+
+                modifyProyect(arrayEnd,progress)
 
 
             } else {

@@ -199,13 +199,20 @@ export const setSesion = (counter,start) =>{
     })
 }
 
-export const modifyProyect = (stages)=>{
+export const modifyProyect = (stages,progress)=>{
 
   const ref = doc(db, 'users', localStorage.getItem('idUser'), "proyects", localStorage.getItem('idProyect'));
 
   updateDoc(ref,
-    {stages
+    {stages,
+      progress
     })
+}
+
+export const modifyCanvaProject = (canva)=>{
+  const ref = doc(db, 'users', localStorage.getItem('idUser'), "proyects", localStorage.getItem('idProyect'));
+  updateDoc(ref,
+    {canva,progress}).then(()=> alert('hecho'))
 }
 
 export const addAnswer = (answer) =>{

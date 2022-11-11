@@ -32,6 +32,12 @@ const nameProject = document.querySelector('.nameProject')
 const community = document.querySelector('.community')
 const date = document.querySelector('.date')
 
+const textProblem = document.querySelector('.textProblem')
+
+const quadrantCause = document.querySelector('.causes')
+const causesSpan = document.querySelector('.causesSpan')
+const causesNum = document.querySelector('.causesNum')
+
 var project = ''
 var viewDiagnostico = false
 var viewFundamentacion = false
@@ -51,6 +57,14 @@ window.addEventListener('DOMContentLoaded', async () => {
         nameProject.innerHTML = project.proyectName
         community.innerHTML = "Comunidad:" + " " + project.communityName
         date.innerHTML = project.creationDate
+        textProblem.innerHTML = project.canva[0].answers
+
+        if(project.canva[0].state){
+            quadrantCause.classList.remove('quadrant--disabled')
+            causesSpan.classList.remove('textStyles--disabled')
+            causesNum.classList.remove('textStyles__number--disabled')
+        }
+
     })
 })
 
@@ -479,7 +493,6 @@ librayBtt.addEventListener('click', (e) => {
 })
 //HOVERS
 
-const textProblem = document.querySelector('.textProblem')
 const problemDiv = document.querySelector('.problem')
 problemDiv.addEventListener('click', (e) => {
     opcionProblem.classList.remove('hidden')

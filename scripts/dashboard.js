@@ -3,7 +3,8 @@ import { onGetProyects} from './firebase.js'
 const cards = document.querySelector('.dashboard__content')
 const dashboardEmpaty = document.querySelector('.dashboard__empty')
 const welcomeUser = document.querySelector('.welcomeUser')
-
+var project = ''
+var tam = 0
 let idUser = localStorage.getItem('idUser');
 
 welcomeUser.innerHTML = "Hola,"+" "+localStorage.getItem('nameUser')
@@ -12,8 +13,9 @@ onGetProyects((querySnapshot) => {
     let html = ''
     querySnapshot.forEach((doc) => {
         dashboardEmpaty.classList.add('hidden')
-        const project = doc.data()
+         project = doc.data()
         console.log(project)
+        tam = (322*project.progress)/100
         html += `
         <a class="listProducts__edit" href="./proyect.html?id=${doc.id}&name=${project.proyectName}">
 
@@ -32,9 +34,9 @@ onGetProyects((querySnapshot) => {
                 </div>
                 <div class="card__progress">
                     <div class="card__progress--background">
-                        <div class="card__progress--progressBar progressBar"></div>
+                        <div  style='	width:${tam}px ' class="card__progress--progressBar progressBar" ></div>
                     </div>
-                    <p class="card__porcentaje">4%</p>
+                    <p class="card__porcentaje">${project.progress}%</p>
                 </div>
                 
             </div>
@@ -42,6 +44,7 @@ onGetProyects((querySnapshot) => {
             </a>`
 
     });
-
     cards.innerHTML = html;
+
+    
 })

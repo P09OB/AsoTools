@@ -659,7 +659,6 @@ a:hover {
 .card__progress--progressBar {
   background-color: white;
   border-radius: 7px;
-  width: 40px;
   height: 20px;
 }
 .card--state {
@@ -1431,6 +1430,8 @@ a:hover {
   height: 590px;
   background-image: url("../imgs/fondoAso.png");
   line-height: 1.8;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .section__background {
   background-image: url("../imgs/backgroundGreen.png");
