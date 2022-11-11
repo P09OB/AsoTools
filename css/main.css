@@ -917,7 +917,7 @@ a:hover {
 .dashboard__methodology--move {
   position: -webkit-sticky;
   position: sticky;
-  top: 150px;
+  top: 214px;
   z-index: 12;
 }
 .dashboard__methodology--steps {
@@ -1115,6 +1115,21 @@ a:hover {
   width: 40px;
   top: -15px;
   right: -12px;
+}
+.modal--check {
+  background: white;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 20px;
+  position: fixed;
+  right: 20px;
+  border-radius: 20px;
+  top: 131px;
+  display: flex;
+  align-items: center;
+  filter: drop-shadow(0px 8px 24px rgba(25, 32, 56, 0.4));
+  z-index: 15;
 }
 @media (max-width: 989px) {
   .modal {

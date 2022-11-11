@@ -20,6 +20,7 @@ const warning = document.querySelector('.warning')
 const cardCaution = document.querySelector('.card__caution')
 const download = document.querySelector('.download')
 const addRoute = document.querySelector('.addRoute')
+const check = document.querySelector('.modal--check')
 
 const steps = document.querySelector('.steps')
 const plantilla = document.querySelector('.plantilla')
@@ -95,4 +96,9 @@ download.addEventListener('click', () => {
     link.download = `./pdfs/${localStorage.getItem('namePdf')}.pdf`;
     link.dispatchEvent(new MouseEvent('click'));
 })
+addRoute.addEventListener('click',()=>{
 
+    check.classList.remove('hidden')
+    setTimeout(()=>check.classList.add('hidden'), 4000);
+
+})
