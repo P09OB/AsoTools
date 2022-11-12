@@ -125,6 +125,8 @@ onGetSesion((querySnapshot) => {
     if (sesion.idMethodology === 'Árbol de sueños, preocupaciones y compromisos') {
         question.innerHTML = obtener
         templateArbolSuenos.classList.remove('hidden')
+        showProblem.classList.add('hidden')
+
     } else if (sesion.idMethodology === 'Análisis diferenciado del bienestar') {
         emojis.classList.remove('hidden')
         showProblem.classList.remove('hidden')
