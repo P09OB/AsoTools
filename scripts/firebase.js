@@ -209,7 +209,7 @@ export const modifyProyect = (stages,progress)=>{
     })
 }
 
-export const modifyCanvaProject = (canva)=>{
+export const modifyCanvaProject = (canva,progress)=>{
   const ref = doc(db, 'users', localStorage.getItem('idUser'), "proyects", localStorage.getItem('idProyect'));
   updateDoc(ref,
     {canva,progress}).then(()=> alert('hecho'))

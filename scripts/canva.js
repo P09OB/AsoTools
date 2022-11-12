@@ -33,10 +33,19 @@ const community = document.querySelector('.community')
 const date = document.querySelector('.date')
 
 const textProblem = document.querySelector('.textProblem')
+const textcauses = document.querySelector('.textcauses')
 
 const quadrantCause = document.querySelector('.causes')
 const causesSpan = document.querySelector('.causesSpan')
 const causesNum = document.querySelector('.causesNum')
+
+const quadrantstrengths = document.querySelector('.strengths')
+const strengthsSpan = document.querySelector('.strengthsSpan')
+const strengthsNum = document.querySelector('.strengthsNum')
+
+const quadrantOG = document.querySelector('.objGeneral')
+const OGSpan = document.querySelector('.objGeneralSpan')
+const OGNum = document.querySelector('.objGeneralNum')
 
 var project = ''
 var viewDiagnostico = false
@@ -59,10 +68,24 @@ window.addEventListener('DOMContentLoaded', async () => {
         date.innerHTML = project.creationDate
         textProblem.innerHTML = project.canva[0].answers
 
+        if(project.canva[2].state){
+            textcauses.innerHTML = `${project.canva[2].answers}<br><br>`
+            quadrantOG.classList.remove('quadrant--disabled')
+            OGSpan.classList.remove('textStyles--disabled')
+            OGNum.classList.remove('textStyles__number--disabled')
+        }
+
         if(project.canva[0].state){
+    
             quadrantCause.classList.remove('quadrant--disabled')
             causesSpan.classList.remove('textStyles--disabled')
             causesNum.classList.remove('textStyles__number--disabled')
+
+            quadrantstrengths.classList.remove('quadrant--disabled')
+            strengthsSpan.classList.remove('textStyles--disabled')
+            strengthsNum.classList.remove('textStyles__number--disabled')
+
+
         }
 
     })
@@ -496,6 +519,21 @@ librayBtt.addEventListener('click', (e) => {
 const problemDiv = document.querySelector('.problem')
 problemDiv.addEventListener('click', (e) => {
     opcionProblem.classList.remove('hidden')
+
+})
+
+quadrantstrengths.addEventListener('click',()=>{
+    opcionStrengths.classList.remove('hidden')
+
+})
+
+quadrantCause.addEventListener('click',()=>{
+    opcionCauses.classList.remove('hidden')
+
+})
+
+quadrantOG.addEventListener('click',()=>{
+    objectiveG.classList.remove('hidden')
 
 })
 

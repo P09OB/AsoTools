@@ -418,6 +418,9 @@ a:hover {
 .textStyles__title--level {
   font-size: 80px;
 }
+.textStyles__transform {
+  transform: rotate(-90deg);
+}
 .textStyles__space {
   padding-bottom: 10px;
   padding-right: 10px;
@@ -475,6 +478,9 @@ a:hover {
 .textStyles__number--disabled {
   background-color: #C4C4C4;
 }
+.textStyles__number--white {
+  background-color: white;
+}
 .textStyles__special {
   padding-top: 32px;
   padding-bottom: 0;
@@ -486,6 +492,9 @@ a:hover {
 }
 .textStyles__padding {
   padding-left: 40px;
+}
+.textStyles__padding--lf {
+  padding-left: 10px;
 }
 .textStyles--clearGreen2 {
   color: #5C9247;
@@ -708,9 +717,10 @@ a:hover {
 }
 .card--resume {
   display: flex;
-  margin-left: 331px;
-  padding-top: 95px;
+  margin-top: 36px;
   box-sizing: border-box;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .card--post {
   background-color: green;
@@ -720,7 +730,7 @@ a:hover {
   width: 157px;
   text-align: center;
   border-radius: 10px;
-  margin-right: 10px;
+  margin: 10px;
 }
 .card--participants {
   padding: 32px;
@@ -748,7 +758,8 @@ a:hover {
   box-sizing: border-box;
   border-radius: 20px 20px 20px 20px;
   margin: 6%;
-  height: 590px;
+  min-height: 586px;
+  height: auto;
   margin-top: 44px;
 }
 .card--info {
@@ -1482,4 +1493,77 @@ a:hover {
 }
 .icono--space {
   padding-right: 10px;
+}
+
+.template--flex {
+  display: flex;
+  align-items: baseline;
+  background-color: rgba(126, 38, 182, 0.9);
+  justify-content: space-evenly;
+  padding: 10px;
+}
+.template--margin {
+  margin-top: 40px;
+}
+.template--tam {
+  width: 100%;
+}
+.template--tam--medium {
+  width: 50%;
+}
+.template__large {
+  min-height: 394px;
+  height: auto;
+  align-items: flex-end;
+}
+.template__space {
+  padding: 20px;
+}
+.template__tamLarge {
+  min-height: 294px;
+  height: auto;
+}
+.template--result {
+  display: flex;
+  padding: 30px;
+}
+.template--inline {
+  display: flex;
+}
+.template--flexCenter {
+  display: flex;
+  align-items: center;
+}
+.template--answer {
+  padding: 20px;
+  margin: 20px;
+  background-color: white;
+  border: 4px solid #6700A9;
+  height: auto;
+}
+.template--answer--problem {
+  width: 50%;
+  text-align: center;
+  margin: auto;
+  box-sizing: content-box;
+}
+.template--answer--group {
+  background-color: rgba(255, 255, 255, 0.454);
+  border: 4px solid rgba(104, 0, 169, 0.3725490196);
+  color: #6700A9;
+}
+.template--group {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100%;
+  text-align: center;
+}
+.template--group--concent {
+  border-radius: 20px;
+}
+.template--color {
+  background-color: rgba(103, 0, 169, 0.3);
+}
+.template--color2 {
+  background-color: rgba(103, 0, 169, 0.6);
 }/*# sourceMappingURL=main.css.map */

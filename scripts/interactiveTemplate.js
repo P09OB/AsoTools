@@ -20,6 +20,14 @@ const finishBtt = document.querySelector('.finishBtt')
 const problemBienestar = document.querySelector('.problemBienestar')
 const problem = document.querySelector('.problem')
 const cards = document.querySelector('.resume')
+const addEvaluated = document.querySelector('.addEvaluated')
+const usersActives = document.querySelector('.usersActives')
+const problemTree = document.querySelector('.problemTree')
+const template = document.querySelector('.template')
+const templateArbolSuenos = document.querySelector('.arbolSuenos')
+const showProblem = document.querySelector('.problemBienestar')
+const templateBienestar = document.querySelector('.resumenBienestar')
+
 
 
 const counterText = document.querySelector('.counter')
@@ -30,6 +38,16 @@ const badTx = document.querySelector('.bad--text')
 const regTx = document.querySelector('.regular--text')
 const niceTx = document.querySelector('.nice--text')
 const emojis = document.querySelector('.dashboard__emojis')
+const imgTemplate = document.querySelector('.imgTemplate')
+const group1 = document.querySelector('.group1')
+const group2 = document.querySelector('.group2')
+const group3 = document.querySelector('.group3')
+const group4 = document.querySelector('.group4')
+const group1C = document.querySelector('.group1C')
+const group2C = document.querySelector('.group2C')
+const group3C = document.querySelector('.group3C')
+const group4C = document.querySelector('.group4C')
+
 
 let tag = document.querySelector('.resumeAnswers')
 let tag1 = document.querySelector('.resumeAnswers1')
@@ -42,6 +60,7 @@ let regular = ''
 let nice = ''
 let counter = 0
 let numberOfQuestions = 0
+let progress = 0
 let codeObtener = ''
 let obtener = ''
 var sesion = ''
@@ -78,7 +97,6 @@ onGetSesion((querySnapshot) => {
     arrayEvaluate = sesion.objEvaluate
 
     if (!evaluate) {
-
         numberOfQuestions = sesion.objQuestions.length - 2
         date = sesion.objQuestions[counter]
         obtener = date.question
@@ -106,23 +124,35 @@ onGetSesion((querySnapshot) => {
     }
     if (sesion.idMethodology === 'Árbol de sueños, preocupaciones y compromisos') {
         question.innerHTML = obtener
+        templateArbolSuenos.classList.remove('hidden')
     } else if (sesion.idMethodology === 'Análisis diferenciado del bienestar') {
         emojis.classList.remove('hidden')
+        showProblem.classList.remove('hidden')
+        templateBienestar.classList.remove('hidden')
         question.innerHTML = obtEvaluate
+    } else if (sesion.idMethodology === 'Árbol del problema') {
+        template.classList.remove('hidden')
+        question.innerHTML = `${obtener}`
+        usersActives.classList.add('hidden')
+        imgTemplate.classList.remove('hidden')
+        wrapper.classList.remove('hidden')
+        problemTree.innerHTML = canva[0].answers
     }
 
 
     if (view) {
         let liTag = ''
         let name = ''
+        let post = ''
         let arrayName = []
 
         document.querySelectorAll(".note").forEach(li => li.remove());
         arrayAnswer = sesion[localStorage.getItem("code")]
-        
-        arrayAnswer.forEach(e => {
+    
+        if (!evaluate & sesion.idMethodology === 'Árbol de sueños, preocupaciones y compromisos') {
 
-            if (!evaluate) {
+            arrayAnswer.forEach(e => {
+
                 liTag = `
             <li class="note">
                         <div class="details">
@@ -132,36 +162,131 @@ onGetSesion((querySnapshot) => {
             `;
                 addBox.insertAdjacentHTML("afterend", liTag);
 
-            }
 
-            if (!arrayName.includes(e.name)) {
-                arrayName.push(e.name);
-            }
-        })
+
+                if (!arrayName.includes(e.name)) {
+                    arrayName.push(e.name);
+                }
+            })
+        }
+        if (sesion.idMethodology === 'Árbol del problema') {
+
+            if(counter <= 2){
+
+            group1.innerHTML = ''
+            group2.innerHTML = ''
+            group3.innerHTML = ''
+            group4.innerHTML = ''
+
+
+            sesion.group0.forEach((elem)=>{
+
+                post = `
+                <di class="template--answer">${elem.answer}</div>
+                `;
+                group1.innerHTML +=post
+            })
+
+            sesion.group1.forEach((elem)=>{
+
+                post = `
+                <di class="template--answer">${elem.answer}</div>
+                `;
+                group2.innerHTML +=post
+            })
+
+            sesion.group2.forEach((elem)=>{
+
+                post = `
+                <di class="template--answer">${elem.answer}</div>
+                `;
+                group3.innerHTML +=post
+            })
+
+            sesion.group3.forEach((elem)=>{
+
+                post = `
+                <di class="template--answer">${elem.answer}</div>
+                `;
+                group4.innerHTML +=post
+            })
+        }
+
+        if(counter >= 3){
+
+            group1C.innerHTML = ''
+            group2C.innerHTML = ''
+            group3C.innerHTML = ''
+            group4C.innerHTML = ''
+
+
+            sesion.group0Con.forEach((elem)=>{
+
+                post = `
+                <di class="template--answer">${elem.answer}</div>
+                `;
+                group1C.innerHTML +=post
+            })
+
+            sesion.group1Con.forEach((elem)=>{
+
+                post = `
+                <di class="template--answer">${elem.answer}</div>
+                `;
+                group2C.innerHTML +=post
+            })
+
+            sesion.group2Con.forEach((elem)=>{
+
+                post = `
+                <di class="template--answer">${elem.answer}</div>
+                `;
+                group3C.innerHTML +=post
+            })
+
+            sesion.group3Con.forEach((elem)=>{
+
+                post = `
+                <di class="template--answer">${elem.answer}</div>
+                `;
+                group4C.innerHTML +=post
+            })
+
+        }
+        
+        
+        }
 
         if (evaluate) {
 
-        veryBad = arrayAnswer.filter((doc)=>{
-            return doc.answer == 'veryBad'
-        })
+            arrayAnswer.forEach(e => {
 
-        bad = arrayAnswer.filter((doc)=>{
-            return doc.answer == 'bad'
-        })
+                if (!arrayName.includes(e.name)) {
+                    arrayName.push(e.name);
+                }
+            })
 
-        regular = arrayAnswer.filter((doc)=>{
-            return doc.answer == 'regular'
-        })
+            veryBad = arrayAnswer.filter((doc) => {
+                return doc.answer == 'veryBad'
+            })
 
-        nice = arrayAnswer.filter((doc)=>{
-            return doc.answer == 'nice'
-        })
+            bad = arrayAnswer.filter((doc) => {
+                return doc.answer == 'bad'
+            })
+
+            regular = arrayAnswer.filter((doc) => {
+                return doc.answer == 'regular'
+            })
+
+            nice = arrayAnswer.filter((doc) => {
+                return doc.answer == 'nice'
+            })
 
 
-        veryBadTx.innerHTML = veryBad.length
-        badTx.innerHTML = bad.length
-        regTx.innerHTML = regular.length
-        niceTx.innerHTML = nice.length
+            veryBadTx.innerHTML = veryBad.length
+            badTx.innerHTML = bad.length
+            regTx.innerHTML = regular.length
+            niceTx.innerHTML = nice.length
 
         }
 
@@ -188,6 +313,8 @@ onGetSesion((querySnapshot) => {
         startSesionBtt.classList.add('button')
 
     }
+
+    if(evaluate || sesion.idMethodology === 'Árbol de sueños, preocupaciones y compromisos') {
     sesion.users.forEach(element => {
         const user = document.createElement('div');
         user.innerHTML = `
@@ -196,6 +323,24 @@ onGetSesion((querySnapshot) => {
         containedUsers.appendChild(user)
 
     });
+
+} else{
+    sesion.users.forEach(element => {
+        const user = document.createElement('div');
+        let grupo = ''
+        if(element.group == 'group0') grupo = 'Grupo 1'
+        if(element.group == 'group1') grupo = 'Grupo 2'
+        if(element.group == 'group2') grupo = 'Grupo 3'
+        if(element.group == 'group3') grupo = 'Grupo 4'
+        
+        user.innerHTML = `
+            <div class="card--containedUsers--user card--transparentWhite">${grupo}</div>
+       `;
+        containedUsers.appendChild(user)
+
+    });
+} 
+
 
 })
 
@@ -212,6 +357,92 @@ bttStart.forEach((e) => {
         interactive.classList.remove('hidden')
         sesionVirtual.classList.add('hidden')
 
+        if (sesion.idMethodology === 'Árbol del problema') {
+
+            if (counter > numberOfQuestions) {
+                const cardGroup = document.querySelector('.card--group')
+                cardGroup.classList.add('hidden')
+                nameMetho.classList.add('hidden')
+                finish.classList.remove('hidden')
+                cards.classList.add('hidden')
+                problemBienestar.classList.add('hidden')
+
+                completed = true
+
+                setTimeout(() => {
+                    setSesionCompleted(completed)
+                }, 2000);
+
+                const array = []
+
+                array.push(sesion.group0[0].answer)
+                array.push(sesion.group1[0].answer)
+                array.push(sesion.group2[0].answer)
+                array.push(sesion.group3[0].answer)
+
+                canva.map((doc) => {
+                    if (doc.phase == 'causas') {
+                        doc.answers = array
+                        doc.state = true
+                    }
+                    return doc;
+
+                })
+                 progress = Math.round(300 / 15)
+
+                modifyCanvaProject(canva, progress)
+
+
+            } else {
+                //set cambiar 
+                if (start) {
+                    view = false
+                    counter++
+
+                    setSesion(counter, start)
+
+
+                    setTimeout(() => { view = true }, 2000);
+
+                }
+
+                if (counter == 0) {
+
+                    cardCode.classList.add('hidden')
+                    containedUsers.classList.add('hidden')
+                    title.classList.add('hidden')
+                    cardQuestion.classList.remove('hidden')
+                    wrapper.classList.remove('hidden')
+                    bttStart.innerHTML = 'Siguiente'
+                    start = true
+
+                    const answer = {
+                        ...sesion,
+                        counter,
+                        start
+                    }
+                    for (let i = 0; i < 4; i++) {
+                        let name = 'group' + [i]
+                        answer[name] = []
+                        addAnswer(answer)
+
+                    }
+
+                    for (let i = 0; i < 4; i++) {
+                        let name = 'group' + [i] +'Con'
+                        answer[name] = []
+                        addAnswer(answer)
+
+                    }
+                    localStorage.setItem("code", codeObtener)
+
+                    setTimeout(() => { view = true }, 2000);
+
+                }
+
+            }
+        }
+
         if (evaluate) {
 
             if (counter > numberOfEvaluate) {
@@ -219,8 +450,8 @@ bttStart.forEach((e) => {
                 addCalculation(codeEvaluate, veryBad.length, bad.length, regular.length, nice.length)
 
                 interactive.classList.add('hidden')
-                finish.classList.remove('hidden')   
-                problemBienestar.classList.remove('hidden')             
+                finish.classList.remove('hidden')
+                problemBienestar.classList.remove('hidden')
 
                 setTimeout(() => {
                     completed = true
@@ -229,77 +460,72 @@ bttStart.forEach((e) => {
                     setSesionCompleted(completed)
                     sesion.calculateAnswers.forEach((doc) => {
                         answerEvaluate = ''
-                        let numerodeParticipantes = doc.veryBad +doc.bad+doc.regular+doc.nice
-                        let veryBad =doc.veryBad  * 0
+                        let numerodeParticipantes = doc.veryBad + doc.bad + doc.regular + doc.nice
+                        let veryBad = doc.veryBad * 0
                         let bad = doc.bad * 1
                         let regular = doc.regular * 2
                         let good = doc.nice * 3
                         let porcentajeCien = numerodeParticipantes * 3
-    
-                        let sum = veryBad+bad+regular+good
+
+                        let sum = veryBad + bad + regular + good
                         let multiplicacion = sum * 100
-                        let division = multiplicacion/porcentajeCien
-                        
-    
-                        console.log(doc.code+" "+division)
-    
-    
+                        let division = multiplicacion / porcentajeCien
+
+
+                        console.log(doc.code + " " + division)
+
+
                         if (division < 50) {
-                            console.log('Tenemos problemas con: '+doc.code)
-                            var problemShow = sesion.objEvaluate.filter(function(search) {
+                            console.log('Tenemos problemas con: ' + doc.code)
+                            var problemShow = sesion.objEvaluate.filter(function (search) {
                                 return search.code === doc.code;
                             });
 
-                            problemShow.forEach((doc)=>{
+                            problemShow.forEach((doc) => {
                                 problemCanva = doc.evaluate.answer
                                 problem.innerHTML = doc.evaluate.answer
                             })
-                        } 
+                        }
 
-                            var result = sesion.objEvaluate.filter(function(search) {
-                                return search.code === doc.code;
-                            });
+                        var result = sesion.objEvaluate.filter(function (search) {
+                            return search.code === doc.code;
+                        });
 
-                            result.forEach((doc)=>{
-                                answerEvaluate = doc.evaluate.answer
+                        result.forEach((doc) => {
+                            answerEvaluate = doc.evaluate.answer
 
-                            })
+                        })
 
-                        
 
-                        html += `<div>
-                        <div class="dashboard--flex--group">${answerEvaluate}</div>
-                        <div class="dashboard--flex--group">
-                            <h3>${doc.veryBad}</h3>
-                            <h3>${doc.bad}</h3>
-                            <h3>${doc.regular}</h3>
-                            <h3>${doc.nice}</h3>
+
+                        html += `<div class="template--result template--color2 textStyles--white">
+                        <div class="dashboard--flex--group template--tam--medium ">${answerEvaluate}</div>
+                        <div class="dashboard--flex--group textStyles__alignText">
+                            <div class="template__space">Muy mal <h3>${doc.veryBad}</h3></div>
+                            <div class="template__space">Malo <h3>${doc.bad}</h3></div>
+                            <div class="template__space">Regular<h3>${doc.regular}</h3></div>
+                            <div class="template__space">Bueno <h3>${doc.nice}</h3></div>
                         </div>
                         </div>`
-                        cards.innerHTML = html;
+                        addEvaluated.innerHTML = html;
 
-                                                
+
                     })
-                canva.map((doc)=>{
-                    if(doc.phase == 'problema'){
-                        doc.answers = problemCanva
-                        doc.state = true
-                    }
-                    return doc;
+                    canva.map((doc) => {
+                        if (doc.phase == 'problema') {
+                            doc.answers = problemCanva
+                            doc.state = true
+                        }
+                        return doc;
 
-                })
+                    })
 
-                var progress = 100/15
+                     progress = Math.round(200 / 15)
 
-                modifyCanvaProject(canva,progress)
+                    modifyCanvaProject(canva, progress)
 
-                console.log(canva)
+                    console.log(canva)
                 }, 2000);
-
-
-                
-
-
 
             } else {
                 //set cambiar 
@@ -358,7 +584,7 @@ bttStart.forEach((e) => {
             }
         }
 
-        if (!evaluate) {
+        if (!evaluate & sesion.idMethodology === 'Árbol de sueños, preocupaciones y compromisos') {
 
             if (counter > numberOfQuestions) {
 
@@ -375,7 +601,7 @@ bttStart.forEach((e) => {
                 const array = sesion.questions0
                 const array1 = sesion.questions1
                 const array2 = sesion.questions2
-    
+
 
                 tag.innerHTML = ''
                 array.forEach((info) => {
@@ -418,9 +644,9 @@ bttStart.forEach((e) => {
                     return dato
                 })
 
-                var progress = 100/15
+                 progress = Math.round(100 / 15)
 
-                modifyProyect(arrayEnd,progress)
+                modifyProyect(arrayEnd, progress)
 
 
             } else {
@@ -453,11 +679,13 @@ bttStart.forEach((e) => {
                     bttStart.innerHTML = 'Siguiente'
                     start = true
 
+
                     const answer = {
                         ...sesion,
                         counter,
                         start
                     }
+
                     answer[codeObtener] = []
                     addAnswer(answer)
                     localStorage.setItem("code", codeObtener)

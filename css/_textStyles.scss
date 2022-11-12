@@ -25,6 +25,11 @@
 
     }
 
+    &__transform{
+        
+        transform: rotate(-90deg);
+    }
+
     &__space{
         padding-bottom: 10px;
         padding-right: 10px;
@@ -35,7 +40,7 @@
         }
 
         &--big{
-        padding-bottom: 50px;
+        padding-bottom: 50px
 
         }
 
@@ -74,6 +79,8 @@
         text-align: center;
     }
 
+    
+
     &__number {
         border-radius: 0.8em;
         color: #ffffff;
@@ -97,6 +104,9 @@
         &--disabled{
             background-color: #C4C4C4;
         }
+        &--white{
+            background-color: white;
+        }
     }
 
     &__special{
@@ -112,6 +122,11 @@
 
     &__padding{
         padding-left: 40px;
+
+        &--lf{
+        padding-left: 10px;
+
+        }
     }
 
     &--clearGreen2{
