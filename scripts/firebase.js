@@ -63,6 +63,7 @@ export const checkUser = (email, password) => {
       console.log("Inicie Sesión")
       const user = userCredential.user;
       loggedUser = user.uid
+      localStorage.setItem('nameUser', email)
       localStorage.setItem('idUser', user.uid)
       location.href = "home.html";
     })

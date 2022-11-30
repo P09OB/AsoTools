@@ -68,7 +68,9 @@ signUpButton.addEventListener('click',()=> isLogin = false)
 userForm.addEventListener('submit',(e)=>{
     e.preventDefault()
     if(isLogin){
-        checkUser(userForm.email.value,userForm.password.value)      
+        checkUser(userForm.email.value,userForm.password.value)    
+        
+        
     } else{
         createUser(userForm.name.value,userForm.email.value,userForm.password.value)
     }
