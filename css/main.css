@@ -418,6 +418,9 @@ a:hover {
 .textStyles__title--level {
   font-size: 80px;
 }
+.textStyles__bold {
+  font-weight: 500;
+}
 .textStyles__transform {
   transform: rotate(-90deg);
 }
@@ -723,10 +726,12 @@ a:hover {
   justify-content: center;
 }
 .card--post {
-  background-color: green;
-  color: white;
+  background-color: #FAFE4C;
+  color: black;
   padding: 14px;
-  height: 109px;
+  min-height: 109px;
+  height: auto;
+  min-width: 157px;
   width: 157px;
   text-align: center;
   border-radius: 10px;
@@ -1562,8 +1567,11 @@ a:hover {
   border-radius: 20px;
 }
 .template--color {
-  background-color: rgba(103, 0, 169, 0.3);
+  background-color: rgba(103, 0, 169, 0.4);
 }
 .template--color2 {
-  background-color: rgba(103, 0, 169, 0.6);
+  background-color: rgba(103, 0, 169, 0.3);
+}
+.template--background {
+  background: #E5E5E5;
 }/*# sourceMappingURL=main.css.map */

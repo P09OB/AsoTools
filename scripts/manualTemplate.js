@@ -54,8 +54,6 @@ onGetSesion((querySnapshot) => {
     date = sesion.objQuestions[counter]
     obtener = date.question
     codeObtener = date.code
-    resume.style.backgroundImage = `url(${sesion.template})`
-    resume.src = sesion.template
     template = sesion.template
     if (sesion.start) {
         question.innerHTML = obtener
@@ -113,6 +111,7 @@ bttStart.forEach((elem)=>{
             const array = sesion.questions0
             const array1 = sesion.questions1
             const array2 = sesion.questions2
+            tag.classList.remove('hidden')
 
             tag.innerHTML = ''
             array.forEach((info) => {

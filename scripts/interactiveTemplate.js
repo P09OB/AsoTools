@@ -600,11 +600,12 @@ bttStart.forEach((e) => {
                 }, 2000);
 
                 //MOSTRAR RESPUESTAS AL FINAL 
+                console.log(sesion.questions0)
                 const array = sesion.questions0
                 const array1 = sesion.questions1
                 const array2 = sesion.questions2
 
-
+                tag.classList.remove('hidden')
                 tag.innerHTML = ''
                 array.forEach((info) => {
                     const resumeAnswers = document.createElement('div');

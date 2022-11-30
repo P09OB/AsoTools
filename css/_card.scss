@@ -227,10 +227,12 @@
     }
 
     &--post {
-        background-color: green;
-    color: white;
+        background-color: #FAFE4C;
+    color: black;
     padding: 14px;
-    height: 109px;
+    min-height:109px ;
+    height: auto;
+    min-width:157px ;
     width: 157px;
     text-align: center;
     border-radius: 10px;
