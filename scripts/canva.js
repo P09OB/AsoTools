@@ -27,6 +27,8 @@ const addMeth = document.querySelectorAll('.addMethodology')
 
 const librayBtt = document.querySelector('.libray')
 
+const methodologyProblem = document.querySelector('.methodologyProblem')
+
 const methodologyOne = document.querySelectorAll('.methodologyOne')
 const nameProject = document.querySelector('.nameProject')
 const community = document.querySelector('.community')
@@ -80,6 +82,7 @@ window.addEventListener('DOMContentLoaded', async () => {
             quadrantCause.classList.remove('quadrant--disabled')
             causesSpan.classList.remove('textStyles--disabled')
             causesNum.classList.remove('textStyles__number--disabled')
+            methodologyProblem.classList.add('textStyles--line')
 
             quadrantstrengths.classList.remove('quadrant--disabled')
             strengthsSpan.classList.remove('textStyles--disabled')

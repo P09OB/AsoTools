@@ -418,6 +418,9 @@ a:hover {
 .textStyles__title--level {
   font-size: 80px;
 }
+.textStyles--line {
+  text-decoration: line-through;
+}
 .textStyles__bold {
   font-weight: 500;
 }
